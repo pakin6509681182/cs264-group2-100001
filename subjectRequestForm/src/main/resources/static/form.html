@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="formstyle.css" rel="stylesheet">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="ie=edge" http-equiv="X-UA-Compatible">
+    <meta charset="UTF-8">
+    <title>ฟอร์มยื่นคำร้องเพิ่ม-ถอนรายวิชา</title>
+</head>
+<body>
+<h1 class="header">คำร้องขอเพิ่มถอนรายวิชา</h1>
+<div id="form-group">
+    <form method="post">
+        <div class="personal-information">
+            <label for="date">วันเดือนปีที่กรอก </label>
+            <input id="date" lang="en" name="date" required type="date">
+            <br>
+            <label for="studentPrefix">คำนำหน้าชื่อ </label>
+            <select id="studentPrefix" name="studentPrefix" required>
+                <option value="Mr">นาย</option>
+                <option value="Mrs">นาง</option>
+                <option value="Ms">นางสาว</option>
+            </select>
+            <br>
+
+            <label for="studentFirstName">ชื่อ </label>
+            <input id="studentFirstName" name="studentFirstName" required type="text">
+            <br>
+
+            <label for="studentLastName">สกุล </label>
+            <input id="studentLastName" name="studentLastName" required type="text">
+            <br>
+
+            <label for="studentId">เลขทะเบียน </label>
+            <input id="studentId" name="studentId" required type="text">
+            <br>
+
+            <label for="studentYear">ชั้นปีที่ </label>
+            <input id="studentYear" max="7" min="1" name="studentYear" required type="number">
+            <br>
+
+            <label for="studyField">สาขาวิชา </label>
+            <input id="studyField" name="studyField" required type="text">
+            <br>
+
+            <label for="addressNumber">ที่อยู่บ้านเลขที่ </label>
+            <input id="addressNumber" name="addressNumber" required type="text">
+            <br>
+
+            <label for="moo">หมู่ </label>
+            <input id="moo" name="moo" required type="text">
+            <br>
+
+            <label for="tumbol">ตำบล </label>
+            <input id="tumbol" name="tumbol" required type="text">
+            <br>
+
+            <label for="amphur">อำเภอ </label>
+            <input id="amphur" name="amphur" required type="text">
+            <br>
+
+            <label for="province">จังหวัด </label>
+            <input id="province" name="province" required type="text">
+            <br>
+
+            <label for="postalCode">รหัสไปรษณีย์ </label>
+            <input id="postalCode" name="postalCode" required type="text">
+            <br>
+
+            <label for="mobilePhone">เบอร์โทรศัพท์มือถือ </label>
+            <input id="mobilePhone" name="mobilePhone" required type="text">
+            <br>
+
+            <label for="phone">เบอร์โทรศัพท์บ้าน </label>
+            <input id="phone" name="phone" type="text">
+            <br>
+
+            <label for="advisor">ชื่อ-นามสกุลอาจารย์ที่ปรึกษา </label>
+            <input id="advisor" name="advisor" required type="text">
+        </div>
+        <br>
+        <h1>รายวิชาที่ต้องการเพิ่ม</h1>
+        <table id="addSubjectTable">
+            <thead>
+            <tr>
+                <th>รหัสวิชา</th>
+                <th>ชื่อวิชา</th>
+                <th>Section</th>
+                <th>เวลา</th>
+                <th>หน่วยกิต</th>
+                <th>ชื่อผู้สอน</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr id="addSubjectTable1">
+            </tr>
+            <button id="addRowButton-add">เพิ่มรายการวิชา</button>
+            </tbody>
+        </table>
+        <script>
+            let addButton = document.getElementById("addRowButton-add");
+            let clickCount = 1;
+            addButton.addEventListener("click", function() {
+              if (clickCount <= 10) {
+                const tableBody = document.querySelector("#addSubjectTable tbody");
+                const newRow = document.createElement("tr");
+
+                newRow.id = `addSubjectTable${clickCount + 1}`;
+
+                for (let i = 0; i < 6; i++) {
+                  const cell = document.createElement("td");
+                  const input = document.createElement("input");
+                    input.type = i === 4 ? "number" : "text";
+                  switch(i) {
+                      case 0:
+                        input.name = "subjectCode";
+                        break;
+                      case 1:
+                        input.name = "subjectName";
+                        break;
+                      case 2:
+                        input.name = "subjectSection";
+                        break;
+                      case 3:
+                        input.name = "subjectDate";
+                        break;
+                      case 4:
+                        input.name = "subjectCredit";
+                        break;
+                      case 5:
+                        input.name = "subjectTeacher";
+                        break;
+                  }
+                  input.required = true;
+                  cell.appendChild(input);
+                  newRow.appendChild(cell);
+                }
+              const removeButton = document.createElement("button");
+              removeButton.textContent = "ลบ";
+              removeButton.addEventListener("click", function() {
+                tableBody.removeChild(newRow);
+                clickCount--;
+                if (clickCount <= 10) {
+                  addButton.disabled = false;
+                }
+              });
+
+              const removeCell = document.createElement("td");
+              removeCell.appendChild(removeButton);
+              newRow.appendChild(removeCell);
+                tableBody.appendChild(newRow);
+
+                clickCount++;
+
+                if (clickCount > 10) {
+                  addButton.disabled = true;
+                }
+              }
+            });
+
+        </script>
+        <h1>รายวิชาที่ต้องการถอน</h1>
+        <table id="removeSubjectTable">
+            <thead>
+            <tr>
+                <th>รหัสวิชา</th>
+                <th>ชื่อวิชา</th>
+                <th>Section</th>
+                <th>เวลา</th>
+                <th>หน่วยกิต</th>
+                <th>ชื่อผู้สอน</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr id="removeSubjectTable1">
+
+            </tr>
+            <button id="addRowButton-remove">เพิ่มรายการวิชา</button>
+
+            </tbody>
+        </table>
+        <script>
+        var removeButton = document.getElementById("addRowButton-remove");
+        let removeclickCount = 1;
+        removeButton.addEventListener("click", function() {
+        if (removeclickCount <= 10) {
+        tableBody = document.querySelector("#removeSubjectTable tbody");
+        newRow = document.createElement("tr");
+
+        newRow.id = `removeSubjectTable${removeclickCount + 1}`;
+
+        for (let i = 0; i < 6; i++) {
+                  const cell = document.createElement("td");
+                  const input = document.createElement("input");
+                    input.type = i === 4 ? "number" : "text";
+                  switch(i) {
+                      case 0:
+                        input.name = "subjectCode";
+                        break;
+                      case 1:
+                        input.name = "subjectName";
+                        break;
+                      case 2:
+                        input.name = "subjectSection";
+                        break;
+                      case 3:
+                        input.name = "subjectDate";
+                        break;
+                      case 4:
+                        input.name = "subjectCredit";
+                        break;
+                      case 5:
+                        input.name = "subjectTeacher";
+                        break;
+                  }
+                  input.required = true;
+                  cell.appendChild(input);
+                  newRow.appendChild(cell);
+                }
+      const removeButton = document.createElement("button");
+      removeButton.textContent = "ลบ";
+      removeButton.addEventListener("click", function() {
+        tableBody.removeChild(newRow);
+        removeclickCount--;
+        if (remvoeclickCount <= 10) {
+          removeButton.disabled = false;
+        }
+      });
+
+      const removeCell = document.createElement("td");
+      removeCell.appendChild(removeButton);
+      newRow.appendChild(removeCell);
+        tableBody.appendChild(newRow);
+
+        removeclickCount++;
+
+        if (removeclickCount > 10) {
+        removeButton.disabled = true;
+        }
+        }
+
+
+        });
+        </script>
+        <br>
+        <div class="reason">
+            <label for="reason">เหตุผล</label>
+            <input id="reason" name="reason" required type="text">
+            <br>
+            <input type="submit" value="ส่ง">
+
+            <p id="result"></p>
+        </div>
+    </form>
+</div>
+<script>
+    let dataFetchUrl = 'https://restapi.tu.ac.th/api/v2/profile/std/info/?id=';
+    dataFetchUrl += sessionStorage.getItem("username");
+    /*document.querySelector("#beep").addEventListener("click", function(event) {
+        event.preventDefault();
+        fetchData();
+    });*/
+    document.querySelector("#studentId").value = sessionStorage.getItem("username");
+    var displayName = sessionStorage.getItem("displayname_th").split(" ");
+    document.querySelector("#studentFirstName").value = displayName[0];
+    document.querySelector("#studentFirstName").value = displayName[0];
+    document.querySelector("#studentLastName").value = displayName[displayName.length-1];
+    document.querySelector("#studentId").value = sessionStorage.getItem("username");
+    document.querySelector('form').addEventListener('submit', function (event) {
+        event.preventDefault();
+        submitForm();
+    });
+    /*function fetchData() {
+      fetch(dataFetchUrl, {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Application-Key': 'TU7908dee6d8b885c29f0457b4b709233032e25f50e6554a70f84832c60159d12e3b0bd6aa3c4332012bcf227261a0b51c'
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                var userData = JSON.parse(JSON.stringify(data));
+                for (let key in userData) {
+                    sessionStorage.setItem(key, userData[key]);
+                }
+            })
+            .catch(error => {
+                // Display an error message on the web page
+                const resultElement = document.getElementById('result');
+                resultElement.textContent = 'การบันทึกฟอร์มไม่สำเร็จ';
+                resultElement.style.color = 'red'; // Optional: Change the text color to red
+                resultElement.style.fontWeight = 'bold'; // Optional: Make the text bold
+            });
+    }*/
+    function submitForm() {
+        const formData = {};
+        formData.date = document.getElementById("date").value;
+        var e = document.getElementById("studentPrefix");
+        formData.studentPrefix = e.options[e.selectedIndex].text;
+        formData.studentFirstName = document.getElementById("studentFirstName").value;
+        formData.studentLastName = document.getElementById("studentLastName").value;
+        formData.studentId = document.getElementById("studentId").value;
+        formData.studentYear = parseInt(document.getElementById("studentYear").value);
+        formData.studyField = document.getElementById("studyField").value;
+        formData.addressNumber = document.getElementById("addressNumber").value;
+        formData.moo = document.getElementById("moo").value;
+        formData.tumbol = document.getElementById("tumbol").value;
+        formData.amphur = document.getElementById("amphur").value;
+        formData.province = document.getElementById("province").value;
+        formData.postalCode = document.getElementById("postalCode").value;
+        formData.mobilePhone = document.getElementById("mobilePhone").value;
+        formData.phone = document.getElementById("phone").value;
+        formData.advisor = document.getElementById("advisor").value;
+
+        var addSubjectTableData = [];
+        var addSubjectTableRows = document.querySelectorAll('#addSubjectTable tbody tr');
+        addSubjectTableRows.forEach(function(row) {
+            var subject = {};
+            var inputs = row.querySelectorAll('input');
+            inputs.forEach(function(input) {
+                if (input.name == "subjectCredit") {
+                    subject[input.name] = parseInt(input.value);
+                }
+                else {
+                    subject[input.name] = (input.type == "checkbox") ? input.checked : input.value;
+                }
+            });
+            addSubjectTableData.push(subject);
+        });
+
+        formData.addSubjectList = addSubjectTableData;
+
+        var removeSubjectTableData = [];
+        var removeSubjectTableRows = document.querySelectorAll('#removeSubjectTable tbody tr');
+        removeSubjectTableRows.forEach(function(row) {
+            var subject = {};
+            var inputs = row.querySelectorAll('input');
+            inputs.forEach(function(input) {
+                if (input.name == "subjectCredit") {
+                    subject[input.name] = parseInt(input.value);
+                }
+                else {
+                    subject[input.name] = (input.type == "checkbox") ? input.checked : input.value;
+                }
+            });
+            removeSubjectTableData.push(subject);
+        });
+
+        formData.removeSubjectList = removeSubjectTableData;
+
+        formData.reason = document.getElementById("reason").value;
+
+        var jsonData = JSON.stringify(formData);
+        fetch('/api/request', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: jsonData
+        })
+        .then(response => response.json())
+        .then(data => {
+            // Display a success message on the web page
+            const resultElement = document.getElementById('result');
+            resultElement.textContent = 'ฟอร์มได้รับการบันทึกเรียบร้อยแล้ว';
+            resultElement.style.color = 'green'; // Optional: Change the text color to green
+            resultElement.style.fontWeight = 'bold'; // Optional: Make the text bold
+        })
+        .catch(error => {
+            // Display an error message on the web page
+            const resultElement = document.getElementById('result');
+            resultElement.textContent = 'การบันทึกฟอร์มไม่สำเร็จ';
+            resultElement.style.color = 'red'; // Optional: Change the text color to red
+            resultElement.style.fontWeight = 'bold'; // Optional: Make the text bold
+        });
+    }
+</script>
+</body>
+</html>
+
