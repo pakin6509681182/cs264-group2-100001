@@ -1,3 +1,7 @@
+window.onload = function() {
+    sessionStorage.clear();
+}
+
 document.querySelector('form').addEventListener('submit', function (event) {
     event.preventDefault();
     var formData = new FormData(document.querySelector("form"));
