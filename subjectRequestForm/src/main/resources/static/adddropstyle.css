@@ -1,0 +1,60 @@
+
+#topSidebar{
+    text-align: center;
+    background-color: #C3002F; /* สีพื้นหลัง สีแดงมธ*/
+    color: #ffffff; /* ตัวอักษรสีขาว */
+    text-shadow: 2px 1px 0px rgb(162, 162, 162); /* เงาตัวอักษร */
+    }
+    body {
+    font-family: 'Kanit', sans-serif;
+    background-color: #f4f4f4;
+    background-image: url('bg.jpeg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+    }
+    .container {
+        max-width: 1000px;
+        height: 0 auto;
+        padding: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        background-color: #fff;
+        margin :0 auto;
+    }
+    .container ul {
+        display: inline-block;
+        margin-bottom: 8px;
+        border-radius: 200px;
+    }
+    .head ul {
+        background-color: #a22929;
+        padding: 0;
+        line-height: 70px;
+    }
+    h1 {
+        text-align: center; 
+        margin-top: 30px;
+    }
+    
+    label {
+        display: inline-block;
+        margin-bottom: 8px;
+        border-radius: 20px;
+    }
+    .move-select {
+        position: relative;
+        left: 305px;
+        right: 200px;
+        top: 50px; 
+    }
+    select,
+    input {
+        display: inline-block;
+        width: calc(20% - 4px); /* คำนวณความกว้างให้แบ่งเท่าๆ กันและลดการชนกับ margin */
+        padding: 8px;
+        margin-bottom: 16px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box; /* คำนวณขนาดของ element รวมกับ padding และ border */
+    }
+          
