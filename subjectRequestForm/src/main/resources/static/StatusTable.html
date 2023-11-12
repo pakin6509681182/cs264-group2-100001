@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <link rel="stylesheet" href="style.css">
+      <title>Status</title>
+
+  </head>
+
+  <body>
+
+      <div class="topnav">
+          <a href="" class="">A</a>
+        <div id="myLinks">
+          <a href="#Home">Home</a>
+          <a href="#contact">Contact</a>
+          <a href="#about">About</a>
+      </div>
+          <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+          <i class="fa fa-bars"></i>
+          </a>
+      </div>
+
+      <div class="main">
+          <button>ทั้งหมด</button>
+          <button>รอดำเนินการ</button>
+          <button>กำลังดำเนินการ</button>
+          <button>เสร็จสิ้น</button>
+          <button>ล้มเหลว</button>
+      </div>
+<div class="mainbody">
+  <div class="tables">
+    <table>
+      <thead>
+        <tr>
+          <td>ประเภท</td>
+          <td>รหัสวิชา</td>
+          <td>ชื่อวิชา</td>
+          <td>section</td>
+          <td>อาจารย์</td>
+          <td>ที่ว่าง</td>
+          <td>สถานะ</td>
+          <td>ยกเลิก</td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+<script>
+function myFunction() {
+  var x = document.getElementById("myLinks");
+  if (x.style.display === "block") {
+    x.style.display = "none";
+  } else {
+    x.style.display = "block";
+  }
+}
+</script>
+
+</body>
+</html>

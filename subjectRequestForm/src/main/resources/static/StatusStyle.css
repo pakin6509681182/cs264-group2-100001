@@ -1,0 +1,107 @@
+body {
+
+ /*พื้นหลัง*/
+            background-image: url('https://tu.ac.th/uploads/news-tu/banner/banner64/vr012.jpeg'); 
+            background-size: cover;
+            background-repeat: no-repeat;
+            font-family: Arial, sans-serif; }
+
+  {
+	font-family: Arial, Helvetica, sans-serif;
+  }
+
+  .topnav {
+	overflow: hidden;
+	background-color: rgb(202, 42, 42);
+	position: relative;
+  }
+
+  .topnav #myLinks {
+	display: none;
+  }
+
+  .topnav a {
+	color: white;
+	padding: 14px 16px;
+	text-decoration: none;
+	font-size: 17px;
+	display: block;
+  }
+
+  .topnav a.icon {
+	background: rgb(202, 42, 42);
+	color: yellow;
+	display: block;
+	position: absolute;
+	left: 0;
+	top: 0;
+  }
+
+  .main{
+	background-color: #555;
+	color: white;
+	margin-top: 30px;
+	text-align: center;
+	margin-left: 10%;
+	margin-right: 10%;
+  }
+
+  .main button{
+	background-color: #555;
+	color: white;
+	padding: 16px;
+	margin: 0;
+	text-align: center;
+	border: 0px solid white;
+	font-size: 25pt;
+  }
+
+  .main button:hover{
+	background-color: #a8a8a8;
+	color: rgb(0, 0, 0);
+	padding: 16px;
+	margin: 0;
+	text-align: center;
+	border: 0px solid white;
+  }
+
+  .mainbody{
+	background-color: #D6EEF7;
+	color: black;
+	text-align: center;
+	margin-left: 10%;
+	margin-right: 10%;
+  }
+
+  .tables{
+	margin: auto;
+	padding-top: 50px;
+	padding-bottom: 50px;
+  }
+
+  .tables table{
+	width: 80%;
+	border-collapse: collapse;
+	margin: auto;
+  }
+
+  .tables table thead{
+	background-color: #2d99c4;
+	color: white;
+	font-size: 20pt;
+  }
+
+  .tables table thead td{
+	padding: 15px;
+  }
+
+  .tables table tbody td{
+	background-color: #acdff3;
+	padding: 15px;
+	font-size: 10pt;
+  }
+
+  table, th, td {
+	border: 1px solid rgb(3, 97, 155);
+	border-collapse: collapse;
+  }
