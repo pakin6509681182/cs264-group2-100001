@@ -1,9 +1,10 @@
-package com.work.hw1.repository;
-import com.work.hw1.model.User;
+package th.ac.tu.cs.subjectRequestForm.repository;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
+import th.ac.tu.cs.subjectRequestForm.model.User;
 
 import java.util.List;
 

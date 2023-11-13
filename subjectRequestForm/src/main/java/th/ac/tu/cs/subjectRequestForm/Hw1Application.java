@@ -1,4 +1,4 @@
-package com.work.hw1;
+package th.ac.tu.cs.subjectRequestForm;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

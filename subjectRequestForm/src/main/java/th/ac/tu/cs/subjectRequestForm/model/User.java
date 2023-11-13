@@ -1,4 +1,4 @@
-package com.work.hw1.model;
+package th.ac.tu.cs.subjectRequestForm.model;
 
 import org.springframework.cglib.core.Local;
 

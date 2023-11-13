@@ -1,8 +1,10 @@
-package com.work.hw1.controller;
-import com.work.hw1.model.User;
-import com.work.hw1.repository.JdbcUserRepository;
+package th.ac.tu.cs.subjectRequestForm.controller;
+
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import th.ac.tu.cs.subjectRequestForm.model.User;
+import th.ac.tu.cs.subjectRequestForm.repository.JdbcUserRepository;
 
 import java.util.List;
 
