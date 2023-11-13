@@ -4,9 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class SubjectRequestFormApplication {
+public class Hw1Application {
+
 	public static void main(String[] args) {
-		SpringApplication.run(SubjectRequestFormApplication.class, args);
+		SpringApplication.run(Hw1Application.class, args);
 	}
 
 }
