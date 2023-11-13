@@ -1,0 +1,76 @@
+@font-face {
+    font-family: Kanit-Bold;
+    src: url(font/Kanit/Kanit-Bold.ttf);
+}
+
+@font-face {
+    font-family: Kanit-Regular;
+    src: url(font//KanitKanit-Regular.ttf);
+}
+
+body {
+    font-family: Kanit-Regular, sans-serif;
+    overflow: hidden;
+}
+
+h1 {
+    margin-top: 60px;
+    margin-top: 70vh;
+    margin-bottom: 0px;
+    color: #fff !important;
+    margin-left: 50px;
+    font-family: Kanit-Bold, sans-serif;
+    font-size: 70px !important;
+}
+
+h6 {
+    margin-top: 0px;
+    margin-top: 0vh;
+    color: #fff !important;
+    margin-left: 50px;
+    font-family: Kanit-Bold, sans-serif;
+    font-size: 30px !important;
+}
+
+[class*="green"] {
+    background-color: rgba(103, 130, 58, 0.83);
+}
+
+[class*="purple"] {
+    background-color: rgba(110, 43, 98, 0.83);
+}
+
+[class*="blue"] {
+    background-color: rgba(66, 152, 181, 0.83);
+}
+
+[class*="orange"] {
+    background-color: rgba(190, 77, 0, 0.83);
+}
+
+h2 {
+    font-family: Kanit-Bold, sans-serif;
+    color: white !important;
+    text-align: left;
+    padding: 20px;
+}
+
+[class*="nav-item"] {
+    height: 50px !important;
+    display: flex !important;
+    align-items: center !important;
+    padding-left: 10px;
+}
+
+.navbar-toggler {
+    border: none !important;
+}
+
+button {
+    border: none;
+}
+
+[class*="offcanvas-backdrop"] {
+    background-color: black !important;
+}
+
