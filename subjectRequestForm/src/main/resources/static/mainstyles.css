@@ -1,14 +1,6 @@
 @import url(color.css);
 
-@font-face {
-    font-family: Kanit-Bold;
-    src: url(font/Kanit/Kanit-Bold.ttf);
-}
-
-@font-face {
-    font-family: Kanit-Regular;
-    src: url(font/Kanit/Kanit-Regular.ttf);
-}
+@import url(font.css);
 
 body {
     font-family: Kanit-Regular, sans-serif;
@@ -42,23 +34,3 @@ h2 {
     text-align: left;
     padding: 20px;
 }
-
-[class*="nav-item"] {
-    height: 50px !important;
-    display: flex !important;
-    align-items: center !important;
-    padding-left: 10px;
-}
-
-.navbar-toggler {
-    border: none !important;
-}
-
-button {
-    border: none;
-}
-
-.offcanvas-backdrop {
-    background-color: black !important;
-}
-

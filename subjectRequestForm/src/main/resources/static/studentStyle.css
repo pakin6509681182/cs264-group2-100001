@@ -1,0 +1,47 @@
+body {
+    background: linear-gradient(rgba(0, 70, 103, 0.8), rgba(0, 66, 103, 0.3)),
+        url('https://tu.ac.th/uploads/news-tu/banner/banner64/vr012.jpeg');
+    background-size: 200%;
+    background-position: bottom left;
+    overscroll-behavior-y: none;
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(214, 162, 0, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2.5' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+}
+
+[class*="nav-item"] {
+    height: 50px !important;
+    display: flex !important;
+    align-items: center !important;
+    padding-left: 10px;
+}
+
+.navbar-toggler {
+    border: none !important;
+}
+
+button {
+    border: none;
+}
+
+.offcanvas-backdrop {
+    background-color: black !important;
+}
+
+[class*="navbar"] {
+    background-color: #9A0025 !important;
+}
+
+.navbar-toggler:focus,
+.navbar-toggler:active,
+.navbar-toggler-icon:focus {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+.offcanvas-header,
+.offcanvas-body {
+    background-color: #9A0025 !important;
+    border: 0 !important;
+}
