@@ -1,0 +1,134 @@
+/* Apply some basic styling to the body and header */
+body {
+    font-family: 'Prompt', sans-serif;
+    background: #f2f2f2; /* Set your desired background color or image */
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    border-radius: 50px;
+}
+h3{
+text-align: center;
+}
+/* Style the form and form elements */
+form {
+    background: #fff; /* Add a white background color for the form */
+    padding: 20px;
+    margin: 20px;
+    border-radius: 5px; /* Add rounded corners to the form */
+}
+
+form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+form button {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 0 auto;
+}
+/* Style the button */
+button[type="submit"] {
+    display: block;
+    margin: 0 auto;
+    background-color: #4CAF50; /* Green color */
+    color: #fff; /* Text color */
+    padding: 15px 30px; /* Add your desired padding to control the button's size */
+    border: none;
+    border-radius: 5px; /* Add rounded corners */
+    cursor: pointer;
+    font-size: 18px;
+    font-family: 'Prompt', sans-serif;
+}
+
+
+/* Style the result div */
+#result {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #333;
+    color: #fff;
+    border-radius: 5px;
+}
+
+/* Style for the grid container */
+.subject-grid {
+    display: grid;
+    grid-template-columns: repeat(10, minmax(100px, 1fr)); /* Adjust the number of columns and the minimum size as needed */
+    gap: 10px;
+    grid-auto-rows: minmax(100px, auto); /* Adjust the minimum row size as needed */
+}
+
+/* Style for each subject group */
+.subject-group {
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.container {
+   max-width: 75%;
+       margin-top: 80px;
+       margin-bottom: 80px;
+       padding: 20px;
+       background-color: #fff;
+       border-radius: 10px;
+       box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+       height: auto; /* ปรับความสูงให้พอดีกับเนื้อหา */
+       display: flex;  /* ใช้ Flexbox */
+       flex-direction: column; /* ตั้งค่าให้เรียงเนื้อหาใน container เป็นแนวตั้ง */
+       justify-content: center; /* จัดเนื้อหาตรงกลางแนวตั้ง */
+       align-items: center; /* จัดเนื้อหาตรงกลางแนวนอน */
+       margin-left: auto;
+       margin-right: auto;
+       box-sizing: border-box; /* เพิ่มบรรทัดนี้ */
+}
+
+/* Style for courses */
+.course {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.course-input {
+    display: inline-block;
+    width: calc(20% - 10px); /* 20% of the total width minus 10px spacing */
+    margin-right: 10px;
+}
+
+#add_courses_table, #drop_courses_table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+#add_courses_table th, #add_courses_table td,
+#drop_courses_table th, #drop_courses_table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+#add_courses_table th, #drop_courses_table th {
+    background-color: #f2f2f2;
+}
