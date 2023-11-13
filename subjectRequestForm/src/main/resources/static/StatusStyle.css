@@ -4,11 +4,12 @@ body {
             background-image: url('https://tu.ac.th/uploads/news-tu/banner/banner64/vr012.jpeg'); 
             background-size: cover;
             background-repeat: no-repeat;
-            font-family: Arial, sans-serif; }
+            font-family: Arial, sans-serif;
+			margin: 0;
+      		padding: 0;
+	
+		}
 
-  {
-	font-family: Arial, Helvetica, sans-serif;
-  }
 
   .topnav {
 	overflow: hidden;
