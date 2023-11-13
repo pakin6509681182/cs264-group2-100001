@@ -1,3 +1,5 @@
+@import url(color.css);
+
 @font-face {
     font-family: Kanit-Bold;
     src: url(font/Kanit/Kanit-Bold.ttf);
@@ -32,30 +34,6 @@ h6 {
 
 .header {
     margin-left: 50px;
-}
-
-[class*="green"] {
-    background-color: rgba(103, 130, 58, 0.83);
-}
-
-[class*="purple"] {
-    background-color: rgba(110, 43, 98, 0.83);
-}
-
-[class*="blue"] {
-    background-color: rgba(66, 152, 181, 0.83);
-}
-
-[class*="orange"] {
-    background-color: rgba(190, 77, 0, 0.83);
-}
-
-[class*="grey"] {
-    background-color: rgba(99, 102, 106, 0.83);
-}
-
-[class*="red"] {
-    background-color: #9A0025;
 }
 
 h2 {
