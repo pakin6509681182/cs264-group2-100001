@@ -24,8 +24,18 @@
             background-color: #D6A200 !important;
         }
 
-        [class*="offcanvas"] {
+        .navbar-toggler:focus,
+        .navbar-toggler:active,
+        .navbar-toggler-icon:focus {
+            outline: none;
+            box-shadow: none;
+        }
+
+        .navbar, 
+        .offcanvas-header,
+        .offcanvas-body {
             background-color: #D6A200 !important;
+            border: 0 !important;
         }
     </style>
 </head>
@@ -37,7 +47,6 @@
                 <div class="d-flex flex-column h-100">
                     <div class="row justify-content-center">
                         <div class="text-white">
-                            
                             
                             <nav class="navbar bg-body-tertiary fixed-top">
                                 <div class="container-fluid">
@@ -80,13 +89,10 @@
                                 </div>
                               </nav>
 
-
                             <div style="height:56px"></div>
                         </div>
                     </div>
-                    <div class="row justify-content-center flex-grow-1">
-                        <div class="text-white"></div>
-                    </div>
+                    <div class="row justify-content-center flex-grow-1"></div>
                     <div class="row align-items-center flex-grow-1">
                         <div class="header">
                             <h1>ระบบส่งคำร้องออนไลน์</h1>
