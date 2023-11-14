@@ -1,0 +1,27 @@
+[class*="green"] {
+    background-color: rgba(103, 130, 58, 0.83);
+}
+
+[class*="purple"] {
+    background-color: rgba(110, 43, 98, 0.83);
+}
+
+[class*="blue"] {
+    background-color: rgba(66, 152, 181, 0.83);
+}
+
+[class*="orange"] {
+    background-color: rgba(190, 77, 0, 0.83);
+}
+
+[class*="grey"] {
+    background-color: rgba(99, 102, 106, 0.83);
+}
+
+[class*="red"] {
+    background-color: rgba(154, 0, 37, 0.83);;
+}
+
+[class*="yellow"] {
+    background-color: rgba(214, 162, 0, 0.83);;
+}

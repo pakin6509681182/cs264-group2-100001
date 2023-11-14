@@ -34,7 +34,7 @@ form label {
     display: inline-block;
     margin-bottom: 8px;
     border-radius: 20px;
-    color: #fff 
+    color:#fff;
 }
 
 form input {
@@ -46,7 +46,6 @@ form input {
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
-    color: #fff;
 }
         #date,#studentId,#tumbol,#amphur,#postalCode,#phone,#mobilePhone {
             width: calc(20% - 4px);
@@ -54,25 +53,20 @@ form input {
         #studentFirstName,#lastname,#studentField,#advisor {
             width: calc(34% - 4px);
         }
-        #studentYear {
+        #studentYear,#gpax {
             width: calc(10% - 4px);
         }
         #adressNumber,#moo {
             width: calc(15% - 4px);
         }
         #province {
-            width: calc(30% - 4px);
+    width: calc(30% - 4px);
         }
-
-        
-/* เพิ่ม ถอน */ 
-        #add_courses {
-            width: calc(15% - 4px);
-        }
+    /* ถอน W */ 
         #drop_courses {
             width: calc(15% - 4px);
         }
-
+        
 form select {
     display: inline-block;
     width: calc(10% - 4px);
@@ -155,8 +149,6 @@ form button[type="submit"] {
     box-sizing: border-box; 
     /* เพิ่มบรรทัดนี้ */
 }
-
-/* Style for courses */
 .course {
     display: inline-block;
     margin-right: 10px;
@@ -169,15 +161,12 @@ form button[type="submit"] {
     margin-right: 10px;
 }
 
-#add_courses_table,
 #drop_courses_table {
     width: 100%;
     border-collapse: collapse;
     margin-bottom: 20px;
 }
 
-#add_courses_table th,
-#add_courses_table td,
 #drop_courses_table th,
 #drop_courses_table td {
     border: 1px solid #ddd;
@@ -185,7 +174,6 @@ form button[type="submit"] {
     text-align: left;
 }
 
-#add_courses_table th,
 #drop_courses_table th {
     background: rgba(214, 162, 0, 1);
 }

@@ -16,7 +16,7 @@ public class JdbcUserRepository {
     public void save(User user){
         /*String sql = "INSERT INTO UserInformation (date ,studentFirstName, studentLastName, studentId,studentYear) VALUES (?,?,?, ?, ?)";
         jdbcTemplate.update(sql,user.getDate(), user.getStudentFirstName(), user.getLastname(), user.getStudentId(),user.getStudentYear());*/
-        String sql = "INSERT INTO request (Date, Prefix, FirstName, LastName, StudentID, StudentYear," +
+        String sql = "INSERT INTO addDropForms (Date, Prefix, FirstName, LastName, StudentID, StudentYear," +
                 "    StudentField, Advisor, AddressNumber, Moo, Tumbol, Amphur, Province, PostalCode," +
                 "    MobilePhone, Phone, Cause," +
                     "AddCourse1Code, AddCourse1Name, AddCourse1Section,AddCourse1DayAndTime, AddCourse1Credits, AddCourse1InstructorName,AddCourse1InstructorPermission"+
