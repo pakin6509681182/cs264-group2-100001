@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Information Form</title>
-    <link rel="stylesheet" href="addDropStyles.css">
+    <link rel="stylesheet" href="DropWstyles.css">
     <link rel="stylesheet" href="studentStyle.css">
     <link rel="stylesheet" href="color.css">
 </head>
@@ -114,8 +114,12 @@
             <input type="text" id="mobilePhone" name="mobilePhone" minlength="10" required>
 
             <label for="advisor">อาจารย์ที่ปรึกษา:</label>
-            <input type="text" id="advisor" name="advisor" required><br>
+            <input type="text" id="advisor" name="advisor" required>
 
+            <label for="gpax">เกรดเฉลี่ยสะสม(GPAX):</label>
+            <input type="text" id="gpax" name="gpax" required><br>
+
+        <!--ถอน W-->
             <div class="label-group">
                 <h1><span>รายวิชาที่ต้องการถอน</span></h1>
             </div>
@@ -124,7 +128,6 @@
             <!-- <input type="number" id="drop_courses" name="drop_courses" min="1" max="10" oninput="updateTable('drop_courses_table', this.value)">  -->
 
             <br><label>วิชาที่ต้องการถอน</label>
-
             <table id="drop_courses_table">
                 <tr>
                     <th>รหัสวิชา</th>
@@ -143,9 +146,7 @@
 
             <div id="courses-container"></div>
 
-
-
-            <label for="cause">เหตุผลการเพิ่มถอน:</label>
+            <label for="cause">เหตุผลการถอน W ล่าช้า:</label>
             <input type="text" id="cause" name="cause" required><br>
 
             <button type="submit">ส่งข้อมูล</button>
@@ -154,7 +155,7 @@
         </h3>
 
 
-        <script src=" "></script>
+        <script src="js/DropWScript.js"></script>
 </body>
 
 </html>

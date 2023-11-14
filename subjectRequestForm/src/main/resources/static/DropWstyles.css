@@ -34,6 +34,7 @@ form label {
     display: inline-block;
     margin-bottom: 8px;
     border-radius: 20px;
+    color:#fff;
 }
 
 form input {
@@ -46,55 +47,22 @@ form input {
     border-radius: 4px;
     box-sizing: border-box;
 }
-        #date {
+        #date,#studentId,#tumbol,#amphur,#postalCode,#phone,#mobilePhone {
             width: calc(20% - 4px);
         }
-        #studentFirstName {
+        #studentFirstName,#lastname,#studentField,#advisor {
             width: calc(34% - 4px);
         }
-        #lastname {
-            width: calc(34% - 4px);
-        }
-        #studentId {
-            width: calc(20% - 4px);
-        }
-        #studentYear {
+        #studentYear,#gpax {
             width: calc(10% - 4px);
         }
-        #studentField {
-            width: calc(34% - 4px);
-        }
-        #adressNumber{
+        #adressNumber,#moo {
             width: calc(15% - 4px);
-        }
-        #moo {
-            width: calc(15% - 4px);
-        }
-        #tumbol {
-            width: calc(20% - 4px);
-        }
-        #amphur {
-            width: calc(20% - 4px);
         }
         #province {
-            width: calc(30% - 4px);
+    width: calc(30% - 4px);
         }
-        #postalCode {
-            width: calc(20% - 4px);
-        }
-        #phone {
-            width: calc(20% - 4px);
-        }
-        #mobilePhone {
-            width: calc(20% - 4px);
-        }
-        #advisor {
-            width: calc(34% - 4px);
-        }
-/* เพิ่ม ถอน */ 
-        #add_courses {
-            width: calc(15% - 4px);
-        }
+    /* ถอน W */ 
         #drop_courses {
             width: calc(15% - 4px);
         }
@@ -180,4 +148,36 @@ form button[type="submit"] {
     margin-right: auto;
     box-sizing: border-box; 
     /* เพิ่มบรรทัดนี้ */
+}
+.course {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.course-input {
+    display: inline-block;
+    width: calc(20% - 10px);
+    /* 20% of the total width minus 10px spacing */
+    margin-right: 10px;
+}
+
+#drop_courses_table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+#drop_courses_table th,
+#drop_courses_table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+#drop_courses_table th {
+    background: rgba(214, 162, 0, 1);
+}
+
+.logo {
+    margin: 0px 20px 20px 20px;
 }

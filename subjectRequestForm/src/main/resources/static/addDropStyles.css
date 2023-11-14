@@ -47,51 +47,23 @@ form input {
     border-radius: 4px;
     box-sizing: border-box;
 }
-        #date {
+        #date,#studentId,#tumbol,#amphur,#postalCode,#phone,#mobilePhone {
             width: calc(20% - 4px);
         }
-        #studentFirstName {
+        #studentFirstName,#lastname,#studentField,#advisor {
             width: calc(34% - 4px);
-        }
-        #lastname {
-            width: calc(34% - 4px);
-        }
-        #studentId {
-            width: calc(20% - 4px);
         }
         #studentYear {
             width: calc(10% - 4px);
         }
-        #studentField {
-            width: calc(34% - 4px);
-        }
-        #adressNumber{
+        #adressNumber,#moo {
             width: calc(15% - 4px);
-        }
-        #moo {
-            width: calc(15% - 4px);
-        }
-        #tumbol {
-            width: calc(20% - 4px);
-        }
-        #amphur {
-            width: calc(20% - 4px);
         }
         #province {
             width: calc(30% - 4px);
         }
-        #postalCode {
-            width: calc(20% - 4px);
-        }
-        #phone {
-            width: calc(20% - 4px);
-        }
-        #mobilePhone {
-            width: calc(20% - 4px);
-        }
-        #advisor {
-            width: calc(34% - 4px);
-        }
+
+        
 /* เพิ่ม ถอน */ 
         #add_courses {
             width: calc(15% - 4px);
