@@ -63,57 +63,60 @@
         <h1>คำร้องขอเพิ่ม-ถอน รายวิชา </b></h1>
         <form id="userForm">
             <label for="date">วันที่กรอก :</label>
-            <input type="date" id="date" name="date" required><br>
+            <input type="date" id="date" name="date" required>
 
-            <label for="prefix">คำนำหน้าชื่อ:</label>
+            <!-- ข้อมูลส่วนตัว -->
+            <br><label for="prefix">คำนำหน้าชื่อ:</label>
             <select id="prefix" name="prefix">
                 <option value="นาย">นาย</option>
                 <option value="นาง">นาง</option>
                 <option value="นางสาว">นางสาว</option>
-            </select><br>
+            </select>
 
             <label for="studentFirstName">ชื่อจริง:</label>
-            <input type="text" id="studentFirstName" name="studentFirstName" required><br>
-
+            <input type="text" id="studentFirstName" name="studentFirstName" class="form input" required>
+            
             <label for="lastname">นามสกุล:</label>
-            <input type="text" id="lastname" name="lastname" required><br>
+            <input type="text" id="lastname" name="lastname" class="form input" required>
 
-            <label for="studentId">เลขทะเบียน:</label> <!-- Updated label -->
-            <input type="text" id="studentId" name="studentId" maxlength="10" required><br> <!-- Updated input name -->
+            <br><label for="studentId">เลขทะเบียน:</label> <!-- Updated label -->
+            <input type="text" id="studentId" name="studentId" maxlength="10" class="form input" required> <!-- Updated input name -->
 
             <label for="studentYear">ชั้นปีที่:</label>
-            <input type="number" id="studentYear" name="studentYear" min="1" max="7" required><br>
+            <input type="number" id="studentYear" name="studentYear" min="1" max="7" class="form input" required>
 
             <label for="studentField">สาขาวิชา:</label>
-            <input type="text" id="studentField" name="studentField" required><br>
+            <input type="text" id="studentField" name="studentField" class="form input" required><br>
+            
+            <!-- ข้อมูลติดต่อ -->
+            <label for="adressNumber">ที่อยู่ที่ติดต่อได้:</label>
+            <input type="text" id="adressNumber" name="adressNumber" required>
+
+            <label for="moo">หมู่ที่:</label>
+            <input type="text" id="moo" name="moo" required>
+
+            <label for="tumbol">ตำบล:</label>
+            <input type="text" id="tumbol" name="tumbol" required>
+
+            <label for="amphur">อำเภอ:</label>
+            <input type="text" id="amphur" name="amphur" required>
+
+            <br><label for="province">จังหวัด:</label>
+            <input type="text" id="province" name="province" required>
+
+            <label for="postalCode">รหัสไปรษณีย์:</label>
+            <input type="number" id="postalCode" name="postalCode" minlength="5" required>
+            
+            <label for="phone">โทรศัพท์บ้าน:</label>
+            <input type="text" id="phone" name="phone" minlength="9"><br>
+
+            <label for="mobilePhone">โทรศัพท์มือถือ:</label>
+            <input type="text" id="mobilePhone" name="mobilePhone" minlength="10" required>
 
             <label for="advisor">อาจารย์ที่ปรึกษา:</label>
             <input type="text" id="advisor" name="advisor" required><br>
 
-            <label for="adressNumber">ที่อยู่ที่ติดต่อได้:</label>
-            <input type="text" id="adressNumber" name="adressNumber" required><br>
-
-            <label for="moo">หมู่ที่:</label>
-            <input type="text" id="moo" name="moo" required><br>
-
-            <label for="tumbol">ตำบล:</label>
-            <input type="text" id="tumbol" name="tumbol" required><br>
-
-            <label for="amphur">อำเภอ:</label>
-            <input type="text" id="amphur" name="amphur" required><br>
-
-            <label for="province">จังหวัด:</label>
-            <input type="text" id="province" name="province" required><br>
-
-            <label for="postalCode">รหัสไปรษณีย์:</label>
-            <input type="number" id="postalCode" name="postalCode" minlength="5" required><br>
-
-            <label for="mobilePhone">โทรศัพท์มือถือ:</label>
-            <input type="text" id="mobilePhone" name="mobilePhone" minlength="10" required><br>
-
-            <label for="phone">โทรศัพท์บ้าน:</label>
-            <input type="text" id="phone" name="phone" minlength="9"><br>
-
+            <!-- เพิ่มวิชา -->
             <div class="label-group">
                 <h1><span>รายวิชาที่ต้องการเพิ่ม</span></h1>
             </div>
@@ -122,7 +125,7 @@
             <!-- <input type="number" id="add_courses" name="add_courses" min="1" max="10" oninput="updateTable('add_courses_table', this.value)"> -->
 
 
-            <label> วิชาที่ต้องการเพิ่ม </label>
+            <br><label> วิชาที่ต้องการเพิ่ม </label>
 
 
             <table id="add_courses_table">
@@ -149,7 +152,7 @@
             <input type="number" id="drop_courses" name="drop_courses" min="1" max="10" x>
             <!-- <input type="number" id="drop_courses" name="drop_courses" min="1" max="10" oninput="updateTable('drop_courses_table', this.value)">  -->
 
-            <label>วิชาที่ต้องการถอน</label>
+            <br><label>วิชาที่ต้องการถอน</label>
 
             <table id="drop_courses_table">
                 <tr>
