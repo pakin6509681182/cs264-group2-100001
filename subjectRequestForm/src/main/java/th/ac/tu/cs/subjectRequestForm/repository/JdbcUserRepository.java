@@ -252,4 +252,10 @@ public class JdbcUserRepository {
         // Repeat the above code for AddCourse2, AddCourse3, and so on
         // You may need a loop to do this dynamically
     }
+
+    public List<User> getDataById(Long userId) {
+        String sql = "SELECT date, firstName FROM addDropForms WHERE id = ?";
+        return jdbcTemplate.query(sql, new Object[]{userId}, new BeanPropertyRowMapper<>(User.class));
+    }
+
 }

@@ -26,6 +26,10 @@ public class UserController {
         return userDao.getAllUsers();
     }
 
+    @GetMapping("/{id}")
+    public List<User> getDataById(@PathVariable Long id) {
+        return userDao.getDataById(id);
+    }
 
 
 }
