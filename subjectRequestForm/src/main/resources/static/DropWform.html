@@ -115,3 +115,46 @@
 
             <label for="advisor">อาจารย์ที่ปรึกษา:</label>
             <input type="text" id="advisor" name="advisor" required><br>
+
+            <div class="label-group">
+                <h1><span>รายวิชาที่ต้องการถอน</span></h1>
+            </div>
+            <label for="drop_courses">จำนวนวิชาขอถอน:</label>
+            <input type="number" id="drop_courses" name="drop_courses" min="1" max="10" x>
+            <!-- <input type="number" id="drop_courses" name="drop_courses" min="1" max="10" oninput="updateTable('drop_courses_table', this.value)">  -->
+
+            <br><label>วิชาที่ต้องการถอน</label>
+
+            <table id="drop_courses_table">
+                <tr>
+                    <th>รหัสวิชา</th>
+                    <th>ชื่อวิชา</th>
+                    <th>Section</th>
+                    <th>วันเวลาที่สอน</th>
+                    <th>หน่วยกิต</th>
+                    <th>ชื่อผู้สอน</th>
+                    <th>ผู้สอนอนุญาต</th>
+                </tr>
+            </table>
+            <!-- <button type="button" onclick="addCourse('drop_courses_table')">เพิ่มวิชา</button>
+        <button type="button" onclick="removeCourse('drop_courses_table')">ยกเลิกวิชา</button> -->
+            <div id="drop_courses_container"></div>
+
+
+            <div id="courses-container"></div>
+
+
+
+            <label for="cause">เหตุผลการเพิ่มถอน:</label>
+            <input type="text" id="cause" name="cause" required><br>
+
+            <button type="submit">ส่งข้อมูล</button>
+        </form>
+        <h3>ผลการส่งข้อมูล <div id="result"></div>
+        </h3>
+
+
+        <script src=" "></script>
+</body>
+
+</html>
