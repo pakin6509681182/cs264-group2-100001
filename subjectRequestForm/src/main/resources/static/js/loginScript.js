@@ -46,7 +46,18 @@ function login(user, pass) {
             }
             resultElement.style.color = 'green'; // Optional: Change the text color to green
             resultElement.style.fontWeight = 'bold'; // Optional: Make the text bold
-            window.location = "main student.html";
+            if (userData["type"] == "student") {
+                resultElement.textContent = 'กำลังเข้าสู่ระบบ';
+                window.location = "main student.html";
+            }
+            else if (userData["type"] == "teacher") {
+                resultElement.textContent = 'กำลังเข้าสู่ระบบ';
+                window.location = "main teacher.html";
+            }
+            else {
+                resultElement.textContent = 'กำลังเข้าสู่ระบบ';
+                window.location = "main staff.html";
+            }
         })
         .catch(error => {
             // Display an error message on the web page
