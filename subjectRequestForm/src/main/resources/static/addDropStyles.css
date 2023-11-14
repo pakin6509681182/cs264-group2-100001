@@ -46,6 +46,7 @@ form input {
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
+    color: #fff;
 }
         #date,#studentId,#tumbol,#amphur,#postalCode,#phone,#mobilePhone {
             width: calc(20% - 4px);
