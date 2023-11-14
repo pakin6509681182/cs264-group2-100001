@@ -60,7 +60,7 @@
     </nav>
     <div class="container red">
         <img class="logo" src="image/logo.png" alt="Description of your image" width="100" height="100">
-        <h1>คำร้องขอเพิ่ม-ถอน รายวิชา </b></h1>
+        <h1>คำร้องขอจดทะเบียนรายวิชาข้ามโครงการ </b></h1>
         <form id="userForm">
             <label for="date">วันที่กรอก :</label>
             <input type="date" id="date" name="date" required>
@@ -115,3 +115,33 @@
 
             <label for="advisor">อาจารย์ที่ปรึกษา:</label>
             <input type="text" id="advisor" name="advisor" required><br>
+
+            <!--จดทะเบียน -->
+            <label for="reg">มีความประสงค์ขอจดทะเบียนข้ามโครงการรายวิชา:</label>
+            <input type="text" id="reg" name="reg" required>
+
+            <label for="code">รหัสวิชา:</label>
+            <input type="text" id="code" name="code" required>
+
+            <label for="section">Section:</label>
+            <input type="text" id="section" name="section" required><br>
+
+            <label for="semester">ภาคการศึกษาที่:</label>
+            <input type="text" id="semester" name="semester" required>
+
+            <label for="year">ปีการศึกษา:</label>
+            <input type="text" id="year" name="year" required>
+
+            <label for="teacher">อาจารย์ประจำวิชา:</label>
+            <input type="text" id="teacher" name="teacher" required><br>
+
+            
+            <div id="courses-container"></div>
+            <label for="cause">เหตุผลการขอจดทะเบียนรายวิชาข้ามโครงการ:</label>
+            <input type="text" id="cause" name="cause" required><br>
+
+
+            <button type="submit">ส่งข้อมูล</button>
+        </form>
+        <h3>ผลการส่งข้อมูล <div id="result"></div>
+        </h3>

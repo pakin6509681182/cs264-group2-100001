@@ -50,16 +50,16 @@ form input {
         #date,#studentId,#tumbol,#amphur,#postalCode,#phone,#mobilePhone {
             width: calc(20% - 4px);
         }
-        #studentFirstName,#lastname,#studentField,#advisor {
+        #studentFirstName,#lastname,#studentField,#advisor,#reg,#teacher  {
             width: calc(34% - 4px);
         }
-        #studentYear {
+        #studentYear,#semester,#year, #code {
             width: calc(10% - 4px);
         }
-        #adressNumber,#moo {
+        #adressNumber,#moo, #section {
             width: calc(15% - 4px);
         }
-        #province {
+        #province{
             width: calc(30% - 4px);
         }
 
