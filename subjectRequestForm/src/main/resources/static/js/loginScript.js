@@ -39,6 +39,7 @@ function login(user, pass) {
         for (let key in userData) {
             sessionStorage.setItem(key, userData[key]);
         }
+        const resultElement = document.getElementById('result');
         resultElement.textContent = 'กำลังเข้าสู่ระบบ';
         window.location = "main teacher.html";
     }
@@ -59,6 +60,7 @@ function login(user, pass) {
         for (let key in userData) {
             sessionStorage.setItem(key, userData[key]);
         }
+        const resultElement = document.getElementById('result');
         resultElement.textContent = 'กำลังเข้าสู่ระบบ';
         window.location = "main staff.html";
     }
