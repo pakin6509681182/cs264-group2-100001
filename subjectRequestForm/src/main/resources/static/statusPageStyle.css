@@ -61,9 +61,41 @@ li:hover {
 th {
     background-color: rgba(66, 152, 181, 1) !important;
     color: #fff !important;
-} 
+}
+
 
 td {
     background-color: #b5d2dd !important;
     color: #33748c !important;
+}
+
+td > a {
+    color: #33748c;
+    text-decoration: none;
+}
+
+.modal-body {
+    padding: 30px !important;
+}
+
+.modal-body > p {
+    text-align: left;
+    font-family: Kanit-Bold;
+
+}
+
+.modal-body > p > span {
+    text-align: left;
+    font-family: Kanit-Regular;
+
+}
+
+.modal-body > h6 {
+    color: #33748c !important;
+    font-size: 20px !important;
+}
+
+.modal-title {
+    color: #33748c !important;
+    margin: 0 0 0 10px !important;
 }

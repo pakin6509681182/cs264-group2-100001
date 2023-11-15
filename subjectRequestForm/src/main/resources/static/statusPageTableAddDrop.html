@@ -3,45 +3,48 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <title>ระบบส่งคำร้องออนไลน์</title>
-    <link rel="stylesheet" href="statusPageStyle.css">
+    <link href="statusPageStyle.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <link rel="stylesheet" href="studentStyle.css">
+    <link href="studentStyle.css" rel="stylesheet">
 </head>
 
 <body>
     <nav class="navbar bg-body-tertiary fixed-top">
         <div class="container-fluid">
-            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
-                aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+            <button aria-controls="offcanvasNavbar" aria-label="Toggle navigation" class="navbar-toggler"
+                data-bs-target="#offcanvasNavbar" data-bs-toggle="offcanvas" type="button">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar"
-                aria-labelledby="offcanvasNavbarLabel">
+            <div aria-labelledby="offcanvasNavbarLabel" class="offcanvas offcanvas-start" id="offcanvasNavbar"
+                tabindex="-1">
                 <div class="offcanvas-header">
                     <h5 class="offcanvas-title" id="offcanvasNavbarLabel"></h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas"
-                        aria-label="Close"></button>
+                    <button aria-label="Close" class="btn-close" data-bs-dismiss="offcanvas" type="button"></button>
                 </div>
                 <div class="offcanvas-body">
                     <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                         <li class="nav-item align-self-center">
                             <h2>ข้อมูลส่วนตัว</h2>
                         </li>
-                        <li class="nav-item flex-column align-self-start" style="margin-left: 30px !important; align-items: baseline !important;">
-                            <h3 >ชื่อ: <span id="offcanvas-displayname_th"></span></h3>
+                        <li class="nav-item flex-column align-self-start"
+                            style="margin-left: 30px !important; align-items: baseline !important;">
+                            <h3>ชื่อ: <span id="offcanvas-displayname_th"></span></h3>
                             <h3>รหัสนักศึกษา: <span id="offcanvas-username"></span></h3>
                             <h3>ภาควิชา: <span id="offcanvas-department"></span></h3>
                             <h3>อีเมล: <span id="offcanvas-email"></span></h3>
                         </li>
                         <li class="nav-item align-self-center">
-                            <button type="button" class="btn" onclick="window.location.href='main student.html';">กลับสู่หน้าเมนู</button>
+                            <button class="btn" onclick="window.location.href='main student.html';" type="button">
+                                กลับสู่หน้าเมนู
+                            </button>
                         </li>
                         <li class="nav-item align-self-center" style="margin-top: -10px !important;">
-                            <button type="button" class="btn" onclick="window.location.href='login.html';">Logout</button>
+                            <button class="btn" onclick="window.location.href='login.html';"
+                                type="button">Logout</button>
                         </li>
                         <script>
                             document.getElementById("offcanvas-displayname_th").textContent = sessionStorage.getItem("displayname_th")
@@ -89,7 +92,8 @@
                         </ul>
                         <ul class="nav nav-fill">
                             <li class="nav-item">
-                                <a class="nav-link" style="background-color: rgba(255, 209, 63, 0.60); ; border-radius: 10px;">เพิ่ม-ถอน</a>
+                                <a class="nav-link"
+                                    style="background-color: rgba(255, 209, 63, 0.60); ; border-radius: 10px;">เพิ่ม-ถอน</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="statusPageTableDropW.html">ถอน W</a>
@@ -110,57 +114,98 @@
                     <div class="row-table row text-center align-items-center ">
                         <table class="table table-hover table table-bordered">
                             <thead class="table">
-                              <tr>
-                                <th scope="col">วันที่</th>
-                                <th scope="col">beepboop</th>
-                                <th scope="col">สถานะ</th>
-                                <th scope="col">รายละเอียด</th>
-                                <th scope="col">ยกเลิกคำร้อง</th>
-                            </tr>
+                                <tr>
+                                    <th scope="col">วันที่</th>
+                                    <th scope="col">สถานะ</th>
+                                    <th scope="col">รายละเอียด</th>
+                                    <th scope="col">ยกเลิกคำร้อง</th>
+                                </tr>
                             </thead>
                             <tbody>
-                              <tr>
-                                <td>16-08-2023</td>
-                                <td>เพิ่ม-ถอนรายวิชา</td>
-                                <td>กำลังดำเนินการ</td>
-                                <td>ดูรายละเอียด</td>
-                                <td style="color: red !important;">ยกเลิก</td>
-                            </tr>
-                              <tr>
-                                <td>16-08-2023</td>
-                                <td>เพิ่ม-ถอนรายวิชา</td>
-                                <td>กำลังดำเนินการ</td>
-                                <td>ดูรายละเอียด</td>
-                                <td style="color: red !important;">ยกเลิก</td>
-                              </tr>
-                              <tr>
-                                <td>16-08-2023</td>
-                                <td>เพิ่ม-ถอนรายวิชา</td>
-                                <td>กำลังดำเนินการ</td>
-                                <td>ดูรายละเอียด</td>
-                                <td style="color: red !important;">ยกเลิก</td>
-                              </tr>
-                              <tr>
-                                <td>16-08-2023</td>
-                                <td>เพิ่ม-ถอนรายวิชา</td>
-                                <td>กำลังดำเนินการ</td>
-                                <td>ดูรายละเอียด</td>
-                                <td style="color: red !important;">ยกเลิก</td>
-                              </tr>
-                              <tr>
-                                <td>16-08-2023</td>
-                                <td>เพิ่ม-ถอนรายวิชา</td>
-                                <td>กำลังดำเนินการ</td>
-                                <td>ดูรายละเอียด</td>
-                                <td style="color: red !important;">ยกเลิก</td>
-                              </tr>
+                                <tr>
+                                    <td>16-08-2023</td>
+                                    <td>เพิ่ม-ถอนรายวิชา</td>
+                                    <td>กำลังดำเนินการ</td>
+                                    <td>
+                                        <a href="#" data-bs-toggle="modal"
+                                            data-bs-target="#staticBackdrop">ตรวจสอบคำร้อง</a>
+                                        <div class="modal modal-xl fade" id="staticBackdrop" data-bs-keyboard="false"
+                                            tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                            <div class="modal-dialog modal-dialog-scrollable">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h1 class="modal-title fs-5" id="staticBackdropLabel">
+                                                            รายละเอียดคำร้อง</h1>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                            aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <p>
+                                                            วันที่: <span id="date"></span><br>
+                                                            คำนำหน้านาม: <span id="prefix"></span><br>
+                                                            ชื่อ: <span id="firstName"></span><br>
+                                                            นามสกุล: <span id="lastname"></span><br>
+                                                            รหัสนักศึกษา: <span id="studentId"></span><br>
+                                                            ชั้นปีที่: <span id="studentYear"></span><br>
+                                                            สาขาวิชา: <span id="studentField"></span><br>
+                                                            อาจารย์ที่ปรึกษา: <span id="advisor"></span><br>
+                                                            ที่อยู่ที่สามารถติดต่อได้: <span id="adressNumber"></span>
+                                                            <span id="moo"></span> 
+                                                            <span id="tumbol"></span> 
+                                                            <span id="amphur"></span> 
+                                                            <span id="province"></span> 
+                                                            <span id="postalCode"></span> 
+                                                            <span id="mobilePhone"></span> 
+                                                            <span id="phone"></span><br>
+                                                            เหตุผล: <span id="cause"></span><br>
+                                                        </p>
+                                                        <div class="row-table row text-center align-items-center">
+                                                            <h6>รายวิชาที่ต้องการเพิ่ม</h6>
+                                                            <table class="table add-table table-hover table table-bordered">
+                                                                <thead>
+                                                                    <th scope="col">รหัสวิชา</th>
+                                                                    <th scope="col">ชื่อวิชา</th>
+                                                                    <th scope="col">Section</th>
+                                                                    <th scope="col">วัน/เวลาที่เรียน</th>
+                                                                    <th scope="col">หน่วยกิต</th>
+                                                                    <th scope="col">ชื่อผู้สอน</th>
+                                                                    <th scope="col">ผู้สอนอนุญาต</th>                                                                    
+                                                                </thead>
+                                                                <tbody class="table">
+                                                                </tbody>
+                                                                <h6>รายวิชาที่ต้องการถอน</h6>
+                                                            </table>
+                                                            <table class="table remove-table table-hover table table-bordered">
+                                                                <thead>
+                                                                    <th scope="col">รหัสวิชา</th>
+                                                                    <th scope="col">ชื่อวิชา</th>
+                                                                    <th scope="col">Section</th>
+                                                                    <th scope="col">วัน/เวลาที่เรียน</th>
+                                                                    <th scope="col">หน่วยกิต</th>
+                                                                    <th scope="col">ชื่อผู้สอน</th>
+                                                                    <th scope="col">ผู้สอนอนุญาต</th>                                                                    
+                                                                </thead>
+                                                                <tbody class="table">
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td style="color: red !important;">ยกเลิก</td>
+                                </tr>
                             </tbody>
-                          </table>
+                        </table>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </body>
+<script src="js/statusPageTableAddDropScript.js"></script>
 
 </html>

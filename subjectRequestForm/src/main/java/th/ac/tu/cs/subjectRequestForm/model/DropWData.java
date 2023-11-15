@@ -5,6 +5,7 @@ import java.time.LocalDateTime;
 //import java.time.LocalDateTime;
 
 public class DropWData {
+<<<<<<< Updated upstream
     public DropWData() {
         status = "กำลังรอดำเนินการ";
     }
@@ -23,10 +24,182 @@ public class DropWData {
 
     public String getStudentFirstName() {
         return studentFirstName;
+=======
+    private String status;
+    private String firstName;
+    private String lastname;
+    private String studentId;
+    private Date date;
+    private String prefix;
+    private int studentYear;
+    private String studentField;
+    private String advisor;
+    private String adressNumber;
+    private String moo;
+    private String tumbol;
+    private String amphur;
+    private String province;
+    private Integer postalCode;
+    private String mobilePhone;
+    private String phone;
+    private String cause;
+    private String addCourse1Code;
+    private String addCourse1Name;
+    private int addCourse1Section;
+    private LocalDateTime addCourse1DayAndTime;
+    private int addCourse1Credits;
+    private String addCourse1InstructorName;
+    private boolean addCourse1InstructorPermission;
+    private String addCourse2Code;
+    private String addCourse2Name;
+    private int addCourse2Section;
+    private LocalDateTime addCourse2DayAndTime;
+    private int addCourse2Credits;
+    private String addCourse2InstructorName;
+    private boolean addCourse2InstructorPermission;
+    private String addCourse3Code;
+    private String addCourse3Name;
+    private int addCourse3Section;
+    private LocalDateTime addCourse3DayAndTime;
+    private int addCourse3Credits;
+    private String addCourse3InstructorName;
+    private boolean addCourse3InstructorPermission;
+    private String addCourse4Code;
+    private String addCourse4Name;
+    private int addCourse4Section;
+    private LocalDateTime addCourse4DayAndTime;
+    private int addCourse4Credits;
+    private String addCourse4InstructorName;
+    private boolean addCourse4InstructorPermission;
+    private String addCourse5Code;
+    private String addCourse5Name;
+    private int addCourse5Section;
+    private LocalDateTime addCourse5DayAndTime;
+    private int addCourse5Credits;
+    private String addCourse5InstructorName;
+    private boolean addCourse5InstructorPermission;
+    private String addCourse6Code;
+    private String addCourse6Name;
+    private int addCourse6Section;
+    private LocalDateTime addCourse6DayAndTime;
+    private int addCourse6Credits;
+    private String addCourse6InstructorName;
+    private boolean addCourse6InstructorPermission;
+    private String addCourse7Code;
+    private String addCourse7Name;
+    private int addCourse7Section;
+    private LocalDateTime addCourse7DayAndTime;
+    private int addCourse7Credits;
+    private String addCourse7InstructorName;
+    private boolean addCourse7InstructorPermission;
+    private String addCourse8Code;
+    private String addCourse8Name;
+    private int addCourse8Section;
+    private LocalDateTime addCourse8DayAndTime;
+    private int addCourse8Credits;
+    private String addCourse8InstructorName;
+    private boolean addCourse8InstructorPermission;
+    private String addCourse9Code;
+    private String addCourse9Name;
+    private int addCourse9Section;
+    private LocalDateTime addCourse9DayAndTime;
+    private int addCourse9Credits;
+    private String addCourse9InstructorName;
+    private boolean addCourse9InstructorPermission;
+    private String addCourse10Code;
+    private String addCourse10Name;
+    private int addCourse10Section;
+    private LocalDateTime addCourse10DayAndTime;
+    private int addCourse10Credits;
+    private String addCourse10InstructorName;
+    private boolean addCourse10InstructorPermission;
+    private String dropCourse1Code;
+    private String dropCourse1Name;
+    private int dropCourse1Section;
+    private LocalDateTime dropCourse1DayAndTime;
+    private int dropCourse1Credits;
+    private String dropCourse1InstructorName;
+    private boolean dropCourse1InstructorPermission;
+    //private String addCourse3Name;
+    private String dropCourse2Code;
+    private String dropCourse2Name;
+    private int dropCourse2Section;
+    private LocalDateTime dropCourse2DayAndTime;
+    private int dropCourse2Credits;
+    private String dropCourse2InstructorName;
+    private boolean dropCourse2InstructorPermission;
+    private String dropCourse3Code;
+    private String dropCourse3Name;
+    private int dropCourse3Section;
+    private LocalDateTime dropCourse3DayAndTime;
+    private int dropCourse3Credits;
+    private String dropCourse3InstructorName;
+    private boolean dropCourse3InstructorPermission;
+    private String dropCourse4Code;
+    private String dropCourse4Name;
+    private int dropCourse4Section;
+    private LocalDateTime dropCourse4DayAndTime;
+    private int dropCourse4Credits;
+    private String dropCourse4InstructorName;
+    private boolean dropCourse4InstructorPermission;
+    private String dropCourse5Code;
+    private String dropCourse5Name;
+    private int dropCourse5Section;
+    private LocalDateTime dropCourse5DayAndTime;
+    private int dropCourse5Credits;
+    private String dropCourse5InstructorName;
+    private boolean dropCourse5InstructorPermission;
+    private String dropCourse6Code;
+    private String dropCourse6Name;
+    private int dropCourse6Section;
+    private LocalDateTime dropCourse6DayAndTime;
+    private int dropCourse6Credits;
+    private String dropCourse6InstructorName;
+    private boolean dropCourse6InstructorPermission;
+    private String dropCourse7Code;
+    private String dropCourse7Name;
+    private int dropCourse7Section;
+    private LocalDateTime dropCourse7DayAndTime;
+    private int dropCourse7Credits;
+    private String dropCourse7InstructorName;
+    private boolean dropCourse7InstructorPermission;
+    private String dropCourse8Code;
+    private String dropCourse8Name;
+    private int dropCourse8Section;
+    private LocalDateTime dropCourse8DayAndTime;
+    private int dropCourse8Credits;
+    private String dropCourse8InstructorName;
+    private boolean dropCourse8InstructorPermission;
+    private String dropCourse9Code;
+    private String dropCourse9Name;
+    private int dropCourse9Section;
+    private LocalDateTime dropCourse9DayAndTime;
+    private int dropCourse9Credits;
+    private String dropCourse9InstructorName;
+    private boolean dropCourse9InstructorPermission;
+    private String dropCourse10Code;
+    private String dropCourse10Name;
+    private int dropCourse10Section;
+    private LocalDateTime dropCourse10DayAndTime;
+    private int dropCourse10Credits;
+    private String dropCourse10InstructorName;
+    private boolean dropCourse10InstructorPermission;
+
+    public String getStatus() {
+        return status;
+>>>>>>> Stashed changes
     }
 
-    public void setStudentFirstName(String studentFirstName) {
-        this.studentFirstName = studentFirstName;
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
     public String getLastname() {
@@ -43,15 +216,6 @@ public class DropWData {
 
     public void setStudentId(String studentId) {
         this.studentId = studentId;
-    }
-
-    private String studentFirstName;
-    private String lastname;
-    private String studentId;
-    private Date date;
-
-    public void setDate(Date date) {
-        this.date = date;
     }
 
     public int getStudentYear() {
@@ -160,30 +324,17 @@ public class DropWData {
         this.prefix = prefix;
     }
 
-    private String prefix;
-    private int studentYear;
-    private String studentField;
-    private String advisor;
-    private String adressNumber;
-    private String moo;
-    private String tumbol;
-    private String amphur;
-    private String province;
-    private Integer postalCode;
-    private String mobilePhone;
-    private String phone;
-    private String cause;
-
     public Date getDate() {
         return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
     }
 
     public void Date(Date date) {
         this.date = date;
     }
-
-
-    private String addCourse1Code;
 
     public String getAddCourse1Code() {
         return addCourse1Code;
@@ -241,13 +392,6 @@ public class DropWData {
         this.addCourse1InstructorPermission = addCourse1InstructorPermission;
     }
 
-    private String addCourse1Name;
-    private int addCourse1Section;
-    private LocalDateTime addCourse1DayAndTime;
-    private int addCourse1Credits;
-    private String addCourse1InstructorName;
-    private boolean addCourse1InstructorPermission;
-
     public String getAddCourse2Name() {
         return addCourse2Name;
     }
@@ -303,16 +447,6 @@ public class DropWData {
     public void setAddCourse2Code(String addCourse2Code) {
         this.addCourse2Code = addCourse2Code;
     }
-
-    private String addCourse2Code;
-    private String addCourse2Name;
-    private int addCourse2Section;
-    private LocalDateTime addCourse2DayAndTime;
-    private int addCourse2Credits;
-    private String addCourse2InstructorName;
-    private boolean addCourse2InstructorPermission;
-
-    //private String addCourse3Name;
 
     public String getAddCourse3Name() {
         return addCourse3Name;
@@ -762,70 +896,6 @@ public class DropWData {
         this.addCourse10Code = addCourse10Code;
     }
 
-    private String addCourse3Code;
-    private String addCourse3Name;
-    private int addCourse3Section;
-    private LocalDateTime addCourse3DayAndTime;
-    private int addCourse3Credits;
-    private String addCourse3InstructorName;
-    private boolean addCourse3InstructorPermission;
-
-    private String addCourse4Code;
-    private String addCourse4Name;
-    private int addCourse4Section;
-    private LocalDateTime addCourse4DayAndTime;
-    private int addCourse4Credits;
-    private String addCourse4InstructorName;
-    private boolean addCourse4InstructorPermission;
-
-    private String addCourse5Code;
-    private String addCourse5Name;
-    private int addCourse5Section;
-    private LocalDateTime addCourse5DayAndTime;
-    private int addCourse5Credits;
-    private String addCourse5InstructorName;
-    private boolean addCourse5InstructorPermission;
-
-    private String addCourse6Code;
-    private String addCourse6Name;
-    private int addCourse6Section;
-    private LocalDateTime addCourse6DayAndTime;
-    private int addCourse6Credits;
-    private String addCourse6InstructorName;
-    private boolean addCourse6InstructorPermission;
-
-    private String addCourse7Code;
-    private String addCourse7Name;
-    private int addCourse7Section;
-    private LocalDateTime addCourse7DayAndTime;
-    private int addCourse7Credits;
-    private String addCourse7InstructorName;
-    private boolean addCourse7InstructorPermission;
-
-    private String addCourse8Code;
-    private String addCourse8Name;
-    private int addCourse8Section;
-    private LocalDateTime addCourse8DayAndTime;
-    private int addCourse8Credits;
-    private String addCourse8InstructorName;
-    private boolean addCourse8InstructorPermission;
-
-    private String addCourse9Code;
-    private String addCourse9Name;
-    private int addCourse9Section;
-    private LocalDateTime addCourse9DayAndTime;
-    private int addCourse9Credits;
-    private String addCourse9InstructorName;
-    private boolean addCourse9InstructorPermission;
-
-    private String addCourse10Code;
-    private String addCourse10Name;
-    private int addCourse10Section;
-    private LocalDateTime addCourse10DayAndTime;
-    private int addCourse10Credits;
-    private String addCourse10InstructorName;
-    private boolean addCourse10InstructorPermission;
-
     public String getDropCourse1Code() {
         return dropCourse1Code;
     }
@@ -881,85 +951,6 @@ public class DropWData {
     public void setDropCourse1InstructorPermission(boolean dropCourse1InstructorPermission) {
         this.dropCourse1InstructorPermission = dropCourse1InstructorPermission;
     }
-
-    private String dropCourse1Code;
-    private String dropCourse1Name;
-    private int dropCourse1Section;
-    private LocalDateTime dropCourse1DayAndTime;
-    private int dropCourse1Credits;
-    private String dropCourse1InstructorName;
-    private boolean dropCourse1InstructorPermission;
-
-    private String dropCourse2Code;
-    private String dropCourse2Name;
-    private int dropCourse2Section;
-    private LocalDateTime dropCourse2DayAndTime;
-    private int dropCourse2Credits;
-    private String dropCourse2InstructorName;
-    private boolean dropCourse2InstructorPermission;
-
-    private String dropCourse3Code;
-    private String dropCourse3Name;
-    private int dropCourse3Section;
-    private LocalDateTime dropCourse3DayAndTime;
-    private int dropCourse3Credits;
-    private String dropCourse3InstructorName;
-    private boolean dropCourse3InstructorPermission;
-
-    private String dropCourse4Code;
-    private String dropCourse4Name;
-    private int dropCourse4Section;
-    private LocalDateTime dropCourse4DayAndTime;
-    private int dropCourse4Credits;
-    private String dropCourse4InstructorName;
-    private boolean dropCourse4InstructorPermission;
-
-    private String dropCourse5Code;
-    private String dropCourse5Name;
-    private int dropCourse5Section;
-    private LocalDateTime dropCourse5DayAndTime;
-    private int dropCourse5Credits;
-    private String dropCourse5InstructorName;
-    private boolean dropCourse5InstructorPermission;
-
-    private String dropCourse6Code;
-    private String dropCourse6Name;
-    private int dropCourse6Section;
-    private LocalDateTime dropCourse6DayAndTime;
-    private int dropCourse6Credits;
-    private String dropCourse6InstructorName;
-    private boolean dropCourse6InstructorPermission;
-
-    private String dropCourse7Code;
-    private String dropCourse7Name;
-    private int dropCourse7Section;
-    private LocalDateTime dropCourse7DayAndTime;
-    private int dropCourse7Credits;
-    private String dropCourse7InstructorName;
-    private boolean dropCourse7InstructorPermission;
-
-    private String dropCourse8Code;
-    private String dropCourse8Name;
-    private int dropCourse8Section;
-    private LocalDateTime dropCourse8DayAndTime;
-    private int dropCourse8Credits;
-    private String dropCourse8InstructorName;
-    private boolean dropCourse8InstructorPermission;
-
-    private String dropCourse9Code;
-    private String dropCourse9Name;
-    private int dropCourse9Section;
-    private LocalDateTime dropCourse9DayAndTime;
-    private int dropCourse9Credits;
-    private String dropCourse9InstructorName;
-    private boolean dropCourse9InstructorPermission;
-
-    private String dropCourse10Code;
-    private String dropCourse10Name;
-    private int dropCourse10Section;
-    private LocalDateTime dropCourse10DayAndTime;
-    private int dropCourse10Credits;
-    private String dropCourse10InstructorName;
 
     public String getDropCourse2Code() {
         return dropCourse2Code;
@@ -1464,7 +1455,5 @@ public class DropWData {
     public void setDropCourse10InstructorPermission(boolean dropCourse10InstructorPermission) {
         this.dropCourse10InstructorPermission = dropCourse10InstructorPermission;
     }
-
-    private boolean dropCourse10InstructorPermission;
 
 }

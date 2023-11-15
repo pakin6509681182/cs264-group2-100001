@@ -9,7 +9,7 @@ import th.ac.tu.cs.subjectRequestForm.model.*;
 import java.util.List;
 
 @Repository
-public class JdbcUserRepository {
+public class JdbcUserRepository implements UserRepository {
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
@@ -65,7 +65,11 @@ public class JdbcUserRepository {
                 "?,?,?,?,?,?,?," +
                 "?,?,?,?,?,?,?)";
 
+<<<<<<< Updated upstream
         jdbcTemplate.update(sql, addDropData.getStatus(),addDropData.getDate(), addDropData.getPrefix(), addDropData.getStudentFirstName(), addDropData.getLastname(), addDropData.getStudentId(),
+=======
+        jdbcTemplate.update(sql, addDropData.getDate(), addDropData.getPrefix(), addDropData.getFirstName(), addDropData.getLastname(), addDropData.getStudentId(),
+>>>>>>> Stashed changes
                 addDropData.getStudentYear(), addDropData.getStudentField(), addDropData.getAdvisor(),
                 addDropData.getAdressNumber(), addDropData.getMoo(), addDropData.getTumbol(), addDropData.getAmphur(),
                 addDropData.getProvince(), addDropData.getPostalCode(), addDropData.getMobilePhone(),
@@ -264,7 +268,11 @@ public class JdbcUserRepository {
                 "?,?,?,?,?,?,?," +
                 "?,?,?,?,?,?,?)";
 
+<<<<<<< Updated upstream
         jdbcTemplate.update(sql, dropWData.getStatus(),dropWData.getDate(), dropWData.getPrefix(), dropWData.getStudentFirstName(), dropWData.getLastname(), dropWData.getStudentId(),
+=======
+        jdbcTemplate.update(sql, dropWData.getDate(), dropWData.getPrefix(), dropWData.getFirstName(), dropWData.getLastname(), dropWData.getStudentId(),
+>>>>>>> Stashed changes
                 dropWData.getStudentYear(), dropWData.getStudentField(), dropWData.getAdvisor(),
                 dropWData.getAdressNumber(), dropWData.getMoo(), dropWData.getTumbol(), dropWData.getAmphur(),
                 dropWData.getProvince(), dropWData.getPostalCode(), dropWData.getMobilePhone(),
@@ -442,9 +450,13 @@ public class JdbcUserRepository {
         // You may need a loop to do this dynamically
     }*/
 
-    public List<addDropData> getDataById(Long userId) {
-        String sql = "SELECT date, firstName FROM addDropForms WHERE id = ?";
-        return jdbcTemplate.query(sql, new Object[]{userId}, new BeanPropertyRowMapper<>(addDropData.class));
+    public List<addDropData> getAddDropDataById(String userId) {
+        String sql = "SELECT * FROM addDropForms WHERE studentID = ?";
+        return jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(addDropData.class), userId);
     }
 
+    public List<DropWData> getDropWDataById(String userId) {
+        String sql = "SELECT * FROM dropWForms WHERE studentID = ?";
+        return jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(DropWData.class), userId);
+    }
 }
