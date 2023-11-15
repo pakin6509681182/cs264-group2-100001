@@ -57,7 +57,7 @@
     </nav>
     <div class="container red">
         <img class="logo" src="image/logo.png" alt="Description of your image" width="100" height="100">
-        <h1>คำร้องขอเพิ่ม-ถอนรายวิชา</h1>
+        <h1>คำร้องขอจดทะเบียนรายวิชาข้ามโครงการ</h1>
         <h3>คณะวิทยาศาสตร์และเทคโนโลยี</h3>
         <form id="userForm">
             <label for="date">วันที่กรอก :</label>
@@ -114,73 +114,31 @@
             <label for="advisor">อาจารย์ที่ปรึกษา:</label>
             <input type="text" id="advisor" name="advisor" required><br>
 
-            <!-- เพิ่มวิชา -->
-            <div class="label-group">
-                <h1><span>รายวิชาที่ต้องการเพิ่ม</span></h1>
-            </div>
-            <label for="add_courses">จำนวนวิชาขอเพิ่ม:</label>
-            <input type="number" id="add_courses" name="add_courses" min="1" max="10">
-            <!-- <input type="number" id="add_courses" name="add_courses" min="1" max="10" oninput="updateTable('add_courses_table', this.value)"> -->
+            <!--จดทะเบียน -->
+            <label for="reg">มีความประสงค์ขอจดทะเบียนข้ามโครงการรายวิชา:</label>
+            <input type="text" id="reg" name="reg" required>
 
+            <label for="code">รหัสวิชา:</label>
+            <input type="text" id="code" name="code" required>
 
-            <br><label> วิชาที่ต้องการเพิ่ม </label>
+            <label for="section">Section:</label>
+            <input type="text" id="section" name="section" required><br>
 
+            <label for="semester">ภาคการศึกษาที่:</label>
+            <input type="text" id="semester" name="semester" required>
 
-            <table id="add_courses_table">
-                <tr>
-                    <th>รหัสวิชา</th>
-                    <th>ชื่อวิชา</th>
-                    <th>Section</th>
-                    <th>วันเวลาที่สอน</th>
-                    <th>หน่วยกิต</th>
-                    <th>ชื่อผู้สอน</th>
-                    <th>ผู้สอนอนุญาต</th>
-                </tr>
-            </table>
-            <!-- <button type="button" onclick="addCourse('add_courses_table')">เพิ่มวิชา</button>
-        <button type="button" onclick="removeCourse('add_courses_table')">ยกเลิกวิชา</button> -->
+            <label for="year">ปีการศึกษา:</label>
+            <input type="text" id="year" name="year" required>
 
-            <div id="add_courses_container"></div>
+            <label for="teacher">อาจารย์ประจำวิชา:</label>
+            <input type="text" id="teacher" name="teacher" required><br>
+
+            
             <div id="courses-container"></div>
-
-            <div class="label-group">
-                <h1><span>รายวิชาที่ต้องการถอน</span></h1>
-            </div>
-            <label for="drop_courses">จำนวนวิชาขอถอน:</label>
-            <input type="number" id="drop_courses" name="drop_courses" min="1" max="10" x>
-            <!-- <input type="number" id="drop_courses" name="drop_courses" min="1" max="10" oninput="updateTable('drop_courses_table', this.value)">  -->
-
-            <br><label>วิชาที่ต้องการถอน</label>
-
-            <table id="drop_courses_table">
-                <tr>
-                    <th>รหัสวิชา</th>
-                    <th>ชื่อวิชา</th>
-                    <th>Section</th>
-                    <th>วันเวลาที่สอน</th>
-                    <th>หน่วยกิต</th>
-                    <th>ชื่อผู้สอน</th>
-                    <th>ผู้สอนอนุญาต</th>
-                </tr>
-            </table>
-            <!-- <button type="button" onclick="addCourse('drop_courses_table')">เพิ่มวิชา</button>
-        <button type="button" onclick="removeCourse('drop_courses_table')">ยกเลิกวิชา</button> -->
-            <div id="drop_courses_container"></div>
-
-
-            <div id="courses-container"></div>
-
-
-
-            <label for="cause">เหตุผลการเพิ่มถอน:</label>
-            <input type="text" id="cause" name="cause" required><br>
-
-
+            <label for="reason">เหตุผลการขอจดทะเบียนรายวิชาข้ามโครงการ:</label>
+            <textarea type="text" id="reason" name="reason" rows="4" required> </textarea>
             <button type="submit">ส่งข้อมูล</button>
         </form>
         <div id="result"></div>
-
-        <script src="js/addDropScript.js"></script>
-</body>
-
-</html>
+        <script src="js/regCrossScript.js"></script>
+    </body>

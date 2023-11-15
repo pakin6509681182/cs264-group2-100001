@@ -1,0 +1,172 @@
+@import url(font.css);
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.container h1 {
+    font-family: 'Kanit-Bold', sans-serif !important;
+    color: #fff !important;
+    margin :30px !important;
+    margin-bottom: 10px;
+    text-align: center;
+    border-radius: 50px;
+} 
+
+.container h3 {
+    font-family: 'Kanit-Bold', sans-serif !important;
+    text-align: center;
+    color: #fff;
+}
+
+form {
+    font-family: 'Kanit-Light', sans-serif;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+form label {
+    font-family: 'Kanit-Bold', sans-serif !important;
+    display: inline-block;
+    margin-bottom: 8px;
+    border-radius: 20px;
+    color: #fff 
+}
+
+form input {
+    background: rgba(181, 185, 190, 0.5);
+    display: inline-block;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    color: #fff;
+}
+
+form select {
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 8px;
+    color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+select option {
+    background-color: grey !important;
+}
+
+
+form button, select {
+    background: rgba(181, 185, 190, 0.5);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 0 auto;
+}
+
+form button[type="submit"] {
+    font-size: 20px;
+    border-radius: 13px;
+    border-style: none;
+    background-color: #FFD13F;
+    width: 100%;
+    margin: 30px 0;
+    font-family: Kanit-Bold;
+    color: rgba(154, 0, 37, 1);
+}
+
+
+#result {
+    margin-top: 20px;
+    padding: 10px;
+    color: #fff;
+    border-radius: 5px;
+}
+
+.subject-grid {
+    display: grid;
+    grid-template-columns: repeat(10, minmax(100px, 1fr));
+    gap: 10px;
+    grid-auto-rows: minmax(100px, auto);
+}
+
+.subject-group {
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.container {
+    max-width: 75%;
+    margin-top: 80px;
+    margin-bottom: 80px;
+    padding: 30px !important;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+    height: auto;
+    display: flex; 
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    box-sizing: border-box; 
+}
+
+.course {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.course-input {
+    display: inline-block;
+    width: calc(20% - 10px);
+    margin-right: 10px;
+}
+
+#add_courses_table,
+#drop_courses_table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+#add_courses_table th,
+#add_courses_table td,
+#drop_courses_table th,
+#drop_courses_table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+#add_courses_table th,
+#drop_courses_table th {
+    background: rgba(214, 162, 0, 1);
+}
+
+.logo {
+    margin: 0px 20px 20px 20px;
+}
+
+textarea {
+    width:100%;
+    background: rgba(181, 185, 190, 0.5);
+    border:1px solid #ccc;
+    border-radius:4px ;
+    box-sizing: border-box; 
+    color: #fff;
+}
+
+input[type="checkbox"] {
+    width: auto;
+    margin-right: 5px;
+}
