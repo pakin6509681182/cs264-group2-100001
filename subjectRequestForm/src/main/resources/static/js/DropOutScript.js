@@ -20,26 +20,19 @@ document.addEventListener('DOMContentLoaded', function() {
             studentId: formData.get('studentId'),
             studentYear: formData.get('studentYear'),
             studentField: formData.get('studentField'),
-            advisor: formData.get('advisor'),
             adressNumber: formData.get('adressNumber'),
             moo: formData.get('moo'),
             tumbol: formData.get('tumbol'),
             amphur: formData.get('amphur'),
             province: formData.get('province'),
             postalCode: formData.get('postalCode'),
-            mobilePhone: formData.get('mobilePhone'),
             phone: formData.get('phone'),
-            reason: formData.get('cause'),
-
-
+            mobilePhone: formData.get('mobilePhone'),
+            advisor: formData.get('advisor'),
+            type: "ลาออก",
+            reason: formData.get('cause')
         };
-
-
-
-
-
-
-
+        
         fetch('/users', {
             method: 'POST',
             headers: {
