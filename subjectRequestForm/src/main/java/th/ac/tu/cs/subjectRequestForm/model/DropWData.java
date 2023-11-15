@@ -5,6 +5,15 @@ import java.time.LocalDateTime;
 //import java.time.LocalDateTime;
 
 public class DropWData {
+    public float gpax;
+    public String getGpax() {
+        return String.format("%.2f", gpax);
+    }
+
+    public void setGpax(float gpax) {
+        this.gpax = gpax;
+    }
+
     public String getStudentFirstName() {
         return studentFirstName;
     }

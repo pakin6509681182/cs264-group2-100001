@@ -26,6 +26,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 postalCode: formData.get('postalCode'),
                 mobilePhone: formData.get('mobilePhone'),
                 phone: formData.get('phone'),
+                 gpax: formData.get('gpax'),
                 cause: formData.get('cause'),
                 dropCourse1Code: drop_courses_table.rows[1].cells[0].querySelector('input').value,
                 dropCourse1Name: drop_courses_table.rows[1].cells[1].querySelector('input').value,

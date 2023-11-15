@@ -238,7 +238,7 @@ public class JdbcUserRepository {
         jdbcTemplate.update(sql,user.getDate(), user.getStudentFirstName(), user.getLastname(), user.getStudentId(),user.getStudentYear());*/
         String sql = "INSERT INTO DropWForms (Date, Prefix, FirstName, LastName, StudentID, StudentYear," +
                 "    StudentField, Advisor, AddressNumber, Moo, Tumbol, Amphur, Province, PostalCode," +
-                "    MobilePhone, Phone, Cause," +
+                "    MobilePhone, Phone, Cause,gpax, " +
                 "DropCourse1Code, DropCourse1Name, DropCourse1Section,DropCourse1DayAndTime, DropCourse1Credits, DropCourse1InstructorName,DropCourse1InstructorPermission" +
                 ",DropCourse2Code, DropCourse2Name, DropCourse2Section,DropCourse2DayAndTime, DropCourse2Credits, DropCourse2InstructorName,DropCourse2InstructorPermission," +
                 "DropCourse3Code, DropCourse3Name, DropCourse3Section,DropCourse3DayAndTime, DropCourse3Credits, DropCourse3InstructorName,DropCourse3InstructorPermission," +
@@ -253,7 +253,7 @@ public class JdbcUserRepository {
 
 
 
-                + ")" + "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?," +
+                + ")" + "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?," +
                 "?,?,?,?,?,?,?," +
                 "?,?,?,?,?,?,?," +
                 "?,?,?,?,?,?,?," +
@@ -269,7 +269,7 @@ public class JdbcUserRepository {
                 dropWData.getStudentYear(), dropWData.getStudentField(), dropWData.getAdvisor(),
                 dropWData.getAdressNumber(), dropWData.getMoo(), dropWData.getTumbol(), dropWData.getAmphur(),
                 dropWData.getProvince(), dropWData.getPostalCode(), dropWData.getMobilePhone(),
-                dropWData.getPhone(), dropWData.getCause() ,
+                dropWData.getPhone(), dropWData.getCause() , dropWData.getGpax(),
 
 
                 dropWData.getDropCourse1Code(),
