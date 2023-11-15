@@ -5,13 +5,8 @@ import java.time.LocalDateTime;
 //import java.time.LocalDateTime;
 
 public class DropWData {
-<<<<<<< Updated upstream
     public DropWData() {
         status = "กำลังรอดำเนินการ";
-    }
-    public String status;
-    public String getStatus() {
-        return status;
     }
     public float gpax;
     public String getGpax() {
@@ -22,9 +17,7 @@ public class DropWData {
         this.gpax = gpax;
     }
 
-    public String getStudentFirstName() {
-        return studentFirstName;
-=======
+
     private String status;
     private String firstName;
     private String lastname;
@@ -187,7 +180,6 @@ public class DropWData {
 
     public String getStatus() {
         return status;
->>>>>>> Stashed changes
     }
 
     public void setStatus(String status) {
