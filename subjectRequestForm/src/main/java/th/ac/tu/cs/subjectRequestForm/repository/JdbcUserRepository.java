@@ -4,7 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
-import th.ac.tu.cs.subjectRequestForm.model.User;
+import th.ac.tu.cs.subjectRequestForm.model.DropWData;
+import th.ac.tu.cs.subjectRequestForm.model.addDropData;
 
 import java.util.List;
 
@@ -13,7 +14,7 @@ public class JdbcUserRepository {
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
-    public void save(User user){
+    public void saveAddDrop(addDropData addDropData){
         /*String sql = "INSERT INTO UserInformation (date ,studentFirstName, studentLastName, studentId,studentYear) VALUES (?,?,?, ?, ?)";
         jdbcTemplate.update(sql,user.getDate(), user.getStudentFirstName(), user.getLastname(), user.getStudentId(),user.getStudentYear());*/
         String sql = "INSERT INTO addDropForms (Date, Prefix, FirstName, LastName, StudentID, StudentYear," +
@@ -65,197 +66,318 @@ public class JdbcUserRepository {
                 "?,?,?,?,?,?,?," +
                 "?,?,?,?,?,?,?)";
 
-        jdbcTemplate.update(sql, user.getDate(),user.getPrefix(), user.getStudentFirstName(),user.getLastname(), user.getStudentId(),
-                user.getStudentYear(), user.getStudentField(), user.getAdvisor(),
-                user.getAdressNumber(), user.getMoo(), user.getTumbol(), user.getAmphur(),
-                user.getProvince(), user.getPostalCode(), user.getMobilePhone(),
-                user.getPhone(), user.getCause() ,
-                user.getAddCourse1Code(),
-                user.getAddCourse1Name(),
-                user.getAddCourse1Section(),
-                user.getAddCourse1DayAndTime(),
-                user.getAddCourse1Credits(),
-                user.getAddCourse1InstructorName(),
-                user.isAddCourse1InstructorPermission(),
+        jdbcTemplate.update(sql, addDropData.getDate(), addDropData.getPrefix(), addDropData.getStudentFirstName(), addDropData.getLastname(), addDropData.getStudentId(),
+                addDropData.getStudentYear(), addDropData.getStudentField(), addDropData.getAdvisor(),
+                addDropData.getAdressNumber(), addDropData.getMoo(), addDropData.getTumbol(), addDropData.getAmphur(),
+                addDropData.getProvince(), addDropData.getPostalCode(), addDropData.getMobilePhone(),
+                addDropData.getPhone(), addDropData.getCause() ,
+                addDropData.getAddCourse1Code(),
+                addDropData.getAddCourse1Name(),
+                addDropData.getAddCourse1Section(),
+                addDropData.getAddCourse1DayAndTime(),
+                addDropData.getAddCourse1Credits(),
+                addDropData.getAddCourse1InstructorName(),
+                addDropData.isAddCourse1InstructorPermission(),
 
-                user.getAddCourse2Code(),
-                user.getAddCourse2Name(),
-                user.getAddCourse2Section(),
-                user.getAddCourse2DayAndTime(),
-                user.getAddCourse2Credits(),
-                user.getAddCourse2InstructorName(),
-                user.isAddCourse2InstructorPermission(),
+                addDropData.getAddCourse2Code(),
+                addDropData.getAddCourse2Name(),
+                addDropData.getAddCourse2Section(),
+                addDropData.getAddCourse2DayAndTime(),
+                addDropData.getAddCourse2Credits(),
+                addDropData.getAddCourse2InstructorName(),
+                addDropData.isAddCourse2InstructorPermission(),
 
-                user.getAddCourse3Code(),
-                user.getAddCourse3Name(),
-                user.getAddCourse3Section(),
-                user.getAddCourse3DayAndTime(),
-                user.getAddCourse3Credits(),
-                user.getAddCourse3InstructorName(),
-                user.isAddCourse3InstructorPermission(),
+                addDropData.getAddCourse3Code(),
+                addDropData.getAddCourse3Name(),
+                addDropData.getAddCourse3Section(),
+                addDropData.getAddCourse3DayAndTime(),
+                addDropData.getAddCourse3Credits(),
+                addDropData.getAddCourse3InstructorName(),
+                addDropData.isAddCourse3InstructorPermission(),
 
-                user.getAddCourse4Code(),
-                user.getAddCourse4Name(),
-                user.getAddCourse4Section(),
-                user.getAddCourse4DayAndTime(),
-                user.getAddCourse4Credits(),
-                user.getAddCourse4InstructorName(),
-                user.isAddCourse4InstructorPermission(),
+                addDropData.getAddCourse4Code(),
+                addDropData.getAddCourse4Name(),
+                addDropData.getAddCourse4Section(),
+                addDropData.getAddCourse4DayAndTime(),
+                addDropData.getAddCourse4Credits(),
+                addDropData.getAddCourse4InstructorName(),
+                addDropData.isAddCourse4InstructorPermission(),
 
-                user.getAddCourse5Code(),
-                user.getAddCourse5Name(),
-                user.getAddCourse5Section(),
-                user.getAddCourse5DayAndTime(),
-                user.getAddCourse5Credits(),
-                user.getAddCourse5InstructorName(),
-                user.isAddCourse5InstructorPermission(),
+                addDropData.getAddCourse5Code(),
+                addDropData.getAddCourse5Name(),
+                addDropData.getAddCourse5Section(),
+                addDropData.getAddCourse5DayAndTime(),
+                addDropData.getAddCourse5Credits(),
+                addDropData.getAddCourse5InstructorName(),
+                addDropData.isAddCourse5InstructorPermission(),
 
-                user.getAddCourse6Code(),
-                user.getAddCourse6Name(),
-                user.getAddCourse6Section(),
-                user.getAddCourse6DayAndTime(),
-                user.getAddCourse6Credits(),
-                user.getAddCourse6InstructorName(),
-                user.isAddCourse6InstructorPermission(),
+                addDropData.getAddCourse6Code(),
+                addDropData.getAddCourse6Name(),
+                addDropData.getAddCourse6Section(),
+                addDropData.getAddCourse6DayAndTime(),
+                addDropData.getAddCourse6Credits(),
+                addDropData.getAddCourse6InstructorName(),
+                addDropData.isAddCourse6InstructorPermission(),
 
-                user.getAddCourse7Code(),
-                user.getAddCourse7Name(),
-                user.getAddCourse7Section(),
-                user.getAddCourse7DayAndTime(),
-                user.getAddCourse7Credits(),
-                user.getAddCourse7InstructorName(),
-                user.isAddCourse7InstructorPermission(),
+                addDropData.getAddCourse7Code(),
+                addDropData.getAddCourse7Name(),
+                addDropData.getAddCourse7Section(),
+                addDropData.getAddCourse7DayAndTime(),
+                addDropData.getAddCourse7Credits(),
+                addDropData.getAddCourse7InstructorName(),
+                addDropData.isAddCourse7InstructorPermission(),
 
-                user.getAddCourse8Code(),
-                user.getAddCourse8Name(),
-                user.getAddCourse8Section(),
-                user.getAddCourse8DayAndTime(),
-                user.getAddCourse8Credits(),
-                user.getAddCourse8InstructorName(),
-                user.isAddCourse8InstructorPermission(),
+                addDropData.getAddCourse8Code(),
+                addDropData.getAddCourse8Name(),
+                addDropData.getAddCourse8Section(),
+                addDropData.getAddCourse8DayAndTime(),
+                addDropData.getAddCourse8Credits(),
+                addDropData.getAddCourse8InstructorName(),
+                addDropData.isAddCourse8InstructorPermission(),
 
-                user.getAddCourse9Code(),
-                user.getAddCourse9Name(),
-                user.getAddCourse9Section(),
-                user.getAddCourse9DayAndTime(),
-                user.getAddCourse9Credits(),
-                user.getAddCourse9InstructorName(),
-                user.isAddCourse9InstructorPermission(),
+                addDropData.getAddCourse9Code(),
+                addDropData.getAddCourse9Name(),
+                addDropData.getAddCourse9Section(),
+                addDropData.getAddCourse9DayAndTime(),
+                addDropData.getAddCourse9Credits(),
+                addDropData.getAddCourse9InstructorName(),
+                addDropData.isAddCourse9InstructorPermission(),
 
-                user.getAddCourse10Code(),
-                user.getAddCourse10Name(),
-                user.getAddCourse10Section(),
-                user.getAddCourse10DayAndTime(),
-                user.getAddCourse10Credits(),
-                user.getAddCourse10InstructorName(),
-                user.isAddCourse10InstructorPermission(),
+                addDropData.getAddCourse10Code(),
+                addDropData.getAddCourse10Name(),
+                addDropData.getAddCourse10Section(),
+                addDropData.getAddCourse10DayAndTime(),
+                addDropData.getAddCourse10Credits(),
+                addDropData.getAddCourse10InstructorName(),
+                addDropData.isAddCourse10InstructorPermission(),
 
-                user.getDropCourse1Code(),
-                user.getDropCourse1Name(),
-                user.getDropCourse1Section(),
-                user.getDropCourse1DayAndTime(),
-                user.getDropCourse1Credits(),
-                user.getDropCourse1InstructorName(),
-                user.isDropCourse1InstructorPermission(),
+                addDropData.getDropCourse1Code(),
+                addDropData.getDropCourse1Name(),
+                addDropData.getDropCourse1Section(),
+                addDropData.getDropCourse1DayAndTime(),
+                addDropData.getDropCourse1Credits(),
+                addDropData.getDropCourse1InstructorName(),
+                addDropData.isDropCourse1InstructorPermission(),
 
-                user.getDropCourse2Code(),
-                user.getDropCourse2Name(),
-                user.getDropCourse2Section(),
-                user.getDropCourse2DayAndTime(),
-                user.getDropCourse2Credits(),
-                user.getDropCourse2InstructorName(),
-                user.isDropCourse2InstructorPermission(),
+                addDropData.getDropCourse2Code(),
+                addDropData.getDropCourse2Name(),
+                addDropData.getDropCourse2Section(),
+                addDropData.getDropCourse2DayAndTime(),
+                addDropData.getDropCourse2Credits(),
+                addDropData.getDropCourse2InstructorName(),
+                addDropData.isDropCourse2InstructorPermission(),
 
-                user.getDropCourse3Code(),
-                user.getDropCourse3Name(),
-                user.getDropCourse3Section(),
-                user.getDropCourse3DayAndTime(),
-                user.getDropCourse3Credits(),
-                user.getDropCourse3InstructorName(),
-                user.isDropCourse3InstructorPermission(),
+                addDropData.getDropCourse3Code(),
+                addDropData.getDropCourse3Name(),
+                addDropData.getDropCourse3Section(),
+                addDropData.getDropCourse3DayAndTime(),
+                addDropData.getDropCourse3Credits(),
+                addDropData.getDropCourse3InstructorName(),
+                addDropData.isDropCourse3InstructorPermission(),
 
-                user.getDropCourse4Code(),
-                user.getDropCourse4Name(),
-                user.getDropCourse4Section(),
-                user.getDropCourse4DayAndTime(),
-                user.getDropCourse4Credits(),
-                user.getDropCourse4InstructorName(),
-                user.isDropCourse4InstructorPermission(),
+                addDropData.getDropCourse4Code(),
+                addDropData.getDropCourse4Name(),
+                addDropData.getDropCourse4Section(),
+                addDropData.getDropCourse4DayAndTime(),
+                addDropData.getDropCourse4Credits(),
+                addDropData.getDropCourse4InstructorName(),
+                addDropData.isDropCourse4InstructorPermission(),
 
-                user.getDropCourse5Code(),
-                user.getDropCourse5Name(),
-                user.getDropCourse5Section(),
-                user.getDropCourse5DayAndTime(),
-                user.getDropCourse5Credits(),
-                user.getDropCourse5InstructorName(),
-                user.isDropCourse5InstructorPermission(),
+                addDropData.getDropCourse5Code(),
+                addDropData.getDropCourse5Name(),
+                addDropData.getDropCourse5Section(),
+                addDropData.getDropCourse5DayAndTime(),
+                addDropData.getDropCourse5Credits(),
+                addDropData.getDropCourse5InstructorName(),
+                addDropData.isDropCourse5InstructorPermission(),
 
-                user.getDropCourse6Code(),
-                user.getDropCourse6Name(),
-                user.getDropCourse6Section(),
-                user.getDropCourse6DayAndTime(),
-                user.getDropCourse6Credits(),
-                user.getDropCourse6InstructorName(),
-                user.isDropCourse6InstructorPermission(),
+                addDropData.getDropCourse6Code(),
+                addDropData.getDropCourse6Name(),
+                addDropData.getDropCourse6Section(),
+                addDropData.getDropCourse6DayAndTime(),
+                addDropData.getDropCourse6Credits(),
+                addDropData.getDropCourse6InstructorName(),
+                addDropData.isDropCourse6InstructorPermission(),
 
-                user.getDropCourse7Code(),
-                user.getDropCourse7Name(),
-                user.getDropCourse7Section(),
-                user.getDropCourse7DayAndTime(),
-                user.getDropCourse7Credits(),
-                user.getDropCourse7InstructorName(),
-                user.isDropCourse7InstructorPermission(),
+                addDropData.getDropCourse7Code(),
+                addDropData.getDropCourse7Name(),
+                addDropData.getDropCourse7Section(),
+                addDropData.getDropCourse7DayAndTime(),
+                addDropData.getDropCourse7Credits(),
+                addDropData.getDropCourse7InstructorName(),
+                addDropData.isDropCourse7InstructorPermission(),
 
-                user.getDropCourse8Code(),
-                user.getDropCourse8Name(),
-                user.getDropCourse8Section(),
-                user.getDropCourse8DayAndTime(),
-                user.getDropCourse8Credits(),
-                user.getDropCourse8InstructorName(),
-                user.isDropCourse8InstructorPermission(),
+                addDropData.getDropCourse8Code(),
+                addDropData.getDropCourse8Name(),
+                addDropData.getDropCourse8Section(),
+                addDropData.getDropCourse8DayAndTime(),
+                addDropData.getDropCourse8Credits(),
+                addDropData.getDropCourse8InstructorName(),
+                addDropData.isDropCourse8InstructorPermission(),
 
-                user.getDropCourse9Code(),
-                user.getDropCourse9Name(),
-                user.getDropCourse9Section(),
-                user.getDropCourse9DayAndTime(),
-                user.getDropCourse9Credits(),
-                user.getDropCourse9InstructorName(),
-                user.isDropCourse9InstructorPermission(),
+                addDropData.getDropCourse9Code(),
+                addDropData.getDropCourse9Name(),
+                addDropData.getDropCourse9Section(),
+                addDropData.getDropCourse9DayAndTime(),
+                addDropData.getDropCourse9Credits(),
+                addDropData.getDropCourse9InstructorName(),
+                addDropData.isDropCourse9InstructorPermission(),
 
-                user.getDropCourse10Code(),
-                user.getDropCourse10Name(),
-                user.getDropCourse10Section(),
-                user.getDropCourse10DayAndTime(),
-                user.getDropCourse10Credits(),
-                user.getDropCourse10InstructorName(),
-                user.isDropCourse10InstructorPermission()
+                addDropData.getDropCourse10Code(),
+                addDropData.getDropCourse10Name(),
+                addDropData.getDropCourse10Section(),
+                addDropData.getDropCourse10DayAndTime(),
+                addDropData.getDropCourse10Credits(),
+                addDropData.getDropCourse10InstructorName(),
+                addDropData.isDropCourse10InstructorPermission()
 
         );
     }
-    public List<User> getAllUsers() {
+    public void saveDropW(DropWData dropWData){
+        /*String sql = "INSERT INTO UserInformation (date ,studentFirstName, studentLastName, studentId,studentYear) VALUES (?,?,?, ?, ?)";
+        jdbcTemplate.update(sql,user.getDate(), user.getStudentFirstName(), user.getLastname(), user.getStudentId(),user.getStudentYear());*/
+        String sql = "INSERT INTO DropWForms (Date, Prefix, FirstName, LastName, StudentID, StudentYear," +
+                "    StudentField, Advisor, AddressNumber, Moo, Tumbol, Amphur, Province, PostalCode," +
+                "    MobilePhone, Phone, Cause," +
+                "DropCourse1Code, DropCourse1Name, DropCourse1Section,DropCourse1DayAndTime, DropCourse1Credits, DropCourse1InstructorName,DropCourse1InstructorPermission" +
+                ",DropCourse2Code, DropCourse2Name, DropCourse2Section,DropCourse2DayAndTime, DropCourse2Credits, DropCourse2InstructorName,DropCourse2InstructorPermission," +
+                "DropCourse3Code, DropCourse3Name, DropCourse3Section,DropCourse3DayAndTime, DropCourse3Credits, DropCourse3InstructorName,DropCourse3InstructorPermission," +
+                "DropCourse4Code, DropCourse4Name, DropCourse4Section,DropCourse4DayAndTime, DropCourse4Credits, DropCourse4InstructorName,DropCourse4InstructorPermission," +
+                "DropCourse5Code, DropCourse5Name, DropCourse5Section,DropCourse5DayAndTime, DropCourse5Credits, DropCourse5InstructorName,DropCourse5InstructorPermission," +
+                "DropCourse6Code, DropCourse6Name, DropCourse6Section,DropCourse6DayAndTime, DropCourse6Credits, DropCourse6InstructorName,DropCourse6InstructorPermission," +
+                "DropCourse7Code, DropCourse7Name, DropCourse7Section,DropCourse7DayAndTime, DropCourse7Credits, DropCourse7InstructorName,DropCourse7InstructorPermission," +
+                "DropCourse8Code, DropCourse8Name, DropCourse8Section,DropCourse8DayAndTime, DropCourse8Credits, DropCourse8InstructorName,DropCourse8InstructorPermission," +
+                "DropCourse9Code, DropCourse9Name, DropCourse9Section,DropCourse9DayAndTime, DropCourse9Credits, DropCourse9InstructorName,DropCourse9InstructorPermission," +
+                "DropCourse10Code, DropCourse10Name, DropCourse10Section,DropCourse10DayAndTime, DropCourse10Credits, DropCourse10InstructorName,DropCourse10InstructorPermission"
+
+
+
+
+                + ")" + "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?," +
+                "?,?,?,?,?,?,?," +
+                "?,?,?,?,?,?,?," +
+                "?,?,?,?,?,?,?," +
+                "?,?,?,?,?,?,?," +
+                "?,?,?,?,?,?,?," +
+                "?,?,?,?,?,?,?," +
+                "?,?,?,?,?,?,?," +
+                "?,?,?,?,?,?,?," +
+                "?,?,?,?,?,?,?," +
+                "?,?,?,?,?,?,?)";
+
+        jdbcTemplate.update(sql, dropWData.getDate(), dropWData.getPrefix(), dropWData.getStudentFirstName(), dropWData.getLastname(), dropWData.getStudentId(),
+                dropWData.getStudentYear(), dropWData.getStudentField(), dropWData.getAdvisor(),
+                dropWData.getAdressNumber(), dropWData.getMoo(), dropWData.getTumbol(), dropWData.getAmphur(),
+                dropWData.getProvince(), dropWData.getPostalCode(), dropWData.getMobilePhone(),
+                dropWData.getPhone(), dropWData.getCause() ,
+
+
+                dropWData.getDropCourse1Code(),
+                dropWData.getDropCourse1Name(),
+                dropWData.getDropCourse1Section(),
+                dropWData.getDropCourse1DayAndTime(),
+                dropWData.getDropCourse1Credits(),
+                dropWData.getDropCourse1InstructorName(),
+                dropWData.isDropCourse1InstructorPermission(),
+
+                dropWData.getDropCourse2Code(),
+                dropWData.getDropCourse2Name(),
+                dropWData.getDropCourse2Section(),
+                dropWData.getDropCourse2DayAndTime(),
+                dropWData.getDropCourse2Credits(),
+                dropWData.getDropCourse2InstructorName(),
+                dropWData.isDropCourse2InstructorPermission(),
+
+                dropWData.getDropCourse3Code(),
+                dropWData.getDropCourse3Name(),
+                dropWData.getDropCourse3Section(),
+                dropWData.getDropCourse3DayAndTime(),
+                dropWData.getDropCourse3Credits(),
+                dropWData.getDropCourse3InstructorName(),
+                dropWData.isDropCourse3InstructorPermission(),
+
+                dropWData.getDropCourse4Code(),
+                dropWData.getDropCourse4Name(),
+                dropWData.getDropCourse4Section(),
+                dropWData.getDropCourse4DayAndTime(),
+                dropWData.getDropCourse4Credits(),
+                dropWData.getDropCourse4InstructorName(),
+                dropWData.isDropCourse4InstructorPermission(),
+
+                dropWData.getDropCourse5Code(),
+                dropWData.getDropCourse5Name(),
+                dropWData.getDropCourse5Section(),
+                dropWData.getDropCourse5DayAndTime(),
+                dropWData.getDropCourse5Credits(),
+                dropWData.getDropCourse5InstructorName(),
+                dropWData.isDropCourse5InstructorPermission(),
+
+                dropWData.getDropCourse6Code(),
+                dropWData.getDropCourse6Name(),
+                dropWData.getDropCourse6Section(),
+                dropWData.getDropCourse6DayAndTime(),
+                dropWData.getDropCourse6Credits(),
+                dropWData.getDropCourse6InstructorName(),
+                dropWData.isDropCourse6InstructorPermission(),
+
+                dropWData.getDropCourse7Code(),
+                dropWData.getDropCourse7Name(),
+                dropWData.getDropCourse7Section(),
+                dropWData.getDropCourse7DayAndTime(),
+                dropWData.getDropCourse7Credits(),
+                dropWData.getDropCourse7InstructorName(),
+                dropWData.isDropCourse7InstructorPermission(),
+
+                dropWData.getDropCourse8Code(),
+                dropWData.getDropCourse8Name(),
+                dropWData.getDropCourse8Section(),
+                dropWData.getDropCourse8DayAndTime(),
+                dropWData.getDropCourse8Credits(),
+                dropWData.getDropCourse8InstructorName(),
+                dropWData.isDropCourse8InstructorPermission(),
+
+                dropWData.getDropCourse9Code(),
+                dropWData.getDropCourse9Name(),
+                dropWData.getDropCourse9Section(),
+                dropWData.getDropCourse9DayAndTime(),
+                dropWData.getDropCourse9Credits(),
+                dropWData.getDropCourse9InstructorName(),
+                dropWData.isDropCourse9InstructorPermission(),
+
+                dropWData.getDropCourse10Code(),
+                dropWData.getDropCourse10Name(),
+                dropWData.getDropCourse10Section(),
+                dropWData.getDropCourse10DayAndTime(),
+                dropWData.getDropCourse10Credits(),
+                dropWData.getDropCourse10InstructorName(),
+                dropWData.isDropCourse10InstructorPermission()
+
+        );
+    }
+    public List<addDropData> getAllUsers() {
         String sql = "SELECT * FROM UserInformation";
-        return jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(User.class));
+        return jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(addDropData.class));
     }
 
-    public void saveAddCourses(User user) {
+    /*public void saveAddCourses(addDropData addDropData) {
         String sql = "INSERT INTO UserInformation (AddCourse1Code, AddCourse1Name,AddCourse1Section,AddCourse1DayAndTime, AddCourse1Credits, AddCourse1InstructorName, AddCourse1InstructorPermission) VALUES (?, ?, ?, ?, ?, ?, ?)";
         jdbcTemplate.update(sql,
-                user.getAddCourse1Code(),
-                user.getAddCourse1Name(),
-                user.getAddCourse1Section(),
-                user.getAddCourse1DayAndTime(),
-                user.getAddCourse1Credits(),
-                user.getAddCourse1InstructorName(),
-                user.isAddCourse1InstructorPermission()
+                addDropData.getAddCourse1Code(),
+                addDropData.getAddCourse1Name(),
+                addDropData.getAddCourse1Section(),
+                addDropData.getAddCourse1DayAndTime(),
+                addDropData.getAddCourse1Credits(),
+                addDropData.getAddCourse1InstructorName(),
+                addDropData.isAddCourse1InstructorPermission()
         );
 
         // Repeat the above code for AddCourse2, AddCourse3, and so on
         // You may need a loop to do this dynamically
-    }
+    }*/
 
-    public List<User> getDataById(Long userId) {
+    public List<addDropData> getDataById(Long userId) {
         String sql = "SELECT date, firstName FROM addDropForms WHERE id = ?";
-        return jdbcTemplate.query(sql, new Object[]{userId}, new BeanPropertyRowMapper<>(User.class));
+        return jdbcTemplate.query(sql, new Object[]{userId}, new BeanPropertyRowMapper<>(addDropData.class));
     }
 
 }

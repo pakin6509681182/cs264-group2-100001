@@ -1,4 +1,6 @@
+
     document.addEventListener('DOMContentLoaded', function() {
+        const add_courses_table = document.getElementById('add_courses_table');
         let formSubmitted = false;
         document.getElementById('userForm').addEventListener('submit', function(event) {
             event.preventDefault();
@@ -198,7 +200,7 @@
 
 
 
-            fetch('/users', {
+            fetch('/users/addDrop', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

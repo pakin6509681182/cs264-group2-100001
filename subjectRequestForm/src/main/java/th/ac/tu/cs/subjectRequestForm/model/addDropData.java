@@ -1,12 +1,10 @@
 package th.ac.tu.cs.subjectRequestForm.model;
 
-import org.springframework.cglib.core.Local;
-
 import java.sql.Date;
 import java.time.LocalDateTime;
 //import java.time.LocalDateTime;
 
-public class User {
+public class addDropData {
     public String getStudentFirstName() {
         return studentFirstName;
     }
