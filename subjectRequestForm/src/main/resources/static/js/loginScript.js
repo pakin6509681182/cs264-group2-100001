@@ -76,7 +76,6 @@ function login(user, pass) {
         },
         body: jsonData
     })
-
         .then(response => response.json())
         .then(data => {
             // Display a success message on the web page
