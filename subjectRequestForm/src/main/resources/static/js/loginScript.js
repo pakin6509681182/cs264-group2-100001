@@ -5,7 +5,6 @@ window.addEventListener('popstate', function (event)
 {
   history.pushState(null, document.title, location.href);
 });
-
 document.querySelector('form').addEventListener('submit', function (event) {
     event.preventDefault();
     var formData = new FormData(document.querySelector("form"));
@@ -77,6 +76,7 @@ function login(user, pass) {
         },
         body: jsonData
     })
+
         .then(response => response.json())
         .then(data => {
             // Display a success message on the web page
