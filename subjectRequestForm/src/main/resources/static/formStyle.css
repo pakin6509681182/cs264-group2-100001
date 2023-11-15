@@ -1,6 +1,5 @@
 @import url(font.css);
 
-/* Apply some basic styling to the body and header */
 body {
     margin: 0;
     padding: 0;
@@ -21,12 +20,10 @@ body {
     color: #fff;
 }
 
-/* Style the form and form elements */
 form {
     font-family: 'Kanit-Light', sans-serif;
     padding: 20px;
     border-radius: 5px;
-    /* Add rounded corners to the form */
 }
 
 form label {
@@ -40,41 +37,18 @@ form label {
 form input {
     background: rgba(181, 185, 190, 0.5);
     display: inline-block;
-    width: 100%; /* คำนวณความกว้างให้แบ่งเท่าๆ กันและลดการชนกับ margin */
+    width: 100%;
     padding: 10px;
     margin-bottom: 16px;
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
+    color: #fff;
 }
-        #date,#studentId,#tumbol,#amphur,#postalCode,#phone,#mobilePhone {
-            width: calc(20% - 4px);
-        }
-        #studentFirstName,#lastname,#studentField,#advisor,#reg,#teacher  {
-            width: calc(34% - 4px);
-        }
-        #studentYear,#semester,#year, #code {
-            width: calc(10% - 4px);
-        }
-        #adressNumber,#moo, #section {
-            width: calc(15% - 4px);
-        }
-        #province{
-            width: calc(30% - 4px);
-        }
-
-        
-/* เพิ่ม ถอน */ 
-        #add_courses {
-            width: calc(15% - 4px);
-        }
-        #drop_courses {
-            width: calc(15% - 4px);
-        }
 
 form select {
-    display: inline-block;
-    width: calc(10% - 4px);
+    display: block;
+    width: 100%;
     margin-bottom: 10px;
     padding: 8px;
     color: #fff;
@@ -82,6 +56,11 @@ form select {
     border-radius: 4px;
     box-sizing: border-box;
 }
+
+select option {
+    background-color: grey !important;
+}
+
 
 form button, select {
     background: rgba(181, 185, 190, 0.5);
@@ -92,7 +71,6 @@ form button, select {
     margin: 0 auto;
 }
 
-/* Style the button */
 form button[type="submit"] {
     font-size: 20px;
     border-radius: 13px;
@@ -105,26 +83,20 @@ form button[type="submit"] {
 }
 
 
-/* Style the result div */
 #result {
     margin-top: 20px;
     padding: 10px;
-    background-color: #333;
     color: #fff;
     border-radius: 5px;
 }
 
-/* Style for the grid container */
 .subject-grid {
     display: grid;
     grid-template-columns: repeat(10, minmax(100px, 1fr));
-    /* Adjust the number of columns and the minimum size as needed */
     gap: 10px;
     grid-auto-rows: minmax(100px, auto);
-    /* Adjust the minimum row size as needed */
 }
 
-/* Style for each subject group */
 .subject-group {
     border: 1px solid #ccc;
     padding: 10px;
@@ -140,17 +112,61 @@ form button[type="submit"] {
     border-radius: 10px;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
     height: auto;
-    /* ปรับความสูงให้พอดีกับเนื้อหา */
     display: flex; 
-    /* ใช้ Flexbox */
     flex-direction: column;
-    /* ตั้งค่าให้เรียงเนื้อหาใน container เป็นแนวตั้ง */
     justify-content: center;
-    /* จัดเนื้อหาตรงกลางแนวตั้ง */
     align-items: center;
-    /* จัดเนื้อหาตรงกลางแนวนอน */
     margin-left: auto;
     margin-right: auto;
     box-sizing: border-box; 
-    /* เพิ่มบรรทัดนี้ */
+}
+
+.course {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.course-input {
+    display: inline-block;
+    width: calc(20% - 10px);
+    margin-right: 10px;
+}
+
+#add_courses_table,
+#drop_courses_table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+#add_courses_table th,
+#add_courses_table td,
+#drop_courses_table th,
+#drop_courses_table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+#add_courses_table th,
+#drop_courses_table th {
+    background: rgba(214, 162, 0, 1);
+}
+
+.logo {
+    margin: 0px 20px 20px 20px;
+}
+
+textarea {
+    width:100%;
+    background: rgba(181, 185, 190, 0.5);
+    border:1px solid #ccc;
+    border-radius:4px ;
+    box-sizing: border-box; 
+    color: #fff;
+}
+
+input[type="checkbox"] {
+    width: auto;
+    margin-right: 5px;
 }
