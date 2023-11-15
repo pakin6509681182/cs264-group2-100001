@@ -28,7 +28,13 @@ document.addEventListener('DOMContentLoaded', function() {
                 postalCode: formData.get('postalCode'),
                 mobilePhone: formData.get('mobilePhone'),
                 phone: formData.get('phone'),
-                reason: formData.get('reason'),
+                reg: formData.get('reg'),
+                code: formData.get('code'),
+                section: formData.get('section'),
+                semester: formData.get('semester'),
+                year: formData.get('year'),  
+                teacher: formData.get('teacher'),     
+                reason: formData.get('reason')         
             };
 
             fetch('/users', {

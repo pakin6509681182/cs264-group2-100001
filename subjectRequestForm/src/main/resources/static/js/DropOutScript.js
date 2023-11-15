@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function() {
             postalCode: formData.get('postalCode'),
             mobilePhone: formData.get('mobilePhone'),
             phone: formData.get('phone'),
-            cause: formData.get('cause'),
+            reason: formData.get('cause'),
 
 
         };
@@ -59,14 +59,14 @@ document.addEventListener('DOMContentLoaded', function() {
                 });
             }*/
         })
-        /*.catch(error => {
+        .catch(error => {
             console.error('Error:', error);
             document.getElementById('result').innerText = 'An error occurred while saving the user.';
-        });*/
+        });
     }
 });
 
-for(let k = 0 ; k<10 ; k++){
+/*for(let k = 0 ; k<10 ; k++){
     addCourse('add_courses_table');
     addCourse('drop_courses_table');
 }
@@ -129,4 +129,4 @@ function updateTable(tableId, numRows) {
         }
         }
     }
-
+*/
