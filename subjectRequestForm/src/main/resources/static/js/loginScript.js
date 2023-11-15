@@ -1,6 +1,16 @@
+<<<<<<< Updated upstream
 window.onload = function () {
     sessionStorage.clear();
 }
+=======
+sessionStorage.clear();
+
+history.pushState(null, document.title, location.href);
+window.addEventListener('popstate', function (event)
+{
+  history.pushState(null, document.title, location.href);
+});
+>>>>>>> Stashed changes
 
 document.querySelector('form').addEventListener('submit', function (event) {
     event.preventDefault();
