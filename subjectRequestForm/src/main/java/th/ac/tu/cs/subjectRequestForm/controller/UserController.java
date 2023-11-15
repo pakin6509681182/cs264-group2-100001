@@ -2,9 +2,7 @@ package th.ac.tu.cs.subjectRequestForm.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import th.ac.tu.cs.subjectRequestForm.model.DropWData;
-import th.ac.tu.cs.subjectRequestForm.model.addDropData;
-import th.ac.tu.cs.subjectRequestForm.model.regCrossData;
+import th.ac.tu.cs.subjectRequestForm.model.*;
 import th.ac.tu.cs.subjectRequestForm.repository.JdbcUserRepository;
 
 import java.util.List;
@@ -28,6 +26,15 @@ public class UserController {
     public void addUser(@RequestBody regCrossData a) {
         userDao.saveRegCross(a);
     }
+    @RequestMapping(value = "/dropOut", method = RequestMethod.POST)
+    public void addUser(@RequestBody dropOutData a) {
+        userDao.saveDropout(a);
+    }
+    @RequestMapping(value = "/other", method = RequestMethod.POST)
+    public void addUser(@RequestBody otherData a) {
+        userDao.saveOther(a);
+    }
+
 
 
     @GetMapping

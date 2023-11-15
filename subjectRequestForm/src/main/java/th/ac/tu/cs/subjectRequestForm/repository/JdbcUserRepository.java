@@ -4,9 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
-import th.ac.tu.cs.subjectRequestForm.model.DropWData;
-import th.ac.tu.cs.subjectRequestForm.model.addDropData;
-import th.ac.tu.cs.subjectRequestForm.model.regCrossData;
+import th.ac.tu.cs.subjectRequestForm.model.*;
 
 import java.util.List;
 
@@ -356,6 +354,7 @@ public class JdbcUserRepository {
         );
     }
     public void saveRegCross(regCrossData regCrossData){
+
         /*String sql = "INSERT INTO UserInformation (date ,studentFirstName, studentLastName, studentId,studentYear) VALUES (?,?,?, ?, ?)";
         jdbcTemplate.update(sql,user.getDate(), user.getStudentFirstName(), user.getLastname(), user.getStudentId(),user.getStudentYear());*/
         String sql = "INSERT INTO regCrossForms (status,Date, Prefix, FirstName, LastName, StudentID, StudentYear," +
@@ -377,6 +376,51 @@ public class JdbcUserRepository {
 
         );
     }
+    public void saveDropout(dropOutData dropOutData){
+        /*String sql = "INSERT INTO UserInformation (date ,studentFirstName, studentLastName, studentId,studentYear) VALUES (?,?,?, ?, ?)";
+        jdbcTemplate.update(sql,user.getDate(), user.getStudentFirstName(), user.getLastname(), user.getStudentId(),user.getStudentYear());*/
+        String sql = "INSERT INTO dropOutForms (status,Date, Prefix, FirstName, LastName, StudentID, StudentYear," +
+                "    StudentField, Advisor, AddressNumber, Moo, Tumbol, Amphur, Province, PostalCode," +
+                "    MobilePhone, Phone,type,reason  "
+
+
+
+
+
+                + ")" + "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)" ;
+
+
+        jdbcTemplate.update(sql, dropOutData.getStatus(),dropOutData.getDate(), dropOutData.getPrefix(), dropOutData.getStudentFirstName(), dropOutData.getLastname(), dropOutData.getStudentId(),
+                dropOutData.getStudentYear(), dropOutData.getStudentField(), dropOutData.getAdvisor(),
+                dropOutData.getAdressNumber(), dropOutData.getMoo(), dropOutData.getTumbol(), dropOutData.getAmphur(),
+                dropOutData.getProvince(), dropOutData.getPostalCode(), dropOutData.getMobilePhone(),
+                dropOutData.getPhone(),dropOutData.getType() ,dropOutData.getReason()
+
+        );
+    }
+    public void saveOther(otherData dropOutData){
+        /*String sql = "INSERT INTO UserInformation (date ,studentFirstName, studentLastName, studentId,studentYear) VALUES (?,?,?, ?, ?)";
+        jdbcTemplate.update(sql,user.getDate(), user.getStudentFirstName(), user.getLastname(), user.getStudentId(),user.getStudentYear());*/
+        String sql = "INSERT INTO otherForms (status,Date, Prefix, FirstName, LastName, StudentID, StudentYear," +
+                "    StudentField, Advisor, AddressNumber, Moo, Tumbol, Amphur, Province, PostalCode," +
+                "    MobilePhone, Phone,reason  "
+
+
+
+
+
+                + ")" + "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)" ;
+
+
+        jdbcTemplate.update(sql, dropOutData.getStatus(),dropOutData.getDate(), dropOutData.getPrefix(), dropOutData.getStudentFirstName(), dropOutData.getLastname(), dropOutData.getStudentId(),
+                dropOutData.getStudentYear(), dropOutData.getStudentField(), dropOutData.getAdvisor(),
+                dropOutData.getAdressNumber(), dropOutData.getMoo(), dropOutData.getTumbol(), dropOutData.getAmphur(),
+                dropOutData.getProvince(), dropOutData.getPostalCode(), dropOutData.getMobilePhone(),
+                dropOutData.getPhone(),dropOutData.getReason()
+
+        );
+    }
+
     public List<addDropData> getAllUsers() {
         String sql = "SELECT * FROM UserInformation";
         return jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(addDropData.class));
