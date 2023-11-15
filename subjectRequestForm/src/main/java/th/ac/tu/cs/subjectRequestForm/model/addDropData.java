@@ -5,6 +5,16 @@ import java.time.LocalDateTime;
 //import java.time.LocalDateTime;
 
 public class addDropData {
+    public addDropData() {
+        status = "กำลังรอดำเนินการ";
+    }
+    public String status;
+    public String getStatus() {
+        return status;
+    }
+    public void setStatus(String status) {
+        this.status = status;
+    }
     public String getStudentFirstName() {
         return studentFirstName;
     }

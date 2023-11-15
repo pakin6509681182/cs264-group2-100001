@@ -6,6 +6,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 import th.ac.tu.cs.subjectRequestForm.model.DropWData;
 import th.ac.tu.cs.subjectRequestForm.model.addDropData;
+import th.ac.tu.cs.subjectRequestForm.model.regCrossData;
 
 import java.util.List;
 
@@ -17,7 +18,7 @@ public class JdbcUserRepository {
     public void saveAddDrop(addDropData addDropData){
         /*String sql = "INSERT INTO UserInformation (date ,studentFirstName, studentLastName, studentId,studentYear) VALUES (?,?,?, ?, ?)";
         jdbcTemplate.update(sql,user.getDate(), user.getStudentFirstName(), user.getLastname(), user.getStudentId(),user.getStudentYear());*/
-        String sql = "INSERT INTO addDropForms (Date, Prefix, FirstName, LastName, StudentID, StudentYear," +
+        String sql = "INSERT INTO addDropForms (status,Date, Prefix, FirstName, LastName, StudentID, StudentYear," +
                 "    StudentField, Advisor, AddressNumber, Moo, Tumbol, Amphur, Province, PostalCode," +
                 "    MobilePhone, Phone, Cause," +
                     "AddCourse1Code, AddCourse1Name, AddCourse1Section,AddCourse1DayAndTime, AddCourse1Credits, AddCourse1InstructorName,AddCourse1InstructorPermission"+
@@ -44,7 +45,7 @@ public class JdbcUserRepository {
 
 
 
-              + ")" + "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?," +
+              + ")" + "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?," +
                 "?,?,?,?,?,?,?," +
                 "?,?,?,?,?,?,?," +
                 "?,?,?,?,?,?,?," +
@@ -66,7 +67,7 @@ public class JdbcUserRepository {
                 "?,?,?,?,?,?,?," +
                 "?,?,?,?,?,?,?)";
 
-        jdbcTemplate.update(sql, addDropData.getDate(), addDropData.getPrefix(), addDropData.getStudentFirstName(), addDropData.getLastname(), addDropData.getStudentId(),
+        jdbcTemplate.update(sql, addDropData.getStatus(),addDropData.getDate(), addDropData.getPrefix(), addDropData.getStudentFirstName(), addDropData.getLastname(), addDropData.getStudentId(),
                 addDropData.getStudentYear(), addDropData.getStudentField(), addDropData.getAdvisor(),
                 addDropData.getAdressNumber(), addDropData.getMoo(), addDropData.getTumbol(), addDropData.getAmphur(),
                 addDropData.getProvince(), addDropData.getPostalCode(), addDropData.getMobilePhone(),
@@ -236,7 +237,7 @@ public class JdbcUserRepository {
     public void saveDropW(DropWData dropWData){
         /*String sql = "INSERT INTO UserInformation (date ,studentFirstName, studentLastName, studentId,studentYear) VALUES (?,?,?, ?, ?)";
         jdbcTemplate.update(sql,user.getDate(), user.getStudentFirstName(), user.getLastname(), user.getStudentId(),user.getStudentYear());*/
-        String sql = "INSERT INTO DropWForms (Date, Prefix, FirstName, LastName, StudentID, StudentYear," +
+        String sql = "INSERT INTO DropWForms (status,Date, Prefix, FirstName, LastName, StudentID, StudentYear," +
                 "    StudentField, Advisor, AddressNumber, Moo, Tumbol, Amphur, Province, PostalCode," +
                 "    MobilePhone, Phone, Cause,gpax, " +
                 "DropCourse1Code, DropCourse1Name, DropCourse1Section,DropCourse1DayAndTime, DropCourse1Credits, DropCourse1InstructorName,DropCourse1InstructorPermission" +
@@ -253,7 +254,7 @@ public class JdbcUserRepository {
 
 
 
-                + ")" + "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?," +
+                + ")" + "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?," +
                 "?,?,?,?,?,?,?," +
                 "?,?,?,?,?,?,?," +
                 "?,?,?,?,?,?,?," +
@@ -265,7 +266,7 @@ public class JdbcUserRepository {
                 "?,?,?,?,?,?,?," +
                 "?,?,?,?,?,?,?)";
 
-        jdbcTemplate.update(sql, dropWData.getDate(), dropWData.getPrefix(), dropWData.getStudentFirstName(), dropWData.getLastname(), dropWData.getStudentId(),
+        jdbcTemplate.update(sql, dropWData.getStatus(),dropWData.getDate(), dropWData.getPrefix(), dropWData.getStudentFirstName(), dropWData.getLastname(), dropWData.getStudentId(),
                 dropWData.getStudentYear(), dropWData.getStudentField(), dropWData.getAdvisor(),
                 dropWData.getAdressNumber(), dropWData.getMoo(), dropWData.getTumbol(), dropWData.getAmphur(),
                 dropWData.getProvince(), dropWData.getPostalCode(), dropWData.getMobilePhone(),
@@ -351,6 +352,28 @@ public class JdbcUserRepository {
                 dropWData.getDropCourse10Credits(),
                 dropWData.getDropCourse10InstructorName(),
                 dropWData.isDropCourse10InstructorPermission()
+
+        );
+    }
+    public void saveRegCross(regCrossData regCrossData){
+        /*String sql = "INSERT INTO UserInformation (date ,studentFirstName, studentLastName, studentId,studentYear) VALUES (?,?,?, ?, ?)";
+        jdbcTemplate.update(sql,user.getDate(), user.getStudentFirstName(), user.getLastname(), user.getStudentId(),user.getStudentYear());*/
+        String sql = "INSERT INTO regCrossForms (status,Date, Prefix, FirstName, LastName, StudentID, StudentYear," +
+                "    StudentField, Advisor, AddressNumber, Moo, Tumbol, Amphur, Province, PostalCode," +
+                "    MobilePhone, Phone,reg,code,section,semester,year,teacher,reason  "
+
+
+
+
+
+                + ")" + "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)" ;
+
+
+        jdbcTemplate.update(sql, regCrossData.getStatus(),regCrossData.getDate(), regCrossData.getPrefix(), regCrossData.getStudentFirstName(), regCrossData.getLastname(), regCrossData.getStudentId(),
+                regCrossData.getStudentYear(), regCrossData.getStudentField(), regCrossData.getAdvisor(),
+                regCrossData.getAdressNumber(), regCrossData.getMoo(), regCrossData.getTumbol(), regCrossData.getAmphur(),
+                regCrossData.getProvince(), regCrossData.getPostalCode(), regCrossData.getMobilePhone(),
+                regCrossData.getPhone(), regCrossData.getReg(),regCrossData.getCode(),regCrossData.getSection(),regCrossData.getSemester(),regCrossData.getYear(),regCrossData.getTeacher(),regCrossData.getReason()
 
         );
     }

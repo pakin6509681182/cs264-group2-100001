@@ -8,8 +8,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
     function submitForm() {
-        console.log(add_courses_table.rows[1].cells[0].querySelector('input').value);
-        console.log(add_courses_table.rows[2].cells[0].querySelector('input').value);
             const formData = new FormData(document.getElementById('userForm'));
             const user = {
                 date: formData.get('date'),
@@ -37,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 reason: formData.get('reason')         
             };
 
-            fetch('/users', {
+            fetch('/users/regCross', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

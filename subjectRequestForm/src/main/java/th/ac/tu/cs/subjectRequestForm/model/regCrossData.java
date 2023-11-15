@@ -4,8 +4,77 @@ import java.sql.Date;
 import java.time.LocalDateTime;
 //import java.time.LocalDateTime;
 
-public class DropWData {
-    public DropWData() {
+public class regCrossData {
+
+    String reg;
+
+    public String getReg() {
+        return reg;
+    }
+
+    public void setReg(String reg) {
+        this.reg = reg;
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
+    public String getSection() {
+        return section;
+    }
+
+    public void setSection(String section) {
+        this.section = section;
+    }
+
+    public String getSemester() {
+        return semester;
+    }
+
+    public void setSemester(String semester) {
+        this.semester = semester;
+    }
+
+    public String getYear() {
+        return year;
+    }
+
+    public void setYear(String year) {
+        this.year = year;
+    }
+
+    public String getTeacher() {
+        return teacher;
+    }
+
+    public void setTeacher(String teacher) {
+        this.teacher = teacher;
+    }
+
+    public String getReason() {
+        return reason;
+    }
+
+    public void setReason(String reason) {
+        this.reason = reason;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    String code;
+    String section;
+    String semester;
+    String year;
+    String teacher;
+    String reason;
+    public regCrossData() {
         status = "กำลังรอดำเนินการ";
     }
     public String status;
