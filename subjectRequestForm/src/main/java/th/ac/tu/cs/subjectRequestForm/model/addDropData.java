@@ -5,19 +5,7 @@ import java.time.LocalDateTime;
 //import java.time.LocalDateTime;
 
 public class addDropData {
-    public addDropData() {
-        status = "กำลังรอดำเนินการ";
-    }
     public String status;
-    public String getStatus() {
-        return status;
-    }
-    public void setStatus(String status) {
-        this.status = status;
-    }
-    public String getStudentFirstName() {
-        return studentFirstName;
-    }
     private String studentFirstName;
     private String lastname;
     private String studentId;
@@ -176,6 +164,21 @@ public class addDropData {
     private int dropCourse10Credits;
     private String dropCourse10InstructorName;
     private boolean dropCourse10InstructorPermission;
+    public addDropData() {
+        status = "กำลังรอดำเนินการ";
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public String getStudentFirstName() {
+        return studentFirstName;
+    }
 
     public String getFirstName() {
         return studentFirstName;

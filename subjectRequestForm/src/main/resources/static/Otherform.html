@@ -71,8 +71,8 @@
                     <option value="นางสาว">นางสาว</option>
                 </select>
     
-                <label for="studentFirstName">ชื่อจริง:</label>
-                <input type="text" id="studentFirstName" name="studentFirstName" class="form input" required>
+                <label for="firstName">ชื่อจริง:</label>
+                <input type="text" id="firstName" name="firstName" class="form input" required>
                 
                 <label for="lastname">นามสกุล:</label>
                 <input type="text" id="lastname" name="lastname" class="form input" required>
@@ -87,8 +87,8 @@
                 <input type="text" id="studentField" name="studentField" class="form input" required><br>
                 
                 <!-- ข้อมูลติดต่อ -->
-                <label for="adressNumber">ที่อยู่ที่ติดต่อได้:</label>
-                <input type="text" id="adressNumber" name="adressNumber" required>
+                <label for="addressNumber">ที่อยู่ที่ติดต่อได้:</label>
+                <input type="text" id="addressNumber" name="addressNumber" required>
     
                 <label for="moo">หมู่ที่:</label>
                 <input type="text" id="moo" name="moo" required>
@@ -119,6 +119,58 @@
             <button type="submit">ส่งข้อมูล</button>
         </form>
         <div id="result"></div>
-        <script src="js/Otherform.js"></script>
 </body>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+    let formSubmitted = false;
+    document.getElementById('userForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        if (!formSubmitted) {
+            formSubmitted = true;
+            submitForm();
+        }
+    });
+    function submitForm() {
+            const formData = new FormData(document.getElementById('userForm'));
+            const user = {
+                date: formData.get('date'),
+                prefix: formData.get('prefix'),
+                firstName: formData.get('firstName'),
+                lastname: formData.get('lastname'),
+                studentId: formData.get('studentId'),
+                studentYear: formData.get('studentYear'),
+                studentField: formData.get('studentField'),
+                addressNumber: formData.get('addressNumber'),
+                moo: formData.get('moo'),
+                tumbol: formData.get('tumbol'),
+                amphur: formData.get('amphur'),
+                province: formData.get('province'),
+                postalCode: formData.get('postalCode'),
+                phone: formData.get('phone'),
+                mobilePhone: formData.get('mobilePhone'),
+                advisor: formData.get('advisor'),
+                reason: formData.get('reason')
+            };
+
+            fetch('/users/other', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(user)
+            })
+            .then(response => {
+                if (response.ok) {
+                    document.getElementById('userForm').reset();
+                    document.getElementById('result').innerText = 'บันทึกข้อมูลสำเร็จ';
+                    formSubmitted = false;
+                } 
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                document.getElementById('result').innerText = 'An error occurred while saving the user.';
+            });
+        }
+    });
+</script>
 </html>

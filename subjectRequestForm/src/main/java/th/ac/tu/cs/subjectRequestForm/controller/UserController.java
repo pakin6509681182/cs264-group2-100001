@@ -44,6 +44,7 @@ public class UserController {
     public List<addDropData> getAllUsers() {
         return userDao.getAllUsers();
     }
+
     @GetMapping("/getAddDropDataById")
     @ResponseBody
     public ResponseEntity<List<addDropData>> getAddDropDataById(@RequestParam String id) {
@@ -58,7 +59,7 @@ public class UserController {
 
     @GetMapping("/getDropWDataById")
     @ResponseBody
-    public ResponseEntity<List<DropWData>> getDropWDataById(@PathVariable String id) {
+    public ResponseEntity<List<DropWData>> getDropWDataById(@RequestParam String id) {
         try {
             List<DropWData> data = userDao.getDropWDataById(id);
             return new ResponseEntity<>(data, HttpStatus.OK);
@@ -67,4 +68,41 @@ public class UserController {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
     }
+
+    @GetMapping("/getDropOutDataById")
+    @ResponseBody
+    public ResponseEntity<List<dropOutData>> getDropOutDataById(@RequestParam String id) {
+        try {
+            List<dropOutData> data = userDao.getDropOutDataById(id);
+            return new ResponseEntity<>(data, HttpStatus.OK);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+    }
+
+    @GetMapping("/getOtherDataById")
+    @ResponseBody
+    public ResponseEntity<List<otherData>> getOtherDataById(@RequestParam String id) {
+        try {
+            List<otherData> data = userDao.getOtherDataById(id);
+            return new ResponseEntity<>(data, HttpStatus.OK);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+    }
+
+    @GetMapping("/getRegCrossDataById")
+    @ResponseBody
+    public ResponseEntity<List<regCrossData>> getRegCrossDataById(@RequestParam String id) {
+        try {
+            List<regCrossData> data = userDao.getRegCrossDataById(id);
+            return new ResponseEntity<>(data, HttpStatus.OK);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+    }
+    
 }

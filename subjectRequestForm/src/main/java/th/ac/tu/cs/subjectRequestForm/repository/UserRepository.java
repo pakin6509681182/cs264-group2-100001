@@ -17,5 +17,7 @@ public interface UserRepository {
     public void saveRegCross(regCrossData a);
     public void saveDropout(dropOutData a);
     public void saveOther(otherData a);
-
+    public List<dropOutData> getDropOutDataById(String userId);
+    public List<otherData> getOtherDataById(String userId);
+    public List<regCrossData> getRegCrossDataById(String userId);
 }

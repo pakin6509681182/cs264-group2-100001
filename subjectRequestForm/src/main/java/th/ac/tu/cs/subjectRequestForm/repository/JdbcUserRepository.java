@@ -265,9 +265,9 @@ public class JdbcUserRepository implements UserRepository {
                 "?,?,?,?,?,?,?)";
 
 
-        jdbcTemplate.update(sql, dropWData.getStatus(),dropWData.getDate(), dropWData.getPrefix(), dropWData.getStudentFirstName(), dropWData.getLastname(), dropWData.getStudentId(),
+        jdbcTemplate.update(sql, dropWData.getStatus(),dropWData.getDate(), dropWData.getPrefix(), dropWData.getFirstName(), dropWData.getLastname(), dropWData.getStudentId(),
                 dropWData.getStudentYear(), dropWData.getStudentField(), dropWData.getAdvisor(),
-                dropWData.getAdressNumber(), dropWData.getMoo(), dropWData.getTumbol(), dropWData.getAmphur(),
+                dropWData.getAddressNumber(), dropWData.getMoo(), dropWData.getTumbol(), dropWData.getAmphur(),
                 dropWData.getProvince(), dropWData.getPostalCode(), dropWData.getMobilePhone(),
                 dropWData.getPhone(), dropWData.getCause() , dropWData.getGpax(),
 
@@ -368,31 +368,24 @@ public class JdbcUserRepository implements UserRepository {
                 + ")" + "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)" ;
 
 
-        jdbcTemplate.update(sql, regCrossData.getStatus(),regCrossData.getDate(), regCrossData.getPrefix(), regCrossData.getStudentFirstName(), regCrossData.getLastname(), regCrossData.getStudentId(),
+        jdbcTemplate.update(sql, regCrossData.getStatus(),regCrossData.getDate(), regCrossData.getPrefix(), regCrossData.getFirstName(), regCrossData.getLastname(), regCrossData.getStudentId(),
                 regCrossData.getStudentYear(), regCrossData.getStudentField(), regCrossData.getAdvisor(),
-                regCrossData.getAdressNumber(), regCrossData.getMoo(), regCrossData.getTumbol(), regCrossData.getAmphur(),
+                regCrossData.getAddressNumber(), regCrossData.getMoo(), regCrossData.getTumbol(), regCrossData.getAmphur(),
                 regCrossData.getProvince(), regCrossData.getPostalCode(), regCrossData.getMobilePhone(),
                 regCrossData.getPhone(), regCrossData.getReg(),regCrossData.getCode(),regCrossData.getSection(),regCrossData.getSemester(),regCrossData.getYear(),regCrossData.getTeacher(),regCrossData.getReason()
 
         );
     }
     public void saveDropout(dropOutData dropOutData){
-        /*String sql = "INSERT INTO UserInformation (date ,studentFirstName, studentLastName, studentId,studentYear) VALUES (?,?,?, ?, ?)";
-        jdbcTemplate.update(sql,user.getDate(), user.getStudentFirstName(), user.getLastname(), user.getStudentId(),user.getStudentYear());*/
-        String sql = "INSERT INTO dropOutForms (status,Date, Prefix, FirstName, LastName, StudentID, StudentYear," +
+        String sql = "INSERT INTO dropOutForms (status,Date, Prefix, firstName, LastName, StudentID, StudentYear," +
                 "    StudentField, Advisor, AddressNumber, Moo, Tumbol, Amphur, Province, PostalCode," +
                 "    MobilePhone, Phone,type,reason  "
-
-
-
-
-
                 + ")" + "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)" ;
 
 
-        jdbcTemplate.update(sql, dropOutData.getStatus(),dropOutData.getDate(), dropOutData.getPrefix(), dropOutData.getStudentFirstName(), dropOutData.getLastname(), dropOutData.getStudentId(),
+        jdbcTemplate.update(sql, dropOutData.getStatus(),dropOutData.getDate(), dropOutData.getPrefix(), dropOutData.getFirstName(), dropOutData.getLastname(), dropOutData.getStudentId(),
                 dropOutData.getStudentYear(), dropOutData.getStudentField(), dropOutData.getAdvisor(),
-                dropOutData.getAdressNumber(), dropOutData.getMoo(), dropOutData.getTumbol(), dropOutData.getAmphur(),
+                dropOutData.getAddressNumber(), dropOutData.getMoo(), dropOutData.getTumbol(), dropOutData.getAmphur(),
                 dropOutData.getProvince(), dropOutData.getPostalCode(), dropOutData.getMobilePhone(),
                 dropOutData.getPhone(),dropOutData.getType() ,dropOutData.getReason()
 
@@ -412,9 +405,9 @@ public class JdbcUserRepository implements UserRepository {
                 + ")" + "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)" ;
 
 
-        jdbcTemplate.update(sql, dropOutData.getStatus(),dropOutData.getDate(), dropOutData.getPrefix(), dropOutData.getStudentFirstName(), dropOutData.getLastname(), dropOutData.getStudentId(),
+        jdbcTemplate.update(sql, dropOutData.getStatus(),dropOutData.getDate(), dropOutData.getPrefix(), dropOutData.getFirstName(), dropOutData.getLastname(), dropOutData.getStudentId(),
                 dropOutData.getStudentYear(), dropOutData.getStudentField(), dropOutData.getAdvisor(),
-                dropOutData.getAdressNumber(), dropOutData.getMoo(), dropOutData.getTumbol(), dropOutData.getAmphur(),
+                dropOutData.getAddressNumber(), dropOutData.getMoo(), dropOutData.getTumbol(), dropOutData.getAmphur(),
                 dropOutData.getProvince(), dropOutData.getPostalCode(), dropOutData.getMobilePhone(),
                 dropOutData.getPhone(),dropOutData.getReason()
 
@@ -448,7 +441,22 @@ public class JdbcUserRepository implements UserRepository {
     }
 
     public List<DropWData> getDropWDataById(String userId) {
-        String sql = "SELECT * FROM dropWForms WHERE studentID = ?";
+        String sql = "SELECT * FROM DropWForms WHERE studentID = ?";
         return jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(DropWData.class), userId);
+    }
+
+    public List<dropOutData> getDropOutDataById(String userId) {
+        String sql = "SELECT * FROM dropOutForms WHERE studentID = ?";
+        return jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(dropOutData.class), userId);
+    }
+
+    public List<otherData> getOtherDataById(String userId) {
+        String sql = "SELECT * FROM otherForms WHERE studentID = ?";
+        return jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(otherData.class), userId);
+    }
+    
+    public List<regCrossData> getRegCrossDataById(String userId) {
+        String sql = "SELECT * FROM regCrossForms WHERE studentID = ?";
+        return jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(regCrossData.class), userId);
     }
 }
