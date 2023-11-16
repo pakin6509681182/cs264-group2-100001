@@ -5,11 +5,20 @@ import java.time.LocalDateTime;
 //import java.time.LocalDateTime;
 
 public class addDropData {
-
+<<<<<<< Updated upstream
     public addDropData() {
         status = "กำลังรอดำเนินการ";
     }
-
+    public String status;
+    public String getStatus() {
+        return status;
+    }
+    public void setStatus(String status) {
+        this.status = status;
+    }
+    public String getStudentFirstName() {
+        return studentFirstName;
+=======
     private String status;
     private String firstName;
     private String lastname;
@@ -172,6 +181,7 @@ public class addDropData {
 
     public String getStatus() {
         return status;
+>>>>>>> Stashed changes
     }
 
     public void setStatus(String status) {

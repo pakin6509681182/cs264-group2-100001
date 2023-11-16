@@ -65,8 +65,11 @@ public class JdbcUserRepository implements UserRepository {
                 "?,?,?,?,?,?,?," +
                 "?,?,?,?,?,?,?)";
 
-
+<<<<<<< Updated upstream
+        jdbcTemplate.update(sql, addDropData.getStatus(),addDropData.getDate(), addDropData.getPrefix(), addDropData.getStudentFirstName(), addDropData.getLastname(), addDropData.getStudentId(),
+=======
         jdbcTemplate.update(sql, addDropData.getDate(), addDropData.getPrefix(), addDropData.getFirstName(), addDropData.getLastname(), addDropData.getStudentId(),
+>>>>>>> Stashed changes
                 addDropData.getStudentYear(), addDropData.getStudentField(), addDropData.getAdvisor(),
                 addDropData.getAddressNumber(), addDropData.getMoo(), addDropData.getTumbol(), addDropData.getAmphur(),
                 addDropData.getProvince(), addDropData.getPostalCode(), addDropData.getMobilePhone(),
@@ -265,7 +268,11 @@ public class JdbcUserRepository implements UserRepository {
                 "?,?,?,?,?,?,?," +
                 "?,?,?,?,?,?,?)";
 
+<<<<<<< Updated upstream
+        jdbcTemplate.update(sql, dropWData.getStatus(),dropWData.getDate(), dropWData.getPrefix(), dropWData.getStudentFirstName(), dropWData.getLastname(), dropWData.getStudentId(),
+=======
         jdbcTemplate.update(sql, dropWData.getDate(), dropWData.getPrefix(), dropWData.getFirstName(), dropWData.getLastname(), dropWData.getStudentId(),
+>>>>>>> Stashed changes
                 dropWData.getStudentYear(), dropWData.getStudentField(), dropWData.getAdvisor(),
                 dropWData.getAdressNumber(), dropWData.getMoo(), dropWData.getTumbol(), dropWData.getAmphur(),
                 dropWData.getProvince(), dropWData.getPostalCode(), dropWData.getMobilePhone(),
