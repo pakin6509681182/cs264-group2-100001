@@ -20,8 +20,8 @@ public class JdbcUserRepository implements UserRepository {
                 "    StudentField, Advisor, AddressNumber, Moo, Tumbol, Amphur, Province, PostalCode," +
                 "    MobilePhone, Phone, Cause," +
                     "AddCourse1Code, AddCourse1Name, AddCourse1Section,AddCourse1DayAndTime, AddCourse1Credits, AddCourse1InstructorName,AddCourse1InstructorPermission"+
-        ",AddCourse2Code, AddCourse2Name, AddCourse2Section,AddCourse2DayAndTime, AddCourse2Credits, AddCourse2InstructorName,AddCourse2InstructorPermission" +
-        ",AddCourse3Code, AddCourse3Name, AddCourse3Section,AddCourse3DayAndTime, AddCourse3Credits, AddCourse3InstructorName,AddCourse3InstructorPermission" +
+                ",AddCourse2Code, AddCourse2Name, AddCourse2Section,AddCourse2DayAndTime, AddCourse2Credits, AddCourse2InstructorName,AddCourse2InstructorPermission" +
+                ",AddCourse3Code, AddCourse3Name, AddCourse3Section,AddCourse3DayAndTime, AddCourse3Credits, AddCourse3InstructorName,AddCourse3InstructorPermission" +
                 ",AddCourse4Code, AddCourse4Name, AddCourse4Section,AddCourse4DayAndTime, AddCourse4Credits, AddCourse4InstructorName,AddCourse4InstructorPermission," +
                 "AddCourse5Code, AddCourse5Name, AddCourse5Section,AddCourse5DayAndTime, AddCourse5Credits, AddCourse5InstructorName,AddCourse5InstructorPermission," +
                 "AddCourse6Code, AddCourse6Name, AddCourse6Section,AddCourse6DayAndTime, AddCourse6Credits, AddCourse6InstructorName,AddCourse6InstructorPermission," +
@@ -65,11 +65,7 @@ public class JdbcUserRepository implements UserRepository {
                 "?,?,?,?,?,?,?," +
                 "?,?,?,?,?,?,?)";
 
-<<<<<<< Updated upstream
-        jdbcTemplate.update(sql, addDropData.getStatus(),addDropData.getDate(), addDropData.getPrefix(), addDropData.getStudentFirstName(), addDropData.getLastname(), addDropData.getStudentId(),
-=======
-        jdbcTemplate.update(sql, addDropData.getDate(), addDropData.getPrefix(), addDropData.getFirstName(), addDropData.getLastname(), addDropData.getStudentId(),
->>>>>>> Stashed changes
+        jdbcTemplate.update(sql, addDropData.getStatus(),addDropData.getDate(), addDropData.getPrefix(), addDropData.getStudentFirstName(), addDropData.getLastname(), addDropData.getStudentId(), 
                 addDropData.getStudentYear(), addDropData.getStudentField(), addDropData.getAdvisor(),
                 addDropData.getAddressNumber(), addDropData.getMoo(), addDropData.getTumbol(), addDropData.getAmphur(),
                 addDropData.getProvince(), addDropData.getPostalCode(), addDropData.getMobilePhone(),
@@ -268,16 +264,12 @@ public class JdbcUserRepository implements UserRepository {
                 "?,?,?,?,?,?,?," +
                 "?,?,?,?,?,?,?)";
 
-<<<<<<< Updated upstream
+
         jdbcTemplate.update(sql, dropWData.getStatus(),dropWData.getDate(), dropWData.getPrefix(), dropWData.getStudentFirstName(), dropWData.getLastname(), dropWData.getStudentId(),
-=======
-        jdbcTemplate.update(sql, dropWData.getDate(), dropWData.getPrefix(), dropWData.getFirstName(), dropWData.getLastname(), dropWData.getStudentId(),
->>>>>>> Stashed changes
                 dropWData.getStudentYear(), dropWData.getStudentField(), dropWData.getAdvisor(),
                 dropWData.getAdressNumber(), dropWData.getMoo(), dropWData.getTumbol(), dropWData.getAmphur(),
                 dropWData.getProvince(), dropWData.getPostalCode(), dropWData.getMobilePhone(),
                 dropWData.getPhone(), dropWData.getCause() , dropWData.getGpax(),
-
 
                 dropWData.getDropCourse1Code(),
                 dropWData.getDropCourse1Name(),

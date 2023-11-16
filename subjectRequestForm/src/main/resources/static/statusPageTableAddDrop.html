@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>ระบบส่งคำร้องออนไลน์</title>
+    <title>ตรวจสอบคำร้องออนไลน์</title>
     <link href="statusPageStyle.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
@@ -68,7 +68,7 @@
 
                     <div class="row align-items-center">
                         <div class="header">
-                            <h1>ระบบส่งคำร้องออนไลน์</h1>
+                            <h1>ตรวจสอบคำร้องออนไลน์</h1>
                         </div>
                     </div>
 
@@ -115,7 +115,7 @@
     </div>
 </body>
 <script>
-fetchAddDrop(sessionStorage.getItem("username"));
+window.onload = fetchAddDrop(sessionStorage.getItem("username"));
 console.log(sessionStorage.getItem("username"));
 
 function fetchAddDrop(id) {
@@ -125,20 +125,21 @@ function fetchAddDrop(id) {
         .then(data => {
             console.log(data);
             for (let entry in data) {
+                console.log(data[entry]["date"]);
                 var addTable = document.querySelector(".recap-table tbody");
                 var newRow = document.createElement("tr");
                 var cell = document.createElement("td");
                 cell.innerHTML = data[entry]["date"];
                 newRow.appendChild(cell);
                 cell = document.createElement("td")
-                cell.innerHTML = (data[entry]["status"] == null) ? "กำลังดำเนินการ" : data[entry]["status"];
+                cell.innerHTML = (data[entry]["status"] == null) ? "กำลังรอดำเนินการ" : data[entry]["status"];
                 newRow.appendChild(cell);
                 addTable.appendChild(newRow);
                 cell = document.createElement("td")
                 cell.id = "addTableDesc" + entry;
-                cell.innerHTML = ` <a href="#" data-bs-toggle="modal"
-                                            data-bs-target="#staticBackdrop">ดูรายละเอียด</a>
-                                        <div class="modal modal-xl fade" id="staticBackdrop" data-bs-keyboard="false"
+                cell.innerHTML = `<a href="#" data-bs-toggle="modal"
+                                            data-bs-target="#staticBackdrop`+ entry +`">ดูรายละเอียด</a>
+                                        <div class="modal modal-xl fade" id="staticBackdrop`+ entry +`" data-bs-keyboard="false"
                                             tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                                             <div class="modal-dialog modal-dialog-scrollable">
                                                 <div class="modal-content">
@@ -148,29 +149,29 @@ function fetchAddDrop(id) {
                                                         <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                             aria-label="Close"></button>
                                                     </div>
-                                                    <div class="modal-body">
+                                                    <div id="modal-body` + entry +`" class="modal-body">
                                                         <p>
-                                                            วันที่: <span id="date"></span><br>
-                                                            คำนำหน้านาม: <span id="prefix"></span><br>
-                                                            ชื่อ: <span id="firstName"></span><br>
-                                                            นามสกุล: <span id="lastname"></span><br>
-                                                            รหัสนักศึกษา: <span id="studentId"></span><br>
-                                                            ชั้นปีที่: <span id="studentYear"></span><br>
-                                                            สาขาวิชา: <span id="studentField"></span><br>
-                                                            อาจารย์ที่ปรึกษา: <span id="advisor"></span><br>
-                                                            ที่อยู่ที่สามารถติดต่อได้: <span id="addressNumber"></span>
-                                                            <span id="moo"></span> 
-                                                            <span id="tumbol"></span> 
-                                                            <span id="amphur"></span> 
-                                                            <span id="province"></span> 
-                                                            <span id="postalCode"></span> 
-                                                            <span id="mobilePhone"></span> 
-                                                            <span id="phone"></span><br>
-                                                            เหตุผล: <span id="cause"></span><br>
+                                                            วันที่: <span id="date` + entry + `"></span><br>
+                                                            คำนำหน้านาม: <span id="prefix` + entry + `"></span><br>
+                                                            ชื่อ: <span id="firstName` + entry + `"></span><br>
+                                                            นามสกุล: <span id="lastname` + entry + `"></span><br>
+                                                            รหัสนักศึกษา: <span id="studentId` + entry + `"></span><br>
+                                                            ชั้นปีที่: <span id="studentYear` + entry + `"></span><br>
+                                                            สาขาวิชา: <span id="studentField` + entry + `"></span><br>
+                                                            อาจารย์ที่ปรึกษา: <span id="advisor` + entry + `"></span><br>
+                                                            ที่อยู่ที่สามารถติดต่อได้: <span id="addressNumber` + entry + `"></span>
+                                                            <span id="moo` + entry + `"></span> 
+                                                            <span id="tumbol` + entry + `"></span> 
+                                                            <span id="amphur` + entry + `"></span> 
+                                                            <span id="province` + entry + `"></span> 
+                                                            <span id="postalCode` + entry + `"></span> 
+                                                            <span id="mobilePhone` + entry + `"></span> 
+                                                            <span id="phone` + entry + `"></span><br>
+                                                            เหตุผล: <span id="cause` + entry + `"></span><br>
                                                         </p>
-                                                        <div id="addDrop-row-table" class="row text-center align-items-center">
+                                                        <div class="row text-center align-items-center">
                                                             <h4>รายวิชาที่ต้องการเพิ่ม</h4>
-                                                            <table id = "add-table" class="table table-hover table table-bordered">
+                                                            <table id = "add-table` + entry +`" class="table table-hover table table-bordered">
                                                                 <thead>
                                                                     <th scope="col">รหัสวิชา</th>
                                                                     <th scope="col">ชื่อวิชา</th>
@@ -184,7 +185,7 @@ function fetchAddDrop(id) {
                                                                 </tbody>
                                                             </table>
                                                             <h4>รายวิชาที่ต้องการถอน</h4>
-                                                            <table id = "drop-table" class="drop-row-table table-hover table table-bordered">
+                                                            <table id = "drop-table` + entry +`" class="drop-row-table table-hover table table-bordered">
                                                                 <thead>
                                                                     <th scope="col">รหัสวิชา</th>
                                                                     <th scope="col">ชื่อวิชา</th>
@@ -207,23 +208,22 @@ function fetchAddDrop(id) {
                                         `;
                 newRow.appendChild(cell);
                 addTable.appendChild(newRow);
-                var currentCellIDElemP = ".modal-body p";
-                document.querySelector(currentCellIDElemP + " #date").innerHTML = data[entry]["date"];
-                document.querySelector(currentCellIDElemP + " #prefix").innerHTML = data[entry]["prefix"];
-                document.querySelector(currentCellIDElemP + " #firstName").innerHTML = data[entry]["firstName"];
-                document.querySelector(currentCellIDElemP + " #lastname").innerHTML = data[entry]["lastname"];
-                document.querySelector(currentCellIDElemP + " #studentId").innerHTML = data[entry]["studentId"];
-                document.querySelector(currentCellIDElemP + " #studentField").innerHTML = data[entry]["studentField"];
-                document.querySelector(currentCellIDElemP + " #studentYear").innerHTML = data[entry]["studentYear"];
-                document.querySelector(currentCellIDElemP + " #advisor").innerHTML = data[entry]["advisor"];
-                document.querySelector(currentCellIDElemP + " #addressNumber").innerHTML = data[entry]["addressNumber"];
-                document.querySelector(currentCellIDElemP + " #moo").innerHTML = data[entry]["moo"];
-                document.querySelector(currentCellIDElemP + " #tumbol").innerHTML = data[entry]["tumbol"];
-                document.querySelector(currentCellIDElemP + " #amphur").innerHTML = data[entry]["amphur"];
-                document.querySelector(currentCellIDElemP + " #province").innerHTML = data[entry]["province"];
-                document.querySelector(currentCellIDElemP + " #mobilePhone").innerHTML = data[entry]["mobilePhone"];
-                document.querySelector(currentCellIDElemP + " #phone").innerHTML = data[entry]["phone"];
-                document.querySelector(currentCellIDElemP + " #cause").innerHTML = data[entry]["cause"];
+                document.querySelector("#date" + entry).innerHTML = data[entry]["date"];
+                document.querySelector("#prefix" + entry).innerHTML = data[entry]["prefix"];
+                document.querySelector("#firstName" + entry).innerHTML = data[entry]["firstName"];
+                document.querySelector("#lastname" + entry).innerHTML = data[entry]["lastname"];
+                document.querySelector("#studentId" + entry).innerHTML = data[entry]["studentId"];
+                document.querySelector("#studentField" + entry).innerHTML = data[entry]["studentField"];
+                document.querySelector("#studentYear" + entry).innerHTML = data[entry]["studentYear"];
+                document.querySelector("#advisor" + entry).innerHTML = data[entry]["advisor"];
+                document.querySelector("#addressNumber" + entry).innerHTML = data[entry]["addressNumber"];
+                document.querySelector("#moo" + entry).innerHTML = data[entry]["moo"];
+                document.querySelector("#tumbol" + entry).innerHTML = data[entry]["tumbol"];
+                document.querySelector("#amphur" + entry).innerHTML = data[entry]["amphur"];
+                document.querySelector("#province" + entry).innerHTML = data[entry]["province"];
+                document.querySelector("#mobilePhone" + entry).innerHTML = data[entry]["mobilePhone"];
+                document.querySelector("#phone" + entry).innerHTML = data[entry]["phone"];
+                document.querySelector("#cause" + entry).innerHTML = data[entry]["cause"];
                 let i = 0;
                 let addCourse = {};
                 let dropCourse = {};
@@ -247,8 +247,8 @@ function fetchAddDrop(id) {
                 let j = 0;
                 let addRow = document.createElement("tr");
                 let dropRow = document.createElement("tr");
-                let addTableBody = document.querySelector("#add-table tbody") 
-                let dropTableBody = document.querySelector("#drop-table tbody") 
+                let addTableBody = document.querySelector("#add-table"+ entry + " tbody") 
+                let dropTableBody = document.querySelector("#drop-table" + entry + " tbody") 
                 for (let key in addCourse) {
                     i++;
                     let addCell = document.createElement("td");

@@ -53,7 +53,7 @@ li a {
     text-align: center !important;
 }
 
-li:hover {
+[class*="nav nav-fill"] > li:hover {
     background-color: rgba(214, 162, 0, 0.7) !important;
     transition-duration: 0.3s;
 }
