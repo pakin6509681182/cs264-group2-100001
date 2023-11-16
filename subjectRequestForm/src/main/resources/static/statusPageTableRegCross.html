@@ -105,7 +105,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                
+
                             </tbody>
                         </table>
                     </div>
@@ -115,31 +115,31 @@
     </div>
 </body>
 <script>
-window.onload = fetchAddDrop(sessionStorage.getItem("username"));
-console.log(sessionStorage.getItem("username"));
+    window.onload = fetchAddDrop(sessionStorage.getItem("username"));
+    console.log(sessionStorage.getItem("username"));
 
-function fetchAddDrop(id) {
-    
-    fetch("/users/getAddDropDataById?id=" + id)
-        .then(response => response.json())
-        .then(data => {
-            console.log(data);
-            for (let entry in data) {
-                console.log(data[entry]["date"]);
-                var addTable = document.querySelector(".recap-table tbody");
-                var newRow = document.createElement("tr");
-                var cell = document.createElement("td");
-                cell.innerHTML = data[entry]["date"];
-                newRow.appendChild(cell);
-                cell = document.createElement("td")
-                cell.innerHTML = (data[entry]["status"] == null) ? "กำลังรอดำเนินการ" : data[entry]["status"];
-                newRow.appendChild(cell);
-                addTable.appendChild(newRow);
-                cell = document.createElement("td")
-                cell.id = "addTableDesc" + entry;
-                cell.innerHTML = `<a href="#" data-bs-toggle="modal"
-                                            data-bs-target="#staticBackdrop`+ entry +`">ดูรายละเอียด</a>
-                                        <div class="modal modal-xl fade" id="staticBackdrop`+ entry +`" data-bs-keyboard="false"
+    function fetchAddDrop(id) {
+
+        fetch("/users/getRegCrossDataById?id=" + id)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                for (let entry in data) {
+                    console.log(data[entry]["date"]);
+                    var addTable = document.querySelector(".recap-table tbody");
+                    var newRow = document.createElement("tr");
+                    var cell = document.createElement("td");
+                    cell.innerHTML = data[entry]["date"];
+                    newRow.appendChild(cell);
+                    cell = document.createElement("td")
+                    cell.innerHTML = (data[entry]["status"] == null) ? "กำลังรอดำเนินการ" : data[entry]["status"];
+                    newRow.appendChild(cell);
+                    addTable.appendChild(newRow);
+                    cell = document.createElement("td")
+                    cell.id = "addTableDesc" + entry;
+                    cell.innerHTML = `<a href="#" data-bs-toggle="modal"
+                                            data-bs-target="#staticBackdrop`+ entry + `">ดูรายละเอียด</a>
+                                        <div class="modal modal-xl fade" id="staticBackdrop`+ entry + `" data-bs-keyboard="false"
                                             tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                                             <div class="modal-dialog modal-dialog-scrollable">
                                                 <div class="modal-content">
@@ -149,7 +149,7 @@ function fetchAddDrop(id) {
                                                         <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                             aria-label="Close"></button>
                                                     </div>
-                                                    <div id="modal-body` + entry +`" class="modal-body">
+                                                    <div id="modal-body` + entry + `" class="modal-body">
                                                         <p>
                                                             วันที่: <span id="date` + entry + `"></span><br>
                                                             คำนำหน้านาม: <span id="prefix` + entry + `"></span><br>
@@ -165,40 +165,16 @@ function fetchAddDrop(id) {
                                                             <span id="amphur` + entry + `"></span> 
                                                             <span id="province` + entry + `"></span> 
                                                             <span id="postalCode` + entry + `"></span> 
-                                                            <span id="mobilePhone` + entry + `"></span> 
-                                                            <span id="phone` + entry + `"></span><br>
-                                                            เหตุผล: <span id="cause` + entry + `"></span><br>
+                                                            โทรศัพท์มือถือ: <span id="mobilePhone` + entry + `"></span> 
+                                                            โทรศัพท์: <span id="phone` + entry + `"></span><br>
+                                                            ชื่อวิชาที่ต้องการลงทะเบียน: <span id="reg` + entry + `"></span><br>
+                                                            รหัสวิชา: <span id="code` + entry + `"></span><br>
+                                                            Section: <span id="section` + entry + `"></span><br>
+                                                            เทอม: <span id="semester` + entry + `"></span><br>
+                                                            ปีการศึกษา: <span id="year` + entry + `"></span><br>
+                                                            อาจารย์ประจำวิชา: <span id="teacher` + entry + `"></span><br>
+                                                            เหตุผล: <span id="reason` + entry + `"></span><br>
                                                         </p>
-                                                        <div class="row text-center align-items-center">
-                                                            <h4>รายวิชาที่ต้องการเพิ่ม</h4>
-                                                            <table id = "add-table` + entry +`" class="table table-hover table table-bordered">
-                                                                <thead>
-                                                                    <th scope="col">รหัสวิชา</th>
-                                                                    <th scope="col">ชื่อวิชา</th>
-                                                                    <th scope="col">Section</th>
-                                                                    <th scope="col">วัน/เวลาที่เรียน</th>
-                                                                    <th scope="col">หน่วยกิต</th>
-                                                                    <th scope="col">ชื่อผู้สอน</th>
-                                                                    <th scope="col">ผู้สอนอนุญาต</th>                                                                    
-                                                                </thead>
-                                                                <tbody class="table">
-                                                                </tbody>
-                                                            </table>
-                                                            <h4>รายวิชาที่ต้องการถอน</h4>
-                                                            <table id = "drop-table` + entry +`" class="drop-row-table table-hover table table-bordered">
-                                                                <thead>
-                                                                    <th scope="col">รหัสวิชา</th>
-                                                                    <th scope="col">ชื่อวิชา</th>
-                                                                    <th scope="col">Section</th>
-                                                                    <th scope="col">วัน/เวลาที่เรียน</th>
-                                                                    <th scope="col">หน่วยกิต</th>
-                                                                    <th scope="col">ชื่อผู้สอน</th>
-                                                                    <th scope="col">ผู้สอนอนุญาต</th>                                                                    
-                                                                </thead>
-                                                                <tbody class="table">
-                                                                </tbody>
-                                                            </table>
-                                                        </div>
                                                     </div>
                                                     <div class="modal-footer">
                                                     </div>
@@ -206,92 +182,40 @@ function fetchAddDrop(id) {
                                             </div>
                                         </div>
                                         `;
-                newRow.appendChild(cell);
-                addTable.appendChild(newRow);
-                document.querySelector("#date" + entry).innerHTML = data[entry]["date"];
-                document.querySelector("#prefix" + entry).innerHTML = data[entry]["prefix"];
-                document.querySelector("#firstName" + entry).innerHTML = data[entry]["firstName"];
-                document.querySelector("#lastname" + entry).innerHTML = data[entry]["lastname"];
-                document.querySelector("#studentId" + entry).innerHTML = data[entry]["studentId"];
-                document.querySelector("#studentField" + entry).innerHTML = data[entry]["studentField"];
-                document.querySelector("#studentYear" + entry).innerHTML = data[entry]["studentYear"];
-                document.querySelector("#advisor" + entry).innerHTML = data[entry]["advisor"];
-                document.querySelector("#addressNumber" + entry).innerHTML = data[entry]["addressNumber"];
-                document.querySelector("#moo" + entry).innerHTML = data[entry]["moo"];
-                document.querySelector("#tumbol" + entry).innerHTML = data[entry]["tumbol"];
-                document.querySelector("#amphur" + entry).innerHTML = data[entry]["amphur"];
-                document.querySelector("#province" + entry).innerHTML = data[entry]["province"];
-                document.querySelector("#mobilePhone" + entry).innerHTML = data[entry]["mobilePhone"];
-                document.querySelector("#phone" + entry).innerHTML = data[entry]["phone"];
-                document.querySelector("#cause" + entry).innerHTML = data[entry]["cause"];
-                let i = 0;
-                let addCourse = {};
-                let dropCourse = {};
-                for (let key in data[entry]) {
-                    i += 1;
-                    if (i <= 18) {
-                        continue;
-                    }
-                    else if (i <= 88) {
-                        addCourse[key] = data[entry][key];
-                        continue;
-                    }
-                    else {
-                        dropCourse[key] = data[entry][key];
-                        continue;
-                    }
+                    newRow.appendChild(cell);
+                    addTable.appendChild(newRow);
+                    document.querySelector("#date" + entry).innerHTML = data[entry]["date"];
+                    document.querySelector("#prefix" + entry).innerHTML = data[entry]["prefix"];
+                    document.querySelector("#firstName" + entry).innerHTML = data[entry]["firstName"];
+                    document.querySelector("#lastname" + entry).innerHTML = data[entry]["lastname"];
+                    document.querySelector("#studentId" + entry).innerHTML = data[entry]["studentId"];
+                    document.querySelector("#studentField" + entry).innerHTML = data[entry]["studentField"];
+                    document.querySelector("#studentYear" + entry).innerHTML = data[entry]["studentYear"];
+                    document.querySelector("#advisor" + entry).innerHTML = data[entry]["advisor"];
+                    document.querySelector("#addressNumber" + entry).innerHTML = data[entry]["addressNumber"];
+                    document.querySelector("#moo" + entry).innerHTML = data[entry]["moo"];
+                    document.querySelector("#tumbol" + entry).innerHTML = data[entry]["tumbol"];
+                    document.querySelector("#amphur" + entry).innerHTML = data[entry]["amphur"];
+                    document.querySelector("#province" + entry).innerHTML = data[entry]["province"];
+                    document.querySelector("#mobilePhone" + entry).innerHTML = data[entry]["mobilePhone"];
+                    document.querySelector("#phone" + entry).innerHTML = data[entry]["phone"];
+                    document.querySelector("#reg" + entry).innerHTML = data[entry]["reg"];
+                    document.querySelector("#code" + entry).innerHTML = data[entry]["code"];
+                    document.querySelector("#section" + entry).innerHTML = data[entry]["section"];
+                    document.querySelector("#semester" + entry).innerHTML = data[entry]["semester"];
+                    document.querySelector("#year" + entry).innerHTML = data[entry]["year"];
+                    document.querySelector("#teacher" + entry).innerHTML = data[entry]["teacher"];
+                    document.querySelector("#reason" + entry).innerHTML = data[entry]["reason"];
+                    cell = document.createElement("td");
+                    cell.innerHTML = `<td style="color: red !important;">ยกเลิก</td>`;
+                    newRow.appendChild(cell);
+                    addTable.appendChild(newRow);
                 }
-                console.log(addCourse);
-                console.log(dropCourse);
-                i = 0;
-                let j = 0;
-                let addRow = document.createElement("tr");
-                let dropRow = document.createElement("tr");
-                let addTableBody = document.querySelector("#add-table"+ entry + " tbody") 
-                let dropTableBody = document.querySelector("#drop-table" + entry + " tbody") 
-                for (let key in addCourse) {
-                    i++;
-                    let addCell = document.createElement("td");
-                    if (addCourse[key] == 0 || addCourse[key] == false) {
-                        addCell.innerHTML = "";
-                    }
-                    else {
-                        addCell.innerHTML = addCourse[key];
-                    }
-                        addRow.appendChild(addCell);
-                    if (i % 7 == 0 && i != 0) {
-                        addTableBody.appendChild(addRow);
-                        addRow = document.createElement("tr");
-                    }
-                }
-                for (let key in dropCourse) {
-                    i++;
-                    let dropCell = document.createElement("td");
-                    if (dropCourse[key] == 0 || dropCourse[key] == false) {
-                        dropCell.innerHTML = "";
-                    }
-                    else {
-                        dropCell.innerHTML = dropCourse[key];
-                    }
-                        dropRow.appendChild(dropCell);
-                    if (i % 7 == 0 && i != 0) {
-                        dropTableBody.appendChild(dropRow);
-                        dropRow = document.createElement("tr");
-                    }
-                }
-                cell = document.createElement("td");
-                cell.innerHTML = `<td style="color: red !important;">ยกเลิก</td>`;
-                newRow.appendChild(cell);
-                addTable.appendChild(newRow);
-                /*for (let key in data[entry]) {
-                    console.log(key + ": " + data[entry][key]);
-                    
-                }*/
-            }
-        })
-        .catch(error => {
-            console.log(error);
-        });
-}
+            })
+            .catch(error => {
+                console.log(error);
+            });
+    }
 </script>
+
 </html>

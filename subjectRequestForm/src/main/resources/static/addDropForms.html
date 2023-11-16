@@ -397,6 +397,7 @@
                     document.getElementById('userForm').reset();
                     document.getElementById('result').innerText = 'บันทึกข้อมูลสำเร็จ';
                     formSubmitted = false; // Reset the flag
+                    window.location = "statusPageTableAddDrop.html";
                 } /*else {
                     response.text().then(errorMessage => {
                         document.getElementById('result').innerText = 'An error occurred while saving the user. Error message: ' + errorMessage;
