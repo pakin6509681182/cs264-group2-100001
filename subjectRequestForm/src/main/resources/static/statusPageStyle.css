@@ -99,3 +99,10 @@ td > a {
     color: #33748c !important;
     margin: 0 0 0 10px !important;
 }
+
+h4 {
+    font-family: Kanit-Bold, sans-serif;
+    color: #33748c !important;
+    font-size: 25px !important;
+    text-align: center !important;
+}

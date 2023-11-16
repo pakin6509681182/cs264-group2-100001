@@ -2,6 +2,9 @@ package th.ac.tu.cs.subjectRequestForm.repository;
 
 import th.ac.tu.cs.subjectRequestForm.model.DropWData;
 import th.ac.tu.cs.subjectRequestForm.model.addDropData;
+import th.ac.tu.cs.subjectRequestForm.model.dropOutData;
+import th.ac.tu.cs.subjectRequestForm.model.otherData;
+import th.ac.tu.cs.subjectRequestForm.model.regCrossData;
 
 import java.util.List;
 
@@ -11,5 +14,8 @@ public interface UserRepository {
     public List<addDropData> getAllUsers();
     public List<addDropData> getAddDropDataById(String userId);
     public List<DropWData> getDropWDataById(String userId);
+    public void saveRegCross(regCrossData a);
+    public void saveDropout(dropOutData a);
+    public void saveOther(otherData a);
 
 }

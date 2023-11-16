@@ -19,7 +19,7 @@ public class addDropData {
     private int studentYear;
     private String studentField;
     private String advisor;
-    private String adressNumber;
+    private String addressNumber;
     private String moo;
     private String tumbol;
     private String amphur;
@@ -226,12 +226,12 @@ public class addDropData {
         this.advisor = advisor;
     }
 
-    public String getAdressNumber() {
-        return adressNumber;
+    public String getAddressNumber() {
+        return addressNumber;
     }
 
-    public void setAdressNumber(String adressNumber) {
-        this.adressNumber = adressNumber;
+    public void setAddressNumber(String adressNumber) {
+        this.addressNumber = adressNumber;
     }
 
     public String getMoo() {

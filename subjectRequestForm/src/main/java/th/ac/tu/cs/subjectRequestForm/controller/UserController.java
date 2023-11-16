@@ -5,7 +5,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import th.ac.tu.cs.subjectRequestForm.model.*;
-import th.ac.tu.cs.subjectRequestForm.repository.JdbcUserRepository;
 import th.ac.tu.cs.subjectRequestForm.repository.UserRepository;
 
 import java.util.List;

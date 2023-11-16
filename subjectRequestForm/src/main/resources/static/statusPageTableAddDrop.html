@@ -75,23 +75,6 @@
                     <div class="row-nav row grey">
                         <ul class="nav nav-fill">
                             <li class="nav-item">
-                                <a class="nav-link" href="#">ทั้งหมด</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">รอดำเนินการ</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">กำลังดำเนินการ</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">เสร็จสิ้น</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">ล้มเหลว</a>
-                            </li>
-                        </ul>
-                        <ul class="nav nav-fill">
-                            <li class="nav-item">
                                 <a class="nav-link"
                                     style="background-color: rgba(255, 209, 63, 0.60); ; border-radius: 10px;">เพิ่ม-ถอน</a>
                             </li>
@@ -111,8 +94,8 @@
                     </div>
 
 
-                    <div class="row-table row text-center align-items-center ">
-                        <table class="table table-hover table table-bordered">
+                    <div class="row-table row text-center align-items-center">
+                        <table class="table table-hover table table-bordered recap-table">
                             <thead class="table">
                                 <tr>
                                     <th scope="col">วันที่</th>
@@ -122,13 +105,39 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>16-08-2023</td>
-                                    <td>เพิ่ม-ถอนรายวิชา</td>
-                                    <td>กำลังดำเนินการ</td>
-                                    <td>
-                                        <a href="#" data-bs-toggle="modal"
-                                            data-bs-target="#staticBackdrop">ตรวจสอบคำร้อง</a>
+                                
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+fetchAddDrop(sessionStorage.getItem("username"));
+console.log(sessionStorage.getItem("username"));
+
+function fetchAddDrop(id) {
+    
+    fetch("/users/getAddDropDataById?id=" + id)
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+            for (let entry in data) {
+                var addTable = document.querySelector(".recap-table tbody");
+                var newRow = document.createElement("tr");
+                var cell = document.createElement("td");
+                cell.innerHTML = data[entry]["date"];
+                newRow.appendChild(cell);
+                cell = document.createElement("td")
+                cell.innerHTML = (data[entry]["status"] == null) ? "กำลังดำเนินการ" : data[entry]["status"];
+                newRow.appendChild(cell);
+                addTable.appendChild(newRow);
+                cell = document.createElement("td")
+                cell.id = "addTableDesc" + entry;
+                cell.innerHTML = ` <a href="#" data-bs-toggle="modal"
+                                            data-bs-target="#staticBackdrop">ดูรายละเอียด</a>
                                         <div class="modal modal-xl fade" id="staticBackdrop" data-bs-keyboard="false"
                                             tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                                             <div class="modal-dialog modal-dialog-scrollable">
@@ -149,7 +158,7 @@
                                                             ชั้นปีที่: <span id="studentYear"></span><br>
                                                             สาขาวิชา: <span id="studentField"></span><br>
                                                             อาจารย์ที่ปรึกษา: <span id="advisor"></span><br>
-                                                            ที่อยู่ที่สามารถติดต่อได้: <span id="adressNumber"></span>
+                                                            ที่อยู่ที่สามารถติดต่อได้: <span id="addressNumber"></span>
                                                             <span id="moo"></span> 
                                                             <span id="tumbol"></span> 
                                                             <span id="amphur"></span> 
@@ -159,9 +168,9 @@
                                                             <span id="phone"></span><br>
                                                             เหตุผล: <span id="cause"></span><br>
                                                         </p>
-                                                        <div class="row-table row text-center align-items-center">
-                                                            <h6>รายวิชาที่ต้องการเพิ่ม</h6>
-                                                            <table class="table add-table table-hover table table-bordered">
+                                                        <div id="addDrop-row-table" class="row text-center align-items-center">
+                                                            <h4>รายวิชาที่ต้องการเพิ่ม</h4>
+                                                            <table id = "add-table" class="table table-hover table table-bordered">
                                                                 <thead>
                                                                     <th scope="col">รหัสวิชา</th>
                                                                     <th scope="col">ชื่อวิชา</th>
@@ -173,9 +182,9 @@
                                                                 </thead>
                                                                 <tbody class="table">
                                                                 </tbody>
-                                                                <h6>รายวิชาที่ต้องการถอน</h6>
                                                             </table>
-                                                            <table class="table remove-table table-hover table table-bordered">
+                                                            <h4>รายวิชาที่ต้องการถอน</h4>
+                                                            <table id = "drop-table" class="drop-row-table table-hover table table-bordered">
                                                                 <thead>
                                                                     <th scope="col">รหัสวิชา</th>
                                                                     <th scope="col">ชื่อวิชา</th>
@@ -195,17 +204,94 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </td>
-                                    <td style="color: red !important;">ยกเลิก</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</body>
-<script src="js/statusPageTableAddDropScript.js"></script>
-
+                                        `;
+                newRow.appendChild(cell);
+                addTable.appendChild(newRow);
+                var currentCellIDElemP = ".modal-body p";
+                document.querySelector(currentCellIDElemP + " #date").innerHTML = data[entry]["date"];
+                document.querySelector(currentCellIDElemP + " #prefix").innerHTML = data[entry]["prefix"];
+                document.querySelector(currentCellIDElemP + " #firstName").innerHTML = data[entry]["firstName"];
+                document.querySelector(currentCellIDElemP + " #lastname").innerHTML = data[entry]["lastname"];
+                document.querySelector(currentCellIDElemP + " #studentId").innerHTML = data[entry]["studentId"];
+                document.querySelector(currentCellIDElemP + " #studentField").innerHTML = data[entry]["studentField"];
+                document.querySelector(currentCellIDElemP + " #studentYear").innerHTML = data[entry]["studentYear"];
+                document.querySelector(currentCellIDElemP + " #advisor").innerHTML = data[entry]["advisor"];
+                document.querySelector(currentCellIDElemP + " #addressNumber").innerHTML = data[entry]["addressNumber"];
+                document.querySelector(currentCellIDElemP + " #moo").innerHTML = data[entry]["moo"];
+                document.querySelector(currentCellIDElemP + " #tumbol").innerHTML = data[entry]["tumbol"];
+                document.querySelector(currentCellIDElemP + " #amphur").innerHTML = data[entry]["amphur"];
+                document.querySelector(currentCellIDElemP + " #province").innerHTML = data[entry]["province"];
+                document.querySelector(currentCellIDElemP + " #mobilePhone").innerHTML = data[entry]["mobilePhone"];
+                document.querySelector(currentCellIDElemP + " #phone").innerHTML = data[entry]["phone"];
+                document.querySelector(currentCellIDElemP + " #cause").innerHTML = data[entry]["cause"];
+                let i = 0;
+                let addCourse = {};
+                let dropCourse = {};
+                for (let key in data[entry]) {
+                    i += 1;
+                    if (i <= 18) {
+                        continue;
+                    }
+                    else if (i <= 88) {
+                        addCourse[key] = data[entry][key];
+                        continue;
+                    }
+                    else {
+                        dropCourse[key] = data[entry][key];
+                        continue;
+                    }
+                }
+                console.log(addCourse);
+                console.log(dropCourse);
+                i = 0;
+                let j = 0;
+                let addRow = document.createElement("tr");
+                let dropRow = document.createElement("tr");
+                let addTableBody = document.querySelector("#add-table tbody") 
+                let dropTableBody = document.querySelector("#drop-table tbody") 
+                for (let key in addCourse) {
+                    i++;
+                    let addCell = document.createElement("td");
+                    if (addCourse[key] == 0 || addCourse[key] == false) {
+                        addCell.innerHTML = "";
+                    }
+                    else {
+                        addCell.innerHTML = addCourse[key];
+                    }
+                        addRow.appendChild(addCell);
+                    if (i % 7 == 0 && i != 0) {
+                        addTableBody.appendChild(addRow);
+                        addRow = document.createElement("tr");
+                    }
+                }
+                for (let key in dropCourse) {
+                    i++;
+                    let dropCell = document.createElement("td");
+                    if (dropCourse[key] == 0 || dropCourse[key] == false) {
+                        dropCell.innerHTML = "";
+                    }
+                    else {
+                        dropCell.innerHTML = dropCourse[key];
+                    }
+                        dropRow.appendChild(dropCell);
+                    if (i % 7 == 0 && i != 0) {
+                        dropTableBody.appendChild(dropRow);
+                        dropRow = document.createElement("tr");
+                    }
+                }
+                cell = document.createElement("td");
+                cell.innerHTML = `<td style="color: red !important;">ยกเลิก</td>`;
+                newRow.appendChild(cell);
+                addTable.appendChild(newRow);
+                /*for (let key in data[entry]) {
+                    console.log(key + ": " + data[entry][key]);
+                    
+                }*/
+            }
+        })
+        .catch(error => {
+            console.log(error);
+        });
+}
+</script>
 </html>

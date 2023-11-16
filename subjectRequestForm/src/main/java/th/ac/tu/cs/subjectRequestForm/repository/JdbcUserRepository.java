@@ -68,7 +68,7 @@ public class JdbcUserRepository implements UserRepository {
 
         jdbcTemplate.update(sql, addDropData.getDate(), addDropData.getPrefix(), addDropData.getFirstName(), addDropData.getLastname(), addDropData.getStudentId(),
                 addDropData.getStudentYear(), addDropData.getStudentField(), addDropData.getAdvisor(),
-                addDropData.getAdressNumber(), addDropData.getMoo(), addDropData.getTumbol(), addDropData.getAmphur(),
+                addDropData.getAddressNumber(), addDropData.getMoo(), addDropData.getTumbol(), addDropData.getAmphur(),
                 addDropData.getProvince(), addDropData.getPostalCode(), addDropData.getMobilePhone(),
                 addDropData.getPhone(), addDropData.getCause() ,
                 addDropData.getAddCourse1Code(),
