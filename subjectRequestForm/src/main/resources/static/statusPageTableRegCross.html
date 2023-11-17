@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>ตรวจสอบคำร้องออนไลน์</title>
+    <link href="statusPageStyle.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <link href="studentStyle.css" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="navbar bg-body-tertiary fixed-top">
+        <div class="container-fluid">
+            <button aria-controls="offcanvasNavbar" aria-label="Toggle navigation" class="navbar-toggler"
+                data-bs-target="#offcanvasNavbar" data-bs-toggle="offcanvas" type="button">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div aria-labelledby="offcanvasNavbarLabel" class="offcanvas offcanvas-start" id="offcanvasNavbar"
+                tabindex="-1">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="offcanvasNavbarLabel"></h5>
+                    <button aria-label="Close" class="btn-close" data-bs-dismiss="offcanvas" type="button"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                        <li class="nav-item align-self-center">
+                            <h2>ข้อมูลส่วนตัว</h2>
+                        </li>
+                        <li class="nav-item flex-column align-self-start"
+                            style="margin-left: 30px !important; align-items: baseline !important;">
+                            <h3>ชื่อ: <span id="offcanvas-displayname_th"></span></h3>
+                            <h3>รหัสนักศึกษา: <span id="offcanvas-username"></span></h3>
+                            <h3>ภาควิชา: <span id="offcanvas-department"></span></h3>
+                            <h3>อีเมล: <span id="offcanvas-email"></span></h3>
+                        </li>
+                        <li class="nav-item align-self-center">
+                            <button class="btn" onclick="window.location.href='main student.html';" type="button">
+                                กลับสู่หน้าเมนู
+                            </button>
+                        </li>
+                        <li class="nav-item align-self-center" style="margin-top: -10px !important;">
+                            <button class="btn" onclick="window.location.href='login.html';"
+                                type="button">Logout</button>
+                        </li>
+                        <script>
+                            document.getElementById("offcanvas-displayname_th").textContent = sessionStorage.getItem("displayname_th")
+                            document.getElementById("offcanvas-username").textContent = sessionStorage.getItem("username")
+                            document.getElementById("offcanvas-department").textContent = sessionStorage.getItem("department")
+                            document.getElementById("offcanvas-email").textContent = sessionStorage.getItem("email")
+                        </script>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="row justify-content-center min-vh-100">
+            <div class="col-11">
+                <div class="d-flex flex-column h-100">
+                    <div class="row justify-content-center">
+                        <div style="height:56px"></div>
+                    </div>
+
+                    <div class="row align-items-center">
+                        <div class="header">
+                            <h1>ตรวจสอบคำร้องออนไลน์</h1>
+                        </div>
+                    </div>
+
+                    <div class="row-nav row grey">
+                        <ul class="nav nav-fill">
+                            <li class="nav-item">
+                                <a class="nav-link" href="statusPageTableAddDrop.html">เพิ่ม-ถอน</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="statusPageTableDropW.html">ถอน W</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link"
+                                    style="background-color: rgba(255, 209, 63, 0.60); ; border-radius: 10px;">เพิ่มข้ามโครงการ</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="statusPageTableDropOut.html">ลาออก</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="statusPageTableOther.html">อื่นๆ</a>
+                            </li>
+                        </ul>
+                    </div>
+
+
+                    <div class="row-table row text-center align-items-center">
+                        <table class="table table-hover table table-bordered recap-table">
+                            <thead class="table">
+                                <tr>
+                                    <th scope="col">วันที่</th>
+                                    <th scope="col">สถานะ</th>
+                                    <th scope="col">รายละเอียด</th>
+                                    <th scope="col">ยกเลิกคำร้อง</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    window.onload = fetchAddDrop(sessionStorage.getItem("username"));
+    console.log(sessionStorage.getItem("username"));
+
+    function fetchAddDrop(id) {
+
+        fetch("/users/getRegCrossDataById?id=" + id)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                for (let entry in data) {
+                    console.log(data[entry]["date"]);
+                    var addTable = document.querySelector(".recap-table tbody");
+                    var newRow = document.createElement("tr");
+                    var cell = document.createElement("td");
+                    cell.innerHTML = data[entry]["date"];
+                    newRow.appendChild(cell);
+                    cell = document.createElement("td")
+                    cell.innerHTML = (data[entry]["status"] == null) ? "กำลังรอดำเนินการ" : data[entry]["status"];
+                    newRow.appendChild(cell);
+                    addTable.appendChild(newRow);
+                    cell = document.createElement("td")
+                    cell.id = "addTableDesc" + entry;
+                    cell.innerHTML = `<a href="#" data-bs-toggle="modal"
+                                            data-bs-target="#staticBackdrop`+ entry + `">ดูรายละเอียด</a>
+                                        <div class="modal modal-xl fade" id="staticBackdrop`+ entry + `" data-bs-keyboard="false"
+                                            tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                            <div class="modal-dialog modal-dialog-scrollable">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h1 class="modal-title fs-5" id="staticBackdropLabel">
+                                                            รายละเอียดคำร้อง</h1>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                            aria-label="Close"></button>
+                                                    </div>
+                                                    <div id="modal-body` + entry + `" class="modal-body">
+                                                        <p>
+                                                            วันที่: <span id="date` + entry + `"></span><br>
+                                                            คำนำหน้านาม: <span id="prefix` + entry + `"></span><br>
+                                                            ชื่อ: <span id="firstName` + entry + `"></span><br>
+                                                            นามสกุล: <span id="lastname` + entry + `"></span><br>
+                                                            รหัสนักศึกษา: <span id="studentId` + entry + `"></span><br>
+                                                            ชั้นปีที่: <span id="studentYear` + entry + `"></span><br>
+                                                            สาขาวิชา: <span id="studentField` + entry + `"></span><br>
+                                                            อาจารย์ที่ปรึกษา: <span id="advisor` + entry + `"></span><br>
+                                                            ที่อยู่ที่สามารถติดต่อได้: <span id="addressNumber` + entry + `"></span>
+                                                            <span id="moo` + entry + `"></span> 
+                                                            <span id="tumbol` + entry + `"></span> 
+                                                            <span id="amphur` + entry + `"></span> 
+                                                            <span id="province` + entry + `"></span> 
+                                                            <span id="postalCode` + entry + `"></span><br>
+                                                            โทรศัพท์มือถือ: <span id="mobilePhone` + entry + `"></span><br>
+                                                            โทรศัพท์: <span id="phone` + entry + `"></span><br>
+                                                            ชื่อวิชาที่ต้องการลงทะเบียน: <span id="reg` + entry + `"></span><br>
+                                                            รหัสวิชา: <span id="code` + entry + `"></span><br>
+                                                            Section: <span id="section` + entry + `"></span><br>
+                                                            เทอม: <span id="semester` + entry + `"></span><br>
+                                                            ปีการศึกษา: <span id="year` + entry + `"></span><br>
+                                                            อาจารย์ประจำวิชา: <span id="teacher` + entry + `"></span><br>
+                                                            เหตุผล: <span id="reason` + entry + `"></span><br>
+                                                        </p>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        `;
+                    newRow.appendChild(cell);
+                    addTable.appendChild(newRow);
+                    document.querySelector("#date" + entry).innerHTML = data[entry]["date"];
+                    document.querySelector("#prefix" + entry).innerHTML = data[entry]["prefix"];
+                    document.querySelector("#firstName" + entry).innerHTML = data[entry]["firstName"];
+                    document.querySelector("#lastname" + entry).innerHTML = data[entry]["lastname"];
+                    document.querySelector("#studentId" + entry).innerHTML = data[entry]["studentId"];
+                    document.querySelector("#studentField" + entry).innerHTML = data[entry]["studentField"];
+                    document.querySelector("#studentYear" + entry).innerHTML = data[entry]["studentYear"];
+                    document.querySelector("#advisor" + entry).innerHTML = data[entry]["advisor"];
+                    document.querySelector("#addressNumber" + entry).innerHTML = data[entry]["addressNumber"];
+                    document.querySelector("#moo" + entry).innerHTML = data[entry]["moo"];
+                    document.querySelector("#tumbol" + entry).innerHTML = data[entry]["tumbol"];
+                    document.querySelector("#amphur" + entry).innerHTML = data[entry]["amphur"];
+                    document.querySelector("#province" + entry).innerHTML = data[entry]["province"];
+                    document.querySelector("#mobilePhone" + entry).innerHTML = data[entry]["mobilePhone"];
+                    document.querySelector("#phone" + entry).innerHTML = data[entry]["phone"];
+                    document.querySelector("#reg" + entry).innerHTML = data[entry]["reg"];
+                    document.querySelector("#code" + entry).innerHTML = data[entry]["code"];
+                    document.querySelector("#section" + entry).innerHTML = data[entry]["section"];
+                    document.querySelector("#semester" + entry).innerHTML = data[entry]["semester"];
+                    document.querySelector("#year" + entry).innerHTML = data[entry]["year"];
+                    document.querySelector("#teacher" + entry).innerHTML = data[entry]["teacher"];
+                    document.querySelector("#reason" + entry).innerHTML = data[entry]["reason"];
+                    cell = document.createElement("td");
+                    cell.innerHTML = `<td style="color: red !important;">ยกเลิก</td>`;
+                    newRow.appendChild(cell);
+                    addTable.appendChild(newRow);
+                }
+            })
+            .catch(error => {
+                console.log(error);
+            });
+    }
+</script>
+
+</html>

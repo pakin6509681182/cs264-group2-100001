@@ -75,8 +75,7 @@
                     <div class="row-nav row grey">
                         <ul class="nav nav-fill">
                             <li class="nav-item">
-                                <a class="nav-link"
-                                    style="background-color: rgba(255, 209, 63, 0.60); ; border-radius: 10px;">เพิ่ม-ถอน</a>
+                                <a class="nav-link" href="statusPageTableAddDrop.html">เพิ่ม-ถอน</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="statusPageTableDropW.html">ถอน W</a>
@@ -85,7 +84,8 @@
                                 <a class="nav-link" href="statusPageTableRegCross.html">เพิ่มข้ามโครงการ</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="statusPageTableDropOut.html">ลาออก</a>
+                                <a class="nav-link"
+                                    style="background-color: rgba(255, 209, 63, 0.60); ; border-radius: 10px;">ลาออก</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="statusPageTableOther.html">อื่นๆ</a>
@@ -120,7 +120,7 @@ console.log(sessionStorage.getItem("username"));
 
 function fetchAddDrop(id) {
     
-    fetch("/users/getAddDropDataById?id=" + id)
+    fetch("/users/getDropOutDataById?id=" + id)
         .then(response => response.json())
         .then(data => {
             console.log(data);
@@ -167,38 +167,8 @@ function fetchAddDrop(id) {
                                                             <span id="postalCode` + entry + `"></span><br>
                                                             โทรศัพท์มือถือ: <span id="mobilePhone` + entry + `"></span><br>
                                                             โทรศัพท์: <span id="phone` + entry + `"></span><br>
-                                                            เหตุผล: <span id="cause` + entry + `"></span><br>
+                                                            เหตุผล: <span id="reason` + entry + `"></span><br>
                                                         </p>
-                                                        <div class="row text-center align-items-center">
-                                                            <h4>รายวิชาที่ต้องการเพิ่ม</h4>
-                                                            <table id = "add-table` + entry +`" class="table table-hover table table-bordered">
-                                                                <thead>
-                                                                    <th scope="col">รหัสวิชา</th>
-                                                                    <th scope="col">ชื่อวิชา</th>
-                                                                    <th scope="col">Section</th>
-                                                                    <th scope="col">วัน/เวลาที่เรียน</th>
-                                                                    <th scope="col">หน่วยกิต</th>
-                                                                    <th scope="col">ชื่อผู้สอน</th>
-                                                                    <th scope="col">ผู้สอนอนุญาต</th>                                                                    
-                                                                </thead>
-                                                                <tbody class="table">
-                                                                </tbody>
-                                                            </table>
-                                                            <h4>รายวิชาที่ต้องการถอน</h4>
-                                                            <table id = "drop-table` + entry +`" class="drop-row-table table-hover table table-bordered">
-                                                                <thead>
-                                                                    <th scope="col">รหัสวิชา</th>
-                                                                    <th scope="col">ชื่อวิชา</th>
-                                                                    <th scope="col">Section</th>
-                                                                    <th scope="col">วัน/เวลาที่เรียน</th>
-                                                                    <th scope="col">หน่วยกิต</th>
-                                                                    <th scope="col">ชื่อผู้สอน</th>
-                                                                    <th scope="col">ผู้สอนอนุญาต</th>                                                                    
-                                                                </thead>
-                                                                <tbody class="table">
-                                                                </tbody>
-                                                            </table>
-                                                        </div>
                                                     </div>
                                                     <div class="modal-footer">
                                                     </div>
@@ -223,70 +193,11 @@ function fetchAddDrop(id) {
                 document.querySelector("#province" + entry).innerHTML = data[entry]["province"];
                 document.querySelector("#mobilePhone" + entry).innerHTML = data[entry]["mobilePhone"];
                 document.querySelector("#phone" + entry).innerHTML = data[entry]["phone"];
-                document.querySelector("#cause" + entry).innerHTML = data[entry]["cause"];
-                let i = 0;
-                let addCourse = {};
-                let dropCourse = {};
-                for (let key in data[entry]) {
-                    i += 1;
-                    if (i <= 18) {
-                        continue;
-                    }
-                    else if (i <= 88) {
-                        addCourse[key] = data[entry][key];
-                        continue;
-                    }
-                    else {
-                        dropCourse[key] = data[entry][key];
-                        continue;
-                    }
-                }
-                console.log(addCourse);
-                console.log(dropCourse);
-                i = 0;
-                let j = 0;
-                let addRow = document.createElement("tr");
-                let dropRow = document.createElement("tr");
-                let addTableBody = document.querySelector("#add-table"+ entry + " tbody") 
-                let dropTableBody = document.querySelector("#drop-table" + entry + " tbody") 
-                for (let key in addCourse) {
-                    i++;
-                    let addCell = document.createElement("td");
-                    if (addCourse[key] == 0 || addCourse[key] == false) {
-                        addCell.innerHTML = "";
-                    }
-                    else {
-                        addCell.innerHTML = addCourse[key];
-                    }
-                        addRow.appendChild(addCell);
-                    if (i % 7 == 0 && i != 0) {
-                        addTableBody.appendChild(addRow);
-                        addRow = document.createElement("tr");
-                    }
-                }
-                for (let key in dropCourse) {
-                    i++;
-                    let dropCell = document.createElement("td");
-                    if (dropCourse[key] == 0 || dropCourse[key] == false) {
-                        dropCell.innerHTML = "";
-                    }
-                    else {
-                        dropCell.innerHTML = dropCourse[key];
-                    }
-                        dropRow.appendChild(dropCell);
-                    if (i % 7 == 0 && i != 0) {
-                        dropTableBody.appendChild(dropRow);
-                        dropRow = document.createElement("tr");
-                    }
-                }
+                document.querySelector("#reason" + entry).innerHTML = data[entry]["reason"];
                 cell = document.createElement("td");
                 cell.innerHTML = `<td style="color: red !important;">ยกเลิก</td>`;
                 newRow.appendChild(cell);
                 addTable.appendChild(newRow);
-                /*for (let key in data[entry]) {
-                    console.log(key + ": " + data[entry][key]);
-                    
-                }*/
             }
         })
         .catch(error => {
