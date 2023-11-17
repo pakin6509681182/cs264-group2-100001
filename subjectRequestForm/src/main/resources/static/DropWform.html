@@ -134,7 +134,7 @@
                     <th>วันเวลาที่สอน</th>
                     <th>หน่วยกิต</th>
                     <th>ชื่อผู้สอน</th>
-                    <th>ผู้สอนอนุญาต</th>
+                    <th hidden="true">ผู้สอนอนุญาต</th>
                 </tr>
             </table>
             <!-- <button type="button" onclick="addCourse('drop_courses_table')">เพิ่มวิชา</button>
@@ -299,7 +299,7 @@
         const table = document.getElementById(tableId);
         const newRow = table.insertRow();
     
-        for (let i = 0; i < 7; i++) {
+        for (let i = 0; i < 6; i++) {
             const cell = newRow.insertCell(i);
             const input = document.createElement('input');
             if (i == 2 || i == 4) {
