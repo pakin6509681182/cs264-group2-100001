@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ระบบส่งคำร้องออนไลน์</title>
+    <link rel="stylesheet" href="mainstyles.css">
+    <link rel="stylesheet" href="staffStyle.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row justify-content-center min-vh-100">
+            <div class="col-8">
+                <div class="d-flex flex-column h-100">
+                    <div class="row justify-content-center">
+                        <div class="text-white">
+                            <nav class="navbar fixed-top">
+                                <div class="container-fluid">
+                                    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
+                                        data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar"
+                                        aria-label="Toggle navigation">
+                                        <span class="navbar-toggler-icon"></span>
+                                    </button>
+                                    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar"
+                                        aria-labelledby="offcanvasNavbarLabel">
+                                        <div class="offcanvas-header">
+                                            <h5 class="offcanvas-title" id="offcanvasNavbarLabel"></h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="offcanvas"
+                                                aria-label="Close"></button>
+                                        </div>
+                                        <div class="offcanvas-body">
+                                            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                                                <li class="nav-item align-self-center">
+                                                    <h2>ข้อมูลส่วนตัว</h2>
+                                                </li>
+                                                <li class="nav-item flex-column align-self-start" style="margin-left: 30px !important; align-items: baseline !important;">
+                                                    <h3 >ชื่อ: <span id="offcanvas-displayname_th"></span></h3>
+                                                    <h3>รหัสนักศึกษา: <span id="offcanvas-username"></span></h3>
+                                                    <h3>ภาควิชา: <span id="offcanvas-department"></span></h3>
+                                                    <h3>อีเมล: <span id="offcanvas-email"></span></h3>
+                                                </li>
+                                                <li class="nav-item align-self-center">
+                                                    <button type="button" class="btn" onclick="window.location.href='main student.html';">กลับสู่หน้าเมนู</button>
+                                                </li>
+                                                <li class="nav-item align-self-center" style="margin-top: -10px !important;">
+                                                    <button type="button" class="btn" onclick="window.location.href='login.html';">Logout</button>
+                                                </li>
+                                                <script>
+                                                    document.getElementById("offcanvas-displayname_th").textContent = sessionStorage.getItem("displayname_th")
+                                                    document.getElementById("offcanvas-username").textContent = sessionStorage.getItem("username")
+                                                    document.getElementById("offcanvas-department").textContent = sessionStorage.getItem("department")
+                                                    document.getElementById("offcanvas-email").textContent = sessionStorage.getItem("email")
+                                                </script>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </nav>
+                            <div style="height:56px"></div>
+                        </div>
+                    </div>
+                    <div class="row justify-content-center flex-grow-1"></div>
+                    <div class="row align-items-center flex-grow-1">
+                        <div class="header">
+                            <h1>ระบบส่งคำร้องออนไลน์</h1>
+                            <h6>สำหรับบุคลากร</h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4 bg-gray">
+                <div class="sidebar d-flex flex-column h-100">
+                    <div class="row" style="height:54px"></div>
+                    <button class="row green align-items-center flex-grow-1">
+                        <h2>ตรวจสอบคำร้องของนักศึกษา</h2>
+                    </button>
+                    <button class="row purple align-items-center flex-grow-1">
+                        <h2>ตรวจสอบประวัติคำร้อง</h2>
+                    </button>
+                    <button class="row blue align-items-center flex-grow-1">
+                        <h2>แจ้งปัญหา</h2>
+                    </button>
+                    <button class="row orange align-items-center flex-grow-1"
+                        onclick="window.location.href='index.html';">
+                        <h2>ออกจากระบบ</h2>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

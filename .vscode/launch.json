@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-Hw1Application<subjectRequestForm>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "th.ac.tu.cs.subjectRequestForm.Hw1Application",
+            "projectName": "subjectRequestForm",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}

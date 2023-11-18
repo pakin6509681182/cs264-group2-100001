@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Information Form</title>
+    <link rel="stylesheet" href="formStyle.css">
+    <link rel="stylesheet" href="studentStyle.css">
+    <link rel="stylesheet" href="color.css">
+
+</head>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<body>
+        <nav class="navbar fixed-top">
+            <div class="container-fluid">
+                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+                    aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar"
+                aria-labelledby="offcanvasNavbarLabel">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="offcanvasNavbarLabel"></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas"
+                        aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                        <li class="nav-item align-self-center">
+                            <h2>ข้อมูลส่วนตัว</h2>
+                        </li>
+                        <li class="nav-item flex-column align-self-start" style="margin-left: 30px !important; align-items: baseline !important;">
+                            <h3 >ชื่อ: <span id="offcanvas-displayname_th"></span></h3>
+                            <h3>รหัสนักศึกษา: <span id="offcanvas-username"></span></h3>
+                            <h3>ภาควิชา: <span id="offcanvas-department"></span></h3>
+                            <h3>อีเมล: <span id="offcanvas-email"></span></h3>
+                        </li>
+                        <li class="nav-item align-self-center">
+                            <button type="button" class="btn" onclick="window.location.href='main student.html';">กลับสู่หน้าเมนู</button>
+                        </li>
+                        <li class="nav-item align-self-center" style="margin-top: -10px !important;">
+                            <button type="button" class="btn" onclick="window.location.href='login.html';">Logout</button>
+                        </li>
+                        <script>
+                            document.getElementById("offcanvas-displayname_th").textContent = sessionStorage.getItem("displayname_th")
+                            document.getElementById("offcanvas-username").textContent = sessionStorage.getItem("username")
+                            document.getElementById("offcanvas-department").textContent = sessionStorage.getItem("department")
+                            document.getElementById("offcanvas-email").textContent = sessionStorage.getItem("email")
+                        </script>
+                    </ul>
+                </div>
+            </div>
+            </div>
+        </nav>
+        <div class="container red">
+            <img class="logo" src="image/logo.png" alt="Description of your image" width="100" height="100">
+            <h1>คำร้องขอลาออก</h1>
+            <h3>คณะวิทยาศาสตร์และเทคโนโลยี</h3>
+            <form id="userForm">
+                <label for="date">วันที่กรอก :</label>
+                <input type="date" id="date" name="date" required>
+    
+                <!-- ข้อมูลส่วนตัว -->
+                <br><label for="prefix">คำนำหน้าชื่อ:</label>
+                <select id="prefix" name="prefix">
+                    <option value="นาย">นาย</option>
+                    <option value="นาง">นาง</option>
+                    <option value="นางสาว">นางสาว</option>
+                </select>
+    
+                <label for="firstName">ชื่อจริง:</label>
+                <input type="text" id="firstName" name="firstName" class="form input" required>
+                
+                <label for="lastname">นามสกุล:</label>
+                <input type="text" id="lastname" name="lastname" class="form input" required>
+    
+                <br><label for="studentId">เลขทะเบียน:</label> <!-- Updated label -->
+                <input type="text" id="studentId" name="studentId" maxlength="10" class="form input" required> <!-- Updated input name -->
+    
+                <label for="studentYear">ชั้นปีที่:</label>
+                <input type="number" id="studentYear" name="studentYear" min="1" max="7" class="form input" required>
+    
+                <label for="studentField">สาขาวิชา:</label>
+                <input type="text" id="studentField" name="studentField" class="form input" required><br>
+                
+                <!-- ข้อมูลติดต่อ -->
+                <label for="addressNumber">ที่อยู่ที่ติดต่อได้:</label>
+                <input type="text" id="addressNumber" name="addressNumber" required>
+    
+                <label for="moo">หมู่ที่:</label>
+                <input type="text" id="moo" name="moo" required>
+    
+                <label for="tumbol">ตำบล:</label>
+                <input type="text" id="tumbol" name="tumbol" required>
+    
+                <label for="amphur">อำเภอ:</label>
+                <input type="text" id="amphur" name="amphur" required>
+    
+                <br><label for="province">จังหวัด:</label>
+                <input type="text" id="province" name="province" required>
+    
+                <label for="postalCode">รหัสไปรษณีย์:</label>
+                <input type="number" id="postalCode" name="postalCode" minlength="5" required>
+                
+                <label for="phone">โทรศัพท์บ้าน:</label>
+                <input type="text" id="phone" name="phone" minlength="9"><br>
+    
+                <label for="mobilePhone">โทรศัพท์มือถือ:</label>
+                <input type="text" id="mobilePhone" name="mobilePhone" minlength="10" required>
+    
+                <label for="advisor">อาจารย์ที่ปรึกษา:</label>
+                <input type="text" id="advisor" name="advisor" required><br>
+                
+                <label for="check">มีความประสงค์ขอ:
+            <input type="checkbox" id="check" name="check" required>ลาออก</label><br>
+                
+            <label for="reason">เหตุผล:</label>
+            <textarea type="text" id="reason" name="reason" rows="4" required> </textarea>
+            <button type="submit">ส่งข้อมูล</button>
+        </form>
+        <div id="result"></div>
+        </div>
+</body>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+    let formSubmitted = false;
+    document.getElementById('userForm').addEventListener('submit', function (event) {
+        event.preventDefault();
+        if (!formSubmitted) {
+            formSubmitted = true;
+            submitForm();
+        }
+    });
+
+    function submitForm() {
+        const formData = new FormData(document.getElementById('userForm'));
+        const user = {
+            date: formData.get('date'),
+            prefix: formData.get('prefix'),
+            firstName: formData.get('firstName'),
+            lastname: formData.get('lastname'),
+            studentId: formData.get('studentId'),
+            studentYear: formData.get('studentYear'),
+            studentField: formData.get('studentField'),
+            addressNumber: formData.get('addressNumber'),
+            moo: formData.get('moo'),
+            tumbol: formData.get('tumbol'),
+            amphur: formData.get('amphur'),
+            province: formData.get('province'),
+            postalCode: formData.get('postalCode'),
+            phone: formData.get('phone'),
+            mobilePhone: formData.get('mobilePhone'),
+            advisor: formData.get('advisor'),
+            type: "ลาออก",
+            reason: formData.get('reason'),
+        };
+        fetch('/users/dropOut', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(user)
+        })
+            .then(response => {
+                if (response.ok) {
+                    // Reset the form fields after a successful submission
+                    document.getElementById('userForm').reset();
+                    document.getElementById('result').innerText = "บันทึกคำร้องสำเร็จ";
+                    formSubmitted = false; // Reset the flag
+                    window.location = "statusPageTableDropOut.html";
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                document.getElementById('result').innerText = 'An error occurred while saving the user.';
+            });
+    }
+});
+</script>
+</html>

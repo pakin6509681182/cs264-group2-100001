@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Information Form</title>
+    <link rel="stylesheet" href="formStyle.css">
+    <link rel="stylesheet" href="studentStyle.css">
+    <link rel="stylesheet" href="color.css">
+</head>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<body>
+    <nav class="navbar fixed-top">
+        <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+                aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar"
+                aria-labelledby="offcanvasNavbarLabel">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="offcanvasNavbarLabel"></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas"
+                        aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                        <li class="nav-item align-self-center">
+                            <h2>ข้อมูลส่วนตัว</h2>
+                        </li>
+                        <li class="nav-item flex-column align-self-start" style="margin-left: 30px !important; align-items: baseline !important;">
+                            <h3 >ชื่อ: <span id="offcanvas-displayname_th"></span></h3>
+                            <h3>รหัสนักศึกษา: <span id="offcanvas-username"></span></h3>
+                            <h3>ภาควิชา: <span id="offcanvas-department"></span></h3>
+                            <h3>อีเมล: <span id="offcanvas-email"></span></h3>
+                        </li>
+                        <li class="nav-item align-self-center">
+                            <button type="button" class="btn" onclick="window.location.href='main student.html';">กลับสู่หน้าเมนู</button>
+                        </li>
+                        <li class="nav-item align-self-center" style="margin-top: -10px !important;">
+                            <button type="button" class="btn" onclick="window.location.href='login.html';">Logout</button>
+                        </li>
+                        <script>
+                            document.getElementById("offcanvas-displayname_th").textContent = sessionStorage.getItem("displayname_th")
+                            document.getElementById("offcanvas-username").textContent = sessionStorage.getItem("username")
+                            document.getElementById("offcanvas-department").textContent = sessionStorage.getItem("department")
+                            document.getElementById("offcanvas-email").textContent = sessionStorage.getItem("email")
+                        </script>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="container red">
+        <img class="logo" src="image/logo.png" alt="Description of your image" width="100" height="100">
+        <h1>คำร้องขอเพิ่ม-ถอนรายวิชา</h1>
+        <h3>คณะวิทยาศาสตร์และเทคโนโลยี</h3>
+        <form id="userForm" method="post">
+            <label for="date">วันที่กรอก :</label>
+            <input type="date" id="date" name="date" >
+
+            <!-- ข้อมูลส่วนตัว -->
+            <br><label for="prefix">คำนำหน้าชื่อ:</label>
+            <select id="prefix" name="prefix">
+                <option value="นาย">นาย</option>
+                <option value="นาง">นาง</option>
+                <option value="นางสาว">นางสาว</option>
+            </select>
+
+            <label for="firstName">ชื่อจริง:</label>
+            <input type="text" id="firstName" name="firstName" class="form input" >
+            
+            <label for="lastname">นามสกุล:</label>
+            <input type="text" id="lastname" name="lastname" class="form input" >
+
+            <br><label for="studentId">เลขทะเบียน:</label> <!-- Updated label -->
+            <input type="text" id="studentId" name="studentId" maxlength="10" class="form input" > <!-- Updated input name -->
+
+            <label for="studentYear">ชั้นปีที่:</label>
+            <input type="number" id="studentYear" name="studentYear" min="1" max="7" class="form input" >
+
+            <label for="studentField">สาขาวิชา:</label>
+            <input type="text" id="studentField" name="studentField" class="form input" ><br>
+            
+            <!-- ข้อมูลติดต่อ -->
+            <label for="addressNumber">ที่อยู่ที่ติดต่อได้:</label>
+            <input type="text" id="addressNumber" name="addressNumber" >
+
+            <label for="moo">หมู่ที่:</label>
+            <input type="text" id="moo" name="moo" >
+
+            <label for="tumbol">ตำบล:</label>
+            <input type="text" id="tumbol" name="tumbol" >
+
+            <label for="amphur">อำเภอ:</label>
+            <input type="text" id="amphur" name="amphur" >
+
+            <br><label for="province">จังหวัด:</label>
+            <input type="text" id="province" name="province" >
+
+            <label for="postalCode">รหัสไปรษณีย์:</label>
+            <input type="number" id="postalCode" name="postalCode" minlength="5" >
+            
+            <label for="phone">โทรศัพท์บ้าน:</label>
+            <input type="text" id="phone" name="phone" minlength="9"><br>
+
+            <label for="mobilePhone">โทรศัพท์มือถือ:</label>
+            <input type="text" id="mobilePhone" name="mobilePhone" minlength="10" >
+
+            <label for="advisor">อาจารย์ที่ปรึกษา:</label>
+            <input type="text" id="advisor" name="advisor" ><br>
+
+            <!-- เพิ่มวิชา -->
+            <div class="label-group">
+                <h1><span>รายวิชาที่ต้องการเพิ่ม</span></h1>
+            </div>
+            <label for="add_courses">จำนวนวิชาขอเพิ่ม:</label>
+            <input type="number" id="add_courses" name="add_courses" min="1" max="10">
+            <!-- <input type="number" id="add_courses" name="add_courses" min="1" max="10" oninput="updateTable('add_courses_table', this.value)"> -->
+
+
+            <br><label> วิชาที่ต้องการเพิ่ม </label>
+
+
+            <table id="add_courses_table">
+                <tr>
+                    <th>รหัสวิชา</th>
+                    <th>ชื่อวิชา</th>
+                    <th>Section</th>
+                    <th>วันเวลาที่สอน</th>
+                    <th>หน่วยกิต</th>
+                    <th>ชื่อผู้สอน</th>
+                    <th hidden="true">ผู้สอนอนุญาต</th>
+                </tr>
+            </table>
+            <!-- <button type="button" onclick="addCourse('add_courses_table')">เพิ่มวิชา</button>
+        <button type="button" onclick="removeCourse('add_courses_table')">ยกเลิกวิชา</button> -->
+
+            <div id="add_courses_container"></div>
+            <div id="courses-container"></div>
+
+            <div class="label-group">
+                <h1><span>รายวิชาที่ต้องการถอน</span></h1>
+            </div>
+            <label for="drop_courses">จำนวนวิชาขอถอน:</label>
+            <input type="number" id="drop_courses" name="drop_courses" min="1" max="10" x>
+            <!-- <input type="number" id="drop_courses" name="drop_courses" min="1" max="10" oninput="updateTable('drop_courses_table', this.value)">  -->
+
+            <br><label>วิชาที่ต้องการถอน</label>
+
+            <table id="drop_courses_table">
+                <tr>
+                    <th>รหัสวิชา</th>
+                    <th>ชื่อวิชา</th>
+                    <th>Section</th>
+                    <th>วันเวลาที่สอน</th>
+                    <th>หน่วยกิต</th>
+                    <th>ชื่อผู้สอน</th>
+                    <th hidden="true">ผู้สอนอนุญาต</th>
+                </tr>
+            </table>
+            <!-- <button type="button" onclick="addCourse('drop_courses_table')">เพิ่มวิชา</button>
+        <button type="button" onclick="removeCourse('drop_courses_table')">ยกเลิกวิชา</button> -->
+            <div id="drop_courses_container"></div>
+
+
+            <div id="courses-container"></div>
+
+
+
+            <label for="cause">เหตุผลการเพิ่มถอน:</label>
+            <input type="text" id="cause" name="cause" ><br>
+
+
+            <button type="submit">ส่งข้อมูล</button>
+        </form>
+        <div id="result"></div>
+
+</body>
+<script>
+    
+    document.addEventListener('DOMContentLoaded', function() {
+        const add_courses_table = document.getElementById('add_courses_table');
+        let formSubmitted = false;
+        document.getElementById('userForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            if (!formSubmitted) {
+                formSubmitted = true;
+                submitForm();
+            }
+        });
+
+        function submitForm() {
+        console.log(add_courses_table.rows[1].cells[0].querySelector('input').value);
+        console.log(add_courses_table.rows[2].cells[0].querySelector('input').value);
+            const formData = new FormData(document.getElementById('userForm'));
+            const user = {
+                date: formData.get('date'),
+                prefix: formData.get('prefix'),
+                firstName: formData.get('firstName'),
+                lastname: formData.get('lastname'),
+                studentId: formData.get('studentId'),
+                studentYear: formData.get('studentYear'),
+                studentField: formData.get('studentField'),
+                advisor: formData.get('advisor'),
+                addressNumber: formData.get('addressNumber'),
+                moo: formData.get('moo'),
+                tumbol: formData.get('tumbol'),
+                amphur: formData.get('amphur'),
+                province: formData.get('province'),
+                postalCode: formData.get('postalCode'),
+                mobilePhone: formData.get('mobilePhone'),
+                phone: formData.get('phone'),
+                cause: formData.get('cause'),
+                addCourse1Code: add_courses_table.rows[1].cells[0].querySelector('input').value,
+                addCourse1Name: add_courses_table.rows[1].cells[1].querySelector('input').value,
+                addCourse1Section: add_courses_table.rows[1].cells[2].querySelector('input').value,
+                addCourse1DayAndTime: add_courses_table.rows[1].cells[3].querySelector('input').value,
+                addCourse1Credits: add_courses_table.rows[1].cells[4].querySelector('input').value,
+                addCourse1InstructorName: add_courses_table.rows[1].cells[5].querySelector('input').value,
+
+
+                addCourse2Code: add_courses_table.rows[2].cells[0].querySelector('input').value,
+                addCourse2Name: add_courses_table.rows[2].cells[1].querySelector('input').value,
+                addCourse2Section: add_courses_table.rows[2].cells[2].querySelector('input').value,
+                addCourse2DayAndTime: add_courses_table.rows[2].cells[3].querySelector('input').value,
+                addCourse2Credits: add_courses_table.rows[2].cells[4].querySelector('input').value,
+                addCourse2InstructorName: add_courses_table.rows[2].cells[5].querySelector('input').value,
+
+                addCourse3Code: add_courses_table.rows[3].cells[0].querySelector('input').value,
+                addCourse3Name: add_courses_table.rows[3].cells[1].querySelector('input').value,
+                addCourse3Section: add_courses_table.rows[3].cells[2].querySelector('input').value,
+                addCourse3DayAndTime: add_courses_table.rows[3].cells[3].querySelector('input').value,
+                addCourse3Credits: add_courses_table.rows[3].cells[4].querySelector('input').value,
+                addCourse3InstructorName: add_courses_table.rows[3].cells[5].querySelector('input').value,
+
+                addCourse4Code: add_courses_table.rows[4].cells[0].querySelector('input').value,
+                addCourse4Name: add_courses_table.rows[4].cells[1].querySelector('input').value,
+                addCourse4Section: add_courses_table.rows[4].cells[2].querySelector('input').value,
+                addCourse4DayAndTime: add_courses_table.rows[4].cells[3].querySelector('input').value,
+                addCourse4Credits: add_courses_table.rows[4].cells[4].querySelector('input').value,
+                addCourse4InstructorName: add_courses_table.rows[4].cells[5].querySelector('input').value,
+
+                addCourse5Code: add_courses_table.rows[5].cells[0].querySelector('input').value,
+                addCourse5Name: add_courses_table.rows[5].cells[1].querySelector('input').value,
+                addCourse5Section: add_courses_table.rows[5].cells[2].querySelector('input').value,
+                addCourse5DayAndTime: add_courses_table.rows[5].cells[3].querySelector('input').value,
+                addCourse5Credits: add_courses_table.rows[5].cells[4].querySelector('input').value,
+                addCourse5InstructorName: add_courses_table.rows[5].cells[5].querySelector('input').value,
+
+                addCourse6Code: add_courses_table.rows[6].cells[0].querySelector('input').value,
+                addCourse6Name: add_courses_table.rows[6].cells[1].querySelector('input').value,
+                addCourse6Section: add_courses_table.rows[6].cells[2].querySelector('input').value,
+                addCourse6DayAndTime: add_courses_table.rows[6].cells[3].querySelector('input').value,
+                addCourse6Credits: add_courses_table.rows[6].cells[4].querySelector('input').value,
+                addCourse6InstructorName: add_courses_table.rows[6].cells[5].querySelector('input').value,
+
+                addCourse7Code: add_courses_table.rows[7].cells[0].querySelector('input').value,
+                addCourse7Name: add_courses_table.rows[7].cells[1].querySelector('input').value,
+                addCourse7Section: add_courses_table.rows[7].cells[2].querySelector('input').value,
+                addCourse7DayAndTime: add_courses_table.rows[7].cells[3].querySelector('input').value,
+                addCourse7Credits: add_courses_table.rows[7].cells[4].querySelector('input').value,
+                addCourse7InstructorName: add_courses_table.rows[7].cells[5].querySelector('input').value,
+
+                addCourse8Code: add_courses_table.rows[8].cells[0].querySelector('input').value,
+                addCourse8Name: add_courses_table.rows[8].cells[1].querySelector('input').value,
+                addCourse8Section: add_courses_table.rows[8].cells[2].querySelector('input').value,
+                addCourse8DayAndTime: add_courses_table.rows[8].cells[3].querySelector('input').value,
+                addCourse8Credits: add_courses_table.rows[8].cells[4].querySelector('input').value,
+                addCourse8InstructorName: add_courses_table.rows[8].cells[5].querySelector('input').value,
+
+                addCourse9Code: add_courses_table.rows[9].cells[0].querySelector('input').value,
+                addCourse9Name: add_courses_table.rows[9].cells[1].querySelector('input').value,
+                addCourse9Section: add_courses_table.rows[9].cells[2].querySelector('input').value,
+                addCourse9DayAndTime: add_courses_table.rows[9].cells[3].querySelector('input').value,
+                addCourse9Credits: add_courses_table.rows[9].cells[4].querySelector('input').value,
+                addCourse9InstructorName: add_courses_table.rows[9].cells[5].querySelector('input').value,
+
+                addCourse10Code: add_courses_table.rows[10].cells[0].querySelector('input').value,
+                addCourse10Name: add_courses_table.rows[10].cells[1].querySelector('input').value,
+                addCourse10Section: add_courses_table.rows[10].cells[2].querySelector('input').value,
+                addCourse10DayAndTime: add_courses_table.rows[10].cells[3].querySelector('input').value,
+                addCourse10Credits: add_courses_table.rows[10].cells[4].querySelector('input').value,
+                addCourse10InstructorName: add_courses_table.rows[10].cells[5].querySelector('input').value,
+
+                dropCourse1Code: drop_courses_table.rows[1].cells[0].querySelector('input').value,
+                dropCourse1Name: drop_courses_table.rows[1].cells[1].querySelector('input').value,
+                dropCourse1Section: drop_courses_table.rows[1].cells[2].querySelector('input').value,
+                dropCourse1DayAndTime: drop_courses_table.rows[1].cells[3].querySelector('input').value,
+                dropCourse1Credits: drop_courses_table.rows[1].cells[4].querySelector('input').value,
+                dropCourse1InstructorName: drop_courses_table.rows[1].cells[5].querySelector('input').value,
+
+                dropCourse2Code: drop_courses_table.rows[2].cells[0].querySelector('input').value,
+                dropCourse2Name: drop_courses_table.rows[2].cells[1].querySelector('input').value,
+                dropCourse2Section: drop_courses_table.rows[2].cells[2].querySelector('input').value,
+                dropCourse2DayAndTime: drop_courses_table.rows[2].cells[3].querySelector('input').value,
+                dropCourse2Credits: drop_courses_table.rows[2].cells[4].querySelector('input').value,
+                dropCourse2InstructorName: drop_courses_table.rows[2].cells[5].querySelector('input').value,
+
+                dropCourse3Code: drop_courses_table.rows[3].cells[0].querySelector('input').value,
+                dropCourse3Name: drop_courses_table.rows[3].cells[1].querySelector('input').value,
+                dropCourse3Section: drop_courses_table.rows[3].cells[2].querySelector('input').value,
+                dropCourse3DayAndTime: drop_courses_table.rows[3].cells[3].querySelector('input').value,
+                dropCourse3Credits: drop_courses_table.rows[3].cells[4].querySelector('input').value,
+                dropCourse3InstructorName: drop_courses_table.rows[3].cells[5].querySelector('input').value,
+
+                dropCourse4Code: drop_courses_table.rows[4].cells[0].querySelector('input').value,
+                dropCourse4Name: drop_courses_table.rows[4].cells[1].querySelector('input').value,
+                dropCourse4Section: drop_courses_table.rows[4].cells[2].querySelector('input').value,
+                dropCourse4DayAndTime: drop_courses_table.rows[4].cells[3].querySelector('input').value,
+                dropCourse4Credits: drop_courses_table.rows[4].cells[4].querySelector('input').value,
+                dropCourse4InstructorName: drop_courses_table.rows[4].cells[5].querySelector('input').value,
+
+                dropCourse5Code: drop_courses_table.rows[5].cells[0].querySelector('input').value,
+                dropCourse5Name: drop_courses_table.rows[5].cells[1].querySelector('input').value,
+                dropCourse5Section: drop_courses_table.rows[5].cells[2].querySelector('input').value,
+                dropCourse5DayAndTime: drop_courses_table.rows[5].cells[3].querySelector('input').value,
+                dropCourse5Credits: drop_courses_table.rows[5].cells[4].querySelector('input').value,
+                dropCourse5InstructorName: drop_courses_table.rows[5].cells[5].querySelector('input').value,
+
+                dropCourse6Code: drop_courses_table.rows[6].cells[0].querySelector('input').value,
+                dropCourse6Name: drop_courses_table.rows[6].cells[1].querySelector('input').value,
+                dropCourse6Section: drop_courses_table.rows[6].cells[2].querySelector('input').value,
+                dropCourse6DayAndTime: drop_courses_table.rows[6].cells[3].querySelector('input').value,
+                dropCourse6Credits: drop_courses_table.rows[6].cells[4].querySelector('input').value,
+                dropCourse6InstructorName: drop_courses_table.rows[6].cells[5].querySelector('input').value,
+
+                dropCourse7Code: drop_courses_table.rows[7].cells[0].querySelector('input').value,
+                dropCourse7Name: drop_courses_table.rows[7].cells[1].querySelector('input').value,
+                dropCourse7Section: drop_courses_table.rows[7].cells[2].querySelector('input').value,
+                dropCourse7DayAndTime: drop_courses_table.rows[7].cells[3].querySelector('input').value,
+                dropCourse7Credits: drop_courses_table.rows[7].cells[4].querySelector('input').value,
+                dropCourse7InstructorName: drop_courses_table.rows[7].cells[5].querySelector('input').value,
+
+                dropCourse8Code: drop_courses_table.rows[8].cells[0].querySelector('input').value,
+                dropCourse8Name: drop_courses_table.rows[8].cells[1].querySelector('input').value,
+                dropCourse8Section: drop_courses_table.rows[8].cells[2].querySelector('input').value,
+                dropCourse8DayAndTime: drop_courses_table.rows[8].cells[3].querySelector('input').value,
+                dropCourse8Credits: drop_courses_table.rows[8].cells[4].querySelector('input').value,
+                dropCourse8InstructorName: drop_courses_table.rows[8].cells[5].querySelector('input').value,
+
+                dropCourse9Code: drop_courses_table.rows[9].cells[0].querySelector('input').value,
+                dropCourse9Name: drop_courses_table.rows[9].cells[1].querySelector('input').value,
+                dropCourse9Section: drop_courses_table.rows[9].cells[2].querySelector('input').value,
+                dropCourse9DayAndTime: drop_courses_table.rows[9].cells[3].querySelector('input').value,
+                dropCourse9Credits: drop_courses_table.rows[9].cells[4].querySelector('input').value,
+                dropCourse9InstructorName: drop_courses_table.rows[9].cells[5].querySelector('input').value,
+
+                dropCourse10Code: drop_courses_table.rows[10].cells[0].querySelector('input').value,
+                dropCourse10Name: drop_courses_table.rows[10].cells[1].querySelector('input').value,
+                dropCourse10Section: drop_courses_table.rows[10].cells[2].querySelector('input').value,
+                dropCourse10DayAndTime: drop_courses_table.rows[10].cells[3].querySelector('input').value,
+                dropCourse10Credits: drop_courses_table.rows[10].cells[4].querySelector('input').value,
+                dropCourse10InstructorName: drop_courses_table.rows[10].cells[5].querySelector('input').value,
+
+            };
+
+
+
+
+
+
+
+            fetch('/users/addDrop', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(user)
+            })
+            .then(response => {
+                if (response.ok) {
+                    // Reset the form fields after a successful submission
+                    document.getElementById('userForm').reset();
+                    document.getElementById('result').innerText = 'บันทึกข้อมูลสำเร็จ';
+                    formSubmitted = false; // Reset the flag
+                    window.location = "statusPageTableAddDrop.html";
+                } /*else {
+                    response.text().then(errorMessage => {
+                        document.getElementById('result').innerText = 'An error occurred while saving the user. Error message: ' + errorMessage;
+                    });
+                }*/
+            })
+            /*.catch(error => {
+                console.error('Error:', error);
+                document.getElementById('result').innerText = 'An error occurred while saving the user.';
+            });*/
+        }
+    });
+
+    for(let k = 0 ; k<10 ; k++){
+        addCourse('add_courses_table');
+        addCourse('drop_courses_table');
+    }
+    function addCourse(tableId) {
+    const table = document.getElementById(tableId);
+    const newRow = table.insertRow();
+
+    for (let i = 0; i < 6; i++) {
+        const cell = newRow.insertCell(i);
+        const input = document.createElement('input');
+        if (i == 2 || i == 4) {
+            input.type = 'number';
+        } else if (i == 6) {
+            input.type = 'checkbox';
+
+
+        } else if (i == 3) {
+            input.type = 'datetime-local';
+        } else {
+            input.type = 'text';
+        }
+        input.name = `${tableId}[${table.rows.length}][${i}]`; // Set unique name
+        cell.appendChild(input);
+    }
+}   function removeCourse(tableId) {
+        const table = document.getElementById(tableId);
+        const rowCount = table.rows.length;
+
+        if (rowCount > 1) {
+            table.deleteRow(rowCount - 1);
+        }
+    }
+
+    function updateTable(tableId, numRows) {
+            const table = document.getElementById(tableId);
+
+            // ลบแถวทั้งหมดที่มีอยู่
+            while (table.rows.length > 1) {
+                table.deleteRow(1);
+            }
+
+            // เพิ่มแถวใหม่ตามจำนวนที่ระบุ
+            for (let i = 0; i < numRows; i++) {
+                const newRow = table.insertRow();
+                for (let i = 0; i < 7; i++) {
+                const cell = newRow.insertCell(i);
+                const input = document.createElement('input');
+                if(i == 2 || i == 4){
+                    input.type = 'number';
+                }
+                else if(i== 6){
+                    input.type = 'checkbox';
+                }
+                else if(i== 3){
+                    input.type = 'datetime-local';
+                }
+                else{
+                input.type = 'text';
+
+                }
+                cell.appendChild(input);
+            }
+            }
+        }
+
+
+</script>
+</html>

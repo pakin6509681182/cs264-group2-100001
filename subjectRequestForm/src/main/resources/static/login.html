@@ -1,75 +1,150 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="ie=edge" http-equiv="X-UA-Compatible">
-    <meta charset="UTF-8">
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="loginstyle.css">
     <title>login</title>
 </head>
+
 <body>
-    <div class="position-relative overflow-hidden p-3  text-center bg-light">
-        <div class="bg-dark mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center text-white overflow-hidden ">
+    <div class="form-group">
+        <div class="logo">
+            <img src="image/Thammasat_Horz_logo_route1_01.png" alt="Thammasat-Logo">
+        </div>
+        <div class="form-field">
+            <h1>ระบบส่งคำร้องออนไลน์</h1>
             <form>
-                <label for="username">Username</label>
-                <input type="text" id="username" name="username">
-                <br>
-                
-                <label for="password">Password</label>
-                <input type="password" id="password" name="password">
-                <br>
-            
-                <button type="submit">Login</button>
-                <br>
+                <label for="username">ชื่อผู้ใช้</label>
+                <input type="text" id="username" name="username" placeholder="ชื่อผู้ใช้">
+
+                <label for="password">รหัสผ่าน</label>
+                <input type="password" id="password" name="password" placeholder="รหัสผ่าน">
+
+                <button type="submit"><span class="button-text">เข้าสู่ระบบ</span></button>
                 <p id="result"></p>
             </form>
         </div>
     </div>
 </body>
+
 <script>
+    sessionStorage.clear();
+
+    history.pushState(null, document.title, location.href);
+    window.addEventListener('popstate', function (event) {
+        history.pushState(null, document.title, location.href);
+    });
     document.querySelector('form').addEventListener('submit', function (event) {
         event.preventDefault();
-        login();
-    });
-    function login() {
         var formData = new FormData(document.querySelector("form"));
+        const username = formData.get("username");
+        const password = formData.get("password");
+        if (username === "" || password === "") {
+            const resultElement = document.getElementById('result');
+            resultElement.textContent = 'โปรดกรอกชื่อผู้ใช้และรหัสผ่านที่ถูกต้อง';
+            return;
+        }
+        else {
+            login(username, password);
+        }
+    });
+    function login(user, pass) {
         const loginData = {};
-        loginData.UserName = formData.get("username");
-        loginData.PassWord = formData.get("password");
+        loginData.UserName = user;
+        loginData.PassWord = pass;
 
         var jsonData = JSON.stringify(loginData);
-            fetch('https://restapi.tu.ac.th/api/v1/auth/Ad/verify', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Application-Key': 'TU7908dee6d8b885c29f0457b4b709233032e25f50e6554a70f84832c60159d12e3b0bd6aa3c4332012bcf227261a0b51c'
-                },
-                body: jsonData
-            })
+        if (loginData.UserName == "teacher" && loginData.PassWord == "teacherpasswordtest") {
+            var userData = {
+                "status": true,
+                "message": "Success",
+                "type": "teacher",
+                "username": "teacher",
+                "displayname_th": "อาจารย์ ทดสอบ",
+                "displayname_en": "teacher  test",
+                "StatusWork": "1",
+                "StatusEmp": "ปกติ",
+                "email": "teachertest@tu.ac.th",
+                "department": "test",
+                "organization": "test"
+            }
+            for (let key in userData) {
+                sessionStorage.setItem(key, userData[key]);
+            }
+            const resultElement = document.getElementById('result');
+            resultElement.textContent = 'กำลังเข้าสู่ระบบ';
+            window.location = "main teacher.html";
+        }
+        else if (loginData.UserName == "employee" && loginData.PassWord == "employeepasswordtest") {
+            var userData = {
+                "status": true,
+                "message": "Success",
+                "type": "employee",
+                "username": "employee",
+                "displayname_th": "สตาฟ ทดสอบ",
+                "displayname_en": "employee  test",
+                "StatusWork": "1",
+                "StatusEmp": "ปกติ",
+                "email": "employeetest@tu.ac.th",
+                "department": "test",
+                "organization": "test"
+            }
+            for (let key in userData) {
+                sessionStorage.setItem(key, userData[key]);
+            }
+            const resultElement = document.getElementById('result');
+            resultElement.textContent = 'กำลังเข้าสู่ระบบ';
+            window.location = "main staff.html";
+        }
+
+        fetch('https://restapi.tu.ac.th/api/v1/auth/Ad/verify', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Application-Key': 'TU7908dee6d8b885c29f0457b4b709233032e25f50e6554a70f84832c60159d12e3b0bd6aa3c4332012bcf227261a0b51c'
+            },
+            body: jsonData
+        })
             .then(response => response.json())
             .then(data => {
                 // Display a success message on the web page
                 const resultElement = document.getElementById('result');
                 resultElement.textContent = JSON.stringify(data);
                 var userData = JSON.parse(JSON.stringify(data));
+                if (!userData["status"]) {
+                    const resultElement = document.getElementById('result');
+                    resultElement.textContent = 'ชื่อผู้ใช้ และ/หรือ รหัสผ่านไม่ถูกต้อง';
+                    return;
+                }
                 for (let key in userData) {
                     sessionStorage.setItem(key, userData[key]);
                 }
                 resultElement.style.color = 'green'; // Optional: Change the text color to green
                 resultElement.style.fontWeight = 'bold'; // Optional: Make the text bold
-                window.location = "main.html";
+                if (userData["type"] == "student") {
+                    resultElement.textContent = 'กำลังเข้าสู่ระบบ';
+                    window.location = "main student.html";
+                }
+                else if (userData["type"] == "teacher") {
+                    resultElement.textContent = 'กำลังเข้าสู่ระบบ';
+                    window.location = "main teacher.html";
+                }
+                else {
+                    resultElement.textContent = 'กำลังเข้าสู่ระบบ';
+                    window.location = "main staff.html";
+                }
             })
             .catch(error => {
                 // Display an error message on the web page
                 const resultElement = document.getElementById('result');
-                resultElement.textContent = 'การบันทึกฟอร์มไม่สำเร็จ';
+                resultElement.textContent = 'การเข้าสู่ระบบไม่สำเร็จ';
                 resultElement.style.color = 'red'; // Optional: Change the text color to red
                 resultElement.style.fontWeight = 'bold'; // Optional: Make the text bold
             });
     }
 </script>
+
 </html>

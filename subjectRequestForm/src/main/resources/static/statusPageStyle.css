@@ -1,0 +1,108 @@
+@import url(color.css);
+@import url(font.css);
+
+body {
+    font-family: Kanit-Regular, sans-serif;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+h1 {
+    margin: 30px !important;
+    color: #fff !important;
+    font-family: Kanit-Bold, sans-serif;
+    font-size: 50px !important;
+    text-align: center;
+}
+
+h6 {
+    margin-top: 0px;
+    margin-top: 0vh;
+    color: #fff !important;
+    font-family: Kanit-Bold, sans-serif;
+    font-size: 30px !important;
+}
+
+h2 {
+    font-family: Kanit-Bold, sans-serif;
+    color: white !important;
+    text-align: left;
+    padding: 20px;
+}
+
+.row-nav, .row-status, .row-table {
+    font-family: Kanit-Regular;
+}
+
+.row-nav {
+    border-radius: 13px 13px 0px 0px;
+    padding: 10px 0px 10px 10px;
+}
+
+.nav-item {
+    padding: 0 !important;
+}
+
+.row-nav li {
+    border-radius: 13px !important;
+    text-align: center !important;
+}
+
+li a {
+    color: #fff !important;
+    text-align: center !important;
+}
+
+[class*="nav nav-fill"] > li:hover {
+    background-color: rgba(214, 162, 0, 0.7) !important;
+    transition-duration: 0.3s;
+}
+
+th {
+    background-color: rgba(66, 152, 181, 1) !important;
+    color: #fff !important;
+}
+
+
+td {
+    background-color: #b5d2dd !important;
+    color: #33748c !important;
+}
+
+td > a {
+    color: #33748c;
+    text-decoration: none;
+}
+
+.modal-body {
+    padding: 30px !important;
+}
+
+.modal-body > p {
+    text-align: left;
+    font-family: Kanit-Bold;
+
+}
+
+.modal-body > p > span {
+    text-align: left;
+    font-family: Kanit-Regular;
+
+}
+
+.modal-body > h6 {
+    color: #33748c !important;
+    font-size: 20px !important;
+}
+
+.modal-title {
+    color: #33748c !important;
+    margin: 0 0 0 10px !important;
+}
+
+h4 {
+    font-family: Kanit-Bold, sans-serif;
+    color: #33748c !important;
+    font-size: 25px !important;
+    text-align: center !important;
+}

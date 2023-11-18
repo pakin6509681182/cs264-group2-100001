@@ -1,0 +1,75 @@
+body {
+    background: linear-gradient(rgba(0, 70, 103, 0.8), rgba(0, 66, 103, 0.3)),
+    url('https://tu.ac.th/uploads/news-tu/banner/banner64/vr014.jpeg');
+    background-position: bottom left;
+    overscroll-behavior-y: none;
+
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(154, 0, 37, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2.5' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+}
+
+.navbar-toggler {
+    border-width: 0 !important;
+}
+
+button {
+    border: none;
+}
+
+.offcanvas-backdrop {
+    background-color: black !important;
+}
+
+[class*="navbar"] {
+    background-color: #FFD13F !important;    
+}
+
+.navbar-toggler:focus,
+.navbar-toggler:active,
+.navbar-toggler-icon:focus,
+.btn-close:focus,
+.btn-close:active {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+.offcanvas-header,
+.offcanvas-body {
+    background-color: #FFD13F !important;
+    border: 0 !important;
+}
+
+.btn, 
+.btn:hover,
+.btn:active {
+    background-color: #9A0025 !important;
+    font-family: Kanit-Bold !important;
+    color: #FFD13F !important;
+    width: 300px !important;
+}
+
+li {
+    margin: 10px 0 !important;
+}
+
+h3 {
+    font-family: Kanit-Regular, sans-serif;
+    color: white !important;
+    font-size: 20px !important;
+    text-align: left !important;
+}
+
+h2 {
+    padding: 0;
+    margin: 0;
+    font-family: Kanit-Bold, sans-serif;
+    color: white !important;
+    padding: 20px;
+}
+
+ul {
+    padding: 0;
+}
+

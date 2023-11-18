@@ -1,0 +1,24 @@
+@font-face{
+    font-family: Kanit-Black;
+    src: url(font/Kanit/Kanit-Black.ttf);
+}
+
+@font-face{
+    font-family: Kanit-Bold;
+    src: url(font/Kanit/Kanit-Bold.ttf);
+}
+
+@font-face{
+    font-family: Kanit-Medium;
+    src: url(font/Kanit/Kanit-Medium.ttf);
+}
+
+@font-face{
+    font-family: Kanit-Regular;
+    src: url(font/Kanit/Kanit-Regular.ttf);
+}
+
+@font-face{
+    font-family: Kanit-Light;
+    src: url(font/Kanit/Kanit-Light.ttf);
+}
