@@ -57,14 +57,13 @@ But if you want to run this project with your own database. You can change the d
     git clone https://github.com/pakin6509681182/cs264-group2-100001.git
     ```
 3. Open the project with Intellij IDEA or other IDE that can handle MAVEN project
-4. Run the project
+4. Run the project file located in `subjectRequestForm/src/main/java/th/ac/tu/cs/subjectRequestForm/Hw1Application.java`
 5. Open your browser and go to `localhost:8080`
 6. If you're Current TU Student , You can login with your TU Wifi account and password.
 
 ### Troubleshoot
 - When you run Our Application and stuck at
-```
-HikariPool-1 - Starting...
-```
-
+    ```
+    HikariPool-1 - Starting...
+    ```
 You need to check your database configuration in `application.properties` file. Make sure it match your database configuration.
